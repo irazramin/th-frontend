@@ -1,13 +1,13 @@
 import {AdminPortalLayout} from "../../../../layouts";
 
-const Dashboard = () => {
+const Category = () => {
     return (
         <>
             <AdminPortalLayout>
-                <p>Dashboard</p>
+                <p>Category</p>
             </AdminPortalLayout>
         </>
     );
 }
 
-export default Dashboard
+export default Category

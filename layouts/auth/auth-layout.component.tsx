@@ -1,16 +1,6 @@
 import React from 'react';
 
-// // @ts-ignore
-// const AuthLayout = ({children}) => {
-//     return (
-//         {children}
-//     );
-// }
-//
-// export default AuthLayout
-
-// @ts-ignore
-export const AuthLayout = ({children}) => {
+const AuthLayout = ({children}: any) => {
     return (
         <>
           <div>
@@ -19,3 +9,5 @@ export const AuthLayout = ({children}) => {
         </>
     );
 };
+
+export default AuthLayout;

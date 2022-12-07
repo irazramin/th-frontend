@@ -2,7 +2,7 @@ import React from 'react';
 import Head from "next/head";
 import {SubmitHandler, useForm} from "react-hook-form";
 import '../../layouts/auth/auth-layout.module.css';
-import {AuthLayout} from "../../layouts/auth/auth-layout.component";
+import {AuthLayout} from "../../layouts";
 import Link from "next/link";
 import {ErrorMessage} from "@hookform/error-message";
 

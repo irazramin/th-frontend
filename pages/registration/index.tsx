@@ -64,7 +64,7 @@ const Registration = (): JSX.Element => {
                                               <input {...register("firstName", {
                                                   required: "This field is required.",
                                                   maxLength: {
-                                                      value: 10,
+                                                      value: 50,
                                                       message: "This input exceed maxLength."
                                                   }
                                               })}  type="text"   name="firstName" placeholder="First Name"/>
@@ -89,7 +89,7 @@ const Registration = (): JSX.Element => {
                                               <input {...register("lastName", {
                                                   required: "This field is required.",
                                                   maxLength: {
-                                                      value: 10,
+                                                      value: 50,
                                                       message: "This input exceed maxLength."
                                                   }
                                               })} type="text" name="lastName" placeholder="Last Name"/>
