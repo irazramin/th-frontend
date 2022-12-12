@@ -1,15 +1,15 @@
 import {AdminPortalLayout, UserPortalLayout} from "../../../../layouts";
 
-const Dashboard = () => {
+const Resume = () => {
     return (
         <>
             <UserPortalLayout>
                 <div className='breadcrumb-bar'>
                     <div className='title'>
-                        <p>Dashboard</p>
+                        <p>Resume</p>
                     </div>
                     <div className='breadcrumb'>
-                        <p><span className='breadcrumb-active'>dashboard</span></p>
+                        <p>dashboard / <span className='breadcrumb-active'>resume</span></p>
                     </div>
                 </div>
             </UserPortalLayout>
@@ -17,4 +17,4 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard
+export default Resume

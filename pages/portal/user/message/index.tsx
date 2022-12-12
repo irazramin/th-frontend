@@ -1,18 +1,18 @@
-import {AdminPortalLayout} from "../../../../layouts";
+import {EmployerPortalLayout, UserPortalLayout} from "../../../../layouts";
 
 const Dashboard = () => {
     return (
         <>
-            <AdminPortalLayout>
+            <UserPortalLayout>
                 <div className='breadcrumb-bar'>
                     <div className='title'>
-                        <p>Dashboard</p>
+                        <p>Message</p>
                     </div>
                     <div className='breadcrumb'>
-                        <p><span className='breadcrumb-active'>dashboard</span></p>
+                        <p>dashboard / <span className='breadcrumb-active'>message</span></p>
                     </div>
                 </div>
-            </AdminPortalLayout>
+            </UserPortalLayout>
         </>
     );
 }

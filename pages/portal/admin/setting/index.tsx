@@ -4,7 +4,14 @@ const Setting = () => {
     return (
         <>
             <AdminPortalLayout>
-                <p>Setting</p>
+                <div className='breadcrumb-bar'>
+                    <div className='title'>
+                        <p>Setting</p>
+                    </div>
+                    <div className='breadcrumb'>
+                        <p>dashboard / <span className='breadcrumb-active'>setting</span></p>
+                    </div>
+                </div>
             </AdminPortalLayout>
         </>
     );

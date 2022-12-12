@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from "next/head";
 import {SubmitHandler, useForm} from "react-hook-form";
-import '../../layouts/auth/auth-layout.module.css';
+// import '../../layouts/auth/auth-layout.module.css';
 import {AuthLayout} from "../../layouts";
 import Link from "next/link";
 import {ErrorMessage} from "@hookform/error-message";
@@ -32,7 +32,7 @@ const Login = () => {
                     </Head>
                     <div className="reg-page">
                         <section className="side-img half-width">
-                            <img src="/images/auth/image.svg" alt=""/>
+                            <img  src="/images/auth/image.svg" alt=""/>
                         </section>
                         <section className="half-width form-part login-part">
                             <div className="wrapper">

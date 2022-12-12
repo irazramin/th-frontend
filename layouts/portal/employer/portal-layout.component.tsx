@@ -3,6 +3,7 @@ import Head from "next/head";
 import {Sidebar, Topbar} from './partials';
 import './portal-layout.module.css';
 
+
 const PortalLayout = ({children}: any) => {
     return (
         <>

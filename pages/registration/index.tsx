@@ -1,13 +1,11 @@
 import React from 'react';
 import Head from "next/head";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {AuthLayout} from "../../layouts/auth/auth-layout.component";
-import * as yup from "yup";
-import { ErrorMessage } from '@hookform/error-message';
+import {ErrorMessage} from '@hookform/error-message';
 
-import '../../layouts/auth/auth-layout.module.css';
+// import '../../layouts/auth/auth-layout.module.css';
 import Link from "next/link";
-
+import {AuthLayout} from "../../layouts";
 
 interface IFormInput {
     firstName:String,
@@ -16,11 +14,6 @@ interface IFormInput {
     password:String,
     confirmPassword:String
 }
-
-// const schema = yup.object({
-//     firstName: yup.string().required(),
-//     email: yub.string.pattern(),
-// }).required();
 
 const Registration = (): JSX.Element => {
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({ criteriaMode: "all" });
@@ -43,7 +36,7 @@ const Registration = (): JSX.Element => {
                       </Head>
                       <div className="reg-page">
                           <section className="side-img half-width">
-                              <img src="/images/auth/image.svg" alt=""/>
+                              <img  src="/images/auth/image.svg" alt=""/>
                           </section>
                           <section className="half-width form-part">
                               <div className="wrapper">

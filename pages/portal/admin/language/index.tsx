@@ -4,7 +4,14 @@ const Language = () => {
     return (
         <>
             <AdminPortalLayout>
-                <p>Language</p>
+                <div className='breadcrumb-bar'>
+                    <div className='title'>
+                        <p>Language</p>
+                    </div>
+                    <div className='breadcrumb'>
+                        <p>dashboard / <span className='breadcrumb-active'>language</span></p>
+                    </div>
+                </div>
             </AdminPortalLayout>
         </>
     );

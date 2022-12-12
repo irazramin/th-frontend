@@ -3,14 +3,12 @@ import Link from "next/link";
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
-    faChartGantt,
-    faCity,
+    faBriefcase,
+    faEnvelopeOpen,
+    faFileInvoice,
+    faFilePen,
     faGear,
-    faLanguage,
-    faLaptopCode,
-    faList,
-    faShapes,
-    faUsers
+    faShapes
 } from '@fortawesome/free-solid-svg-icons'
 
 const Sidebar = () => {
@@ -22,55 +20,43 @@ const Sidebar = () => {
             id: 1,
             title: 'Dashboard',
             icon: faShapes,
-            link: '/portal/admin/dashboard'
+            link: '/portal/user/dashboard'
         },
         {
             id: 2,
-            title: 'User',
-            icon: faUsers,
-            link: '/portal/admin/user'
+            title: 'Messages',
+            icon: faEnvelopeOpen,
+            link: '/portal/user/message'
         },
         {
             id: 3,
-            title: 'Company',
-            icon: faCity,
-            link: '/portal/admin/company'
+            title: 'Jobs',
+            icon: faBriefcase,
+            link: '/portal/user/job'
         },
         {
             id: 4,
-            title: 'Category',
-            icon: faList,
-            link: '/portal/admin/category'
+            title: 'Exams',
+            icon: faFilePen,
+            link: '/portal/user/exam'
         },
         {
             id: 5,
-            title: 'Subcategory',
-            icon: faChartGantt,
-            link: '/portal/admin/subcategory'
+            title: 'My Resume',
+            icon: faFileInvoice,
+            link: '/portal/user/resume'
         },
         {
             id: 6,
-            title: 'Skill',
-            icon: faLaptopCode,
-            link: '/portal/admin/skill'
-        },
-        {
-            id: 7,
-            title: 'Language',
-            icon: faLanguage,
-            link: '/portal/admin/language'
-        },
-        {
-            id: 8,
             title: 'Setting',
             icon: faGear,
-            link: '/portal/admin/setting'
+            link: '/portal/user/setting'
         }
     ]);
 
     return (
         <>
-            <section id="sidebar" className='hide'>
+            <section id="sidebar">
                 <a href="#" className="brand">
                     <i className="bx bxs-smile icon"/> TalentHub
                 </a>
@@ -79,7 +65,6 @@ const Sidebar = () => {
                         return (
                             <li key={menuIndex} >
                                 <Link href={menuItem.link} className={router.pathname == menuItem.link ? 'active' : ''}>
-                                    {}
                                     <FontAwesomeIcon icon={menuItem.icon} size="lg" fixedWidth className='icon'/> {menuItem.title}
                                 </Link>
                             </li>

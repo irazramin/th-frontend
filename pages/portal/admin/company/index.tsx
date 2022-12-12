@@ -4,7 +4,14 @@ const Company = () => {
     return (
         <>
             <AdminPortalLayout>
-                <p>Company</p>
+                <div className='breadcrumb-bar'>
+                    <div className='title'>
+                        <p>Company</p>
+                    </div>
+                    <div className='breadcrumb'>
+                        <p>dashboard / <span className='breadcrumb-active'>company</span></p>
+                    </div>
+                </div>
             </AdminPortalLayout>
         </>
     );

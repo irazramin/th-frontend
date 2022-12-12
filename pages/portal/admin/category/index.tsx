@@ -4,7 +4,14 @@ const Category = () => {
     return (
         <>
             <AdminPortalLayout>
-                <p>Category</p>
+                <div className='breadcrumb-bar'>
+                    <div className='title'>
+                        <p>Category</p>
+                    </div>
+                    <div className='breadcrumb'>
+                        <p>dashboard / <span className='breadcrumb-active'>category</span></p>
+                    </div>
+                </div>
             </AdminPortalLayout>
         </>
     );
