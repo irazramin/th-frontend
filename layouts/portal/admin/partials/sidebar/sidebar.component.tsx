@@ -12,10 +12,15 @@ import {
     faShapes,
     faUsers
 } from '@fortawesome/free-solid-svg-icons'
+import {useSelector} from "react-redux";
+import {AppState} from "../../../../../store";
 
 const Sidebar = () => {
 
     const router = useRouter();
+
+    const collapseState = useSelector((state:AppState) => state.collapse);
+
 
     const [menuList] = useState([
         {
@@ -70,7 +75,7 @@ const Sidebar = () => {
 
     return (
         <>
-            <section id="sidebar" className='hide'>
+            <section id="sidebar" className={collapseState ? 'hide' : ''}>
                 <a href="#" className="brand">
                     <i className="bx bxs-smile icon"/> TalentHub
                 </a>

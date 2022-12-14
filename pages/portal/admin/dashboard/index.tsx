@@ -1,4 +1,9 @@
 import {AdminPortalLayout} from "../../../../layouts";
+import {
+    ButtonDarkSm,
+} from "../../../../components/buttons";
+import {faUserPlus} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const Dashboard = () => {
     return (
@@ -7,9 +12,6 @@ const Dashboard = () => {
                 <div className='breadcrumb-bar'>
                     <div className='title'>
                         <p>Dashboard</p>
-                    </div>
-                    <div className='breadcrumb'>
-                        <p><span className='breadcrumb-active'>dashboard</span></p>
                     </div>
                 </div>
             </AdminPortalLayout>

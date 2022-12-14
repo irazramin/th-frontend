@@ -1,54 +1,55 @@
 import React from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-// @ts-ignore
-export const ButtonGreenLg = ({children}) => {
+export const ButtonGreenLg = ({children,icon,onClick}:any) => {
     return (
         <button className='btn-green-lg'>
+            { icon ? <FontAwesomeIcon icon={icon} /> : '' }
             { children }
         </button>
     );
 };
 
-// @ts-ignore
-export const ButtonGreenMd = ({children}) => {
+export const ButtonGreenMd = ({children,icon }:any) => {
     return (
-        <button className='btn-green-md'>
+        <button className='btn-green-md' >
+            { icon ? <FontAwesomeIcon icon={icon} /> : '' }
             { children }
         </button>
     );
 };
 
-// @ts-ignore
-export const ButtonGreenSm = ({children}) => {
+export const ButtonGreenSm = ({children,icon,onClick}:any) => {
     return (
-        <button className='btn-green-sm'>
+        <button className='btn-green-sm' onClick={onClick}>
+            { icon ? <FontAwesomeIcon icon={icon} /> : '' }
             { children }
         </button>
     );
 };
 
-// @ts-ignore
-export const ButtonDarkLg = ({children}) => {
+export const ButtonDarkLg = ({children,icon}:any) => {
     return (
         <button className='btn-dark-lg'>
+            { icon ? <FontAwesomeIcon icon={icon} /> : '' }
             { children }
         </button>
     );
 };
 
-// @ts-ignore
-export const ButtonDarkMd = ({children}) => {
+export const ButtonDarkMd = ({children,icon}:any) => {
     return (
         <button className='btn-dark-md'>
+            { icon ? <FontAwesomeIcon icon={icon} /> : '' }
             { children }
         </button>
     );
 };
 
-// @ts-ignore
-export const ButtonDarkSm = ({children}) => {
+export const ButtonDarkSm = ({children, icon}:any) => {
     return (
         <button className='btn-dark-sm'>
+            { icon ? <FontAwesomeIcon icon={icon} /> : '' }
             { children }
         </button>
     );

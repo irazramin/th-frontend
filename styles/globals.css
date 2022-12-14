@@ -13,8 +13,6 @@
     --dark-grey: #8d8d8d;
     --light: #fff;
     --dark: #000;
-    /*--green: #81d43a;*/
-    /* --light-green: #E3FFCB; */
     --green: #18b59a;
     --light-green: #ebfaf8;
     --dark-green: #149681;
@@ -37,6 +35,121 @@ a {
 li {
     list-style: none;
 }
+
+/* UTILITIES */
+
+.btn-green-lg {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 17px;
+    color: var(--light);
+    background: var(--green);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.btn-green-md {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 14px;
+    color: var(--light);
+    background: var(--green);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.btn-green-sm {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px;
+    color: var(--light);
+    background: var(--green);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    gap: 6px;
+
+}
+.btn-dark-lg {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 17px;
+    color: var(--light);
+    background: var(--dark-grey);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    gap: 6px;
+
+}
+
+.btn-dark-md {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 14px;
+    color: var(--light);
+    background: var(--dark-grey);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    gap: 6px;
+
+}
+
+.btn-dark-sm {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px;
+    color: var(--light);
+    background: var(--dark-grey);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.btn-dark-lg:hover,
+.btn-dark-md:hover,
+.btn-dark-sm:hover{
+    background: #555;
+}
+
+.btn-green-lg:hover,
+.btn-green-md:hover,
+.btn-green-sm:hover{
+    background: var(--dark-green);
+}
+
+
+/* UTILITIES */
 
 /* SIDEBAR */
 #sidebar {
@@ -114,7 +227,7 @@ li {
     font-size: 14px;
     color: var(--dark);
     padding: 12px 16px 12px 0;
-    /*transition: all 0.3s ease;*/
+    transition: all 0.3s ease;
     border-radius: 10px;
     margin: 4px 0;
     white-space: nowrap;
@@ -241,6 +354,7 @@ nav {
     top: 0;
     left: 0;
     z-index: 100;
+
 }
 
 nav .toggle-sidebar {
@@ -371,19 +485,23 @@ nav .profile .profile-link a:hover {
     align-items: center;
     justify-content: space-between;
 }
+
 .breadcrumb-bar .title p {
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
 }
+
 .breadcrumb-bar .breadcrumb p {
     font-size: 15px;
     font-weight: 600;
 }
+
 .breadcrumb-bar .breadcrumb p .breadcrumb-active {
     color: var(--green);
 }
-    /*BREADCRUMB */
+
+/*BREADCRUMB */
 /* MAIN */
 
 main {
@@ -439,7 +557,7 @@ main .filter-bar {
     width: 100%;
     background: var(--light);
     color: var(--dark);
-    /*transition: all 0.3s ease;*/
+    transition: all 0.3s ease;
     top: 128px;
     right: 0;
     z-index: 200;
@@ -471,7 +589,6 @@ main .jobs .job-title {
     color: var(--dark);
     font-weight: 800;
     margin: 10px 0;
-    margin-top: 0;
 }
 
 main .jobs .job-descriptions {
@@ -587,7 +704,6 @@ main .jobs .job-post-action-btn .message-btn:hover {
 /* FILTERING */
 
 
-
 /* LOGIN AND REGISTRATION */
 .diff-color {
     color: var(--dark-green);
@@ -640,6 +756,7 @@ main .jobs .job-post-action-btn .message-btn:hover {
     overflow-y: auto;
     display: block;
 }
+
 .reg-page .form-part form {
     margin: 10px;
 }
@@ -712,6 +829,7 @@ main .jobs .job-post-action-btn .message-btn:hover {
 .form-part .wrapper .form-group .input.pass-error {
     box-shadow: 0 0 0 1px var(--green), 0 0 0 4px var(--light-green);
 }
+
 .password-error-message {
     display: block;
     font-size: 12px;
@@ -845,6 +963,10 @@ main .jobs .job-post-action-btn .message-btn:hover {
 /* MAIN */
 
 @media screen and (max-width: 991px) {
+    main {
+        padding: 20px;
+    }
+
     main .job-post-section {
         width: 100%;
         padding: 20px;
@@ -872,7 +994,40 @@ main .jobs .job-post-action-btn .message-btn:hover {
     main .job-post-section .show-filter-btn {
         display: block;
     }
+
+    #sidebar {
+        max-width: 60px;
+    }
+
+    #sidebar .side-menu {
+        padding: 0 6px;
+    }
+
+    #sidebar.hide {
+        max-width: 260px;
+    }
+
+    #sidebar.hide + #content {
+        width: calc(100% - 260px);
+        left: 260px;
+    }
+
+    #content {
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+
+    .breadcrumb-bar .title p {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .breadcrumb-bar .breadcrumb p {
+        font-size: 12px;
+        font-weight: 500;
+    }
 }
+
 @media screen and (max-width: 660px) {
     .reg-page .form-part .wrapper .header-text {
         margin-top: 30px;

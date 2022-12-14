@@ -1,12 +1,18 @@
 import React, {useState} from 'react'
+import {useDispatch, useSelector} from "react-redux";
+import {AppState} from "../../../../../store";
+import {collapseAction} from "../../../../../features/sidebarCollapaseSlice";
 
 const Topbar = () => {
     const [showDropdown,setShowDropdown] = useState(false);
-
+    const dispatch = useDispatch();
+    const collapseState = useSelector((state:AppState) => state.collapse);
     return (
         <>
             <nav>
-                <i className='bx bx-menu toggle-sidebar'/>
+                <button style={{backgroundColor:'transparent', border:"0"}} onClick={() => dispatch(collapseAction(!collapseState))}>
+                    <i className='bx bx-menu toggle-sidebar'/>
+                </button>
                 <form action="#">
                     <div className="form-group">
                         <input type="text" placeholder="Search..." />

@@ -1,6 +1,11 @@
 import {AdminPortalLayout} from "../../../../layouts";
+import Link from "next/link";
+import {ButtonGreenSm} from "../../../../components/buttons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import {useRouter} from "next/router";
 
 const Category = () => {
+    const router = useRouter();
     return (
         <>
             <AdminPortalLayout>
@@ -8,9 +13,9 @@ const Category = () => {
                     <div className='title'>
                         <p>Category</p>
                     </div>
-                    <div className='breadcrumb'>
-                        <p>dashboard / <span className='breadcrumb-active'>category</span></p>
-                    </div>
+                    <Link href={router.pathname+'/add'}>
+                        <ButtonGreenSm icon={faPlus}>Add Category</ButtonGreenSm>
+                    </Link>
                 </div>
             </AdminPortalLayout>
         </>

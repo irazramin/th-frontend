@@ -1,7 +1,11 @@
+import {ButtonDarkLg} from "../components/buttons";
+
 const Home = () => {
     return (
         <>
-            <p>Landing Page</p>
+            <p>
+                <ButtonDarkLg>Button</ButtonDarkLg>
+            </p>
         </>
     );
 }

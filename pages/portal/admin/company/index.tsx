@@ -1,6 +1,12 @@
 import {AdminPortalLayout} from "../../../../layouts";
+import Link from "next/link";
+import {ButtonDarkSm, ButtonGreenSm} from "../../../../components/buttons";
+import {faCity, faPlus, faUserPlus} from "@fortawesome/free-solid-svg-icons";
+import {useRouter} from "next/router";
 
 const Company = () => {
+    const router = useRouter();
+
     return (
         <>
             <AdminPortalLayout>
@@ -9,7 +15,9 @@ const Company = () => {
                         <p>Company</p>
                     </div>
                     <div className='breadcrumb'>
-                        <p>dashboard / <span className='breadcrumb-active'>company</span></p>
+                        <Link href={router.pathname+'/add'}>
+                            <ButtonGreenSm icon={faPlus}>Add Company</ButtonGreenSm>
+                        </Link>
                     </div>
                 </div>
             </AdminPortalLayout>

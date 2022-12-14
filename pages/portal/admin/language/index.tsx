@@ -1,6 +1,11 @@
 import {AdminPortalLayout} from "../../../../layouts";
+import Link from "next/link";
+import {ButtonGreenSm} from "../../../../components/buttons";
+import {faLanguage, faLaptopCode, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {useRouter} from "next/router";
 
 const Language = () => {
+    const router = useRouter();
     return (
         <>
             <AdminPortalLayout>
@@ -9,7 +14,9 @@ const Language = () => {
                         <p>Language</p>
                     </div>
                     <div className='breadcrumb'>
-                        <p>dashboard / <span className='breadcrumb-active'>language</span></p>
+                        <Link href={router.pathname+'/add'}>
+                            <ButtonGreenSm icon={faPlus}>Add Language</ButtonGreenSm>
+                        </Link>
                     </div>
                 </div>
             </AdminPortalLayout>
