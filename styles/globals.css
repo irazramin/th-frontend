@@ -475,33 +475,33 @@ nav .profile .profile-link a:hover {
 
 /* NAVBAR */
 
-/*BREADCRUMB */
-.breadcrumb-bar {
+/*action-btn */
+.title-bar-page {
     background-color: var(--light);
     width: 100%;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.breadcrumb-bar .title p {
-    font-size: 18px;
+.title-bar-page .title p {
+    font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.breadcrumb-bar .breadcrumb p {
+.title-bar-page .action-btn p {
     font-size: 15px;
     font-weight: 600;
 }
 
-.breadcrumb-bar .breadcrumb p .breadcrumb-active {
+.title-bar-page .action-btn p .action-btn-active {
     color: var(--green);
 }
 
-/*BREADCRUMB */
+/*action-btn */
 /* MAIN */
 
 main {
@@ -551,7 +551,7 @@ main .job-filtering-section {
     flex: 1;
 }
 
-main .filter-bar {
+main .page-title-bar {
     position: -webkit-sticky;
     position: sticky;
     width: 100%;
@@ -654,37 +654,37 @@ main .jobs .job-post-action-btn .message-btn:hover {
 
 /* FILTERING */
 
-.job-filtering-section .filter-bar .divider {
+.job-filtering-section .title-bar-page .divider {
     margin: 30px 0;
 }
 
-.job-filtering-section .filter-bar .filter-title {
+.job-filtering-section .title-bar-page .filter-title {
     font-size: 15px;
     font-weight: 700;
     color: var(--dark);
     margin-bottom: 15px;
 }
 
-.job-filtering-section .filter-bar ul {
+.job-filtering-section .title-bar-page ul {
     margin-left: 6px;
 }
 
-.job-filtering-section .filter-bar li {
+.job-filtering-section .title-bar-page li {
     margin-top: 8px;
 }
 
-.job-filtering-section .filter-bar .check-box {
+.job-filtering-section .title-bar-page .check-box {
     display: flex;
     align-items: center;
 }
 
-.job-filtering-section .filter-bar .icon {
+.job-filtering-section .title-bar-page .icon {
     font-size: 28px;
     color: var(--dark-grey);
     display: none;
 }
 
-.job-filtering-section .filter-bar input[type="checkbox"] {
+.job-filtering-section .title-bar-page input[type="checkbox"] {
     width: 16px !important;
     height: 16px !important;
     margin: 5px;
@@ -694,7 +694,7 @@ main .jobs .job-post-action-btn .message-btn:hover {
     line-height: 1em;
 }
 
-.job-filtering-section .filter-bar label {
+.job-filtering-section .title-bar-page label {
     font-size: 14px;
     font-weight: 500;
     color: var(--dark-grey);
@@ -987,7 +987,7 @@ main .jobs .job-post-action-btn .message-btn:hover {
         transform: translateX(0px);
     }
 
-    .job-filtering-section .filter-bar .icon {
+    .job-filtering-section .title-bar-page .icon {
         display: block;
     }
 
@@ -1017,12 +1017,12 @@ main .jobs .job-post-action-btn .message-btn:hover {
         left: 60px;
     }
 
-    .breadcrumb-bar .title p {
+    .title-bar-page .title p {
         font-size: 14px;
         font-weight: 600;
     }
 
-    .breadcrumb-bar .breadcrumb p {
+    .title-bar-page .action-btn p {
         font-size: 12px;
         font-weight: 500;
     }

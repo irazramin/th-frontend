@@ -4,12 +4,12 @@ const Exam = () => {
     return (
         <>
             <UserPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Exam</p>
                     </div>
-                    <div className='breadcrumb'>
-                        <p>dashboard / <span className='breadcrumb-active'>exam</span></p>
+                    <div className='action-btn'>
+                        <p>dashboard / <span className='action-btn-active'>exam</span></p>
                     </div>
                 </div>
             </UserPortalLayout>

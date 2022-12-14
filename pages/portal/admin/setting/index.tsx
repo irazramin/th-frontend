@@ -4,12 +4,12 @@ const Setting = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Setting</p>
                     </div>
-                    <div className='breadcrumb'>
-                        <p>dashboard / <span className='breadcrumb-active'>setting</span></p>
+                    <div className='action-btn'>
+                        <p>dashboard / <span className='action-btn-active'>setting</span></p>
                     </div>
                 </div>
             </AdminPortalLayout>

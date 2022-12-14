@@ -9,7 +9,7 @@ const Category = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Category</p>
                     </div>

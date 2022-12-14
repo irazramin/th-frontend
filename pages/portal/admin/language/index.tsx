@@ -9,11 +9,11 @@ const Language = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Language</p>
                     </div>
-                    <div className='breadcrumb'>
+                    <div className='action-btn'>
                         <Link href={router.pathname+'/add'}>
                             <ButtonGreenSm icon={faPlus}>Add Language</ButtonGreenSm>
                         </Link>

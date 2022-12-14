@@ -5,7 +5,7 @@ const Edit = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Edit</p>
                     </div>

@@ -9,11 +9,11 @@ const Add = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Add</p>
                     </div>
-                    <div className='breadcrumb'>
+                    <div className='action-btn'>
                             <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
                     </div>
                 </div>

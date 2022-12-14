@@ -1,16 +1,16 @@
-import {AdminPortalLayout} from "../../../../../layouts";
+import {AdminPortalLayout, EmployerPortalLayout} from "../../../../../layouts";
 import {ButtonGreenMd} from "../../../../../components/buttons";
 
 const Edit = () => {
     return (
         <>
-            <AdminPortalLayout>
+            <EmployerPortalLayout>
                 <div className='title-bar-page'>
                     <div className='title'>
                         <p>Edit</p>
                     </div>
                 </div>
-            </AdminPortalLayout>
+            </EmployerPortalLayout>
         </>
     );
 }

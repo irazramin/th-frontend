@@ -9,7 +9,7 @@ const Subcategory = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Subcategory</p>
                     </div>

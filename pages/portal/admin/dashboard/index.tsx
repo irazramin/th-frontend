@@ -9,7 +9,7 @@ const Dashboard = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Dashboard</p>
                     </div>

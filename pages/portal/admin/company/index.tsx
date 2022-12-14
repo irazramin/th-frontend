@@ -10,11 +10,11 @@ const Company = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Company</p>
                     </div>
-                    <div className='breadcrumb'>
+                    <div className='action-btn'>
                         <Link href={router.pathname+'/add'}>
                             <ButtonGreenSm icon={faPlus}>Add Company</ButtonGreenSm>
                         </Link>

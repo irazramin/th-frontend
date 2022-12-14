@@ -9,11 +9,11 @@ const Skill = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='breadcrumb-bar'>
+                <div className='title-bar-page'>
                     <div className='title'>
                         <p>Skill</p>
                     </div>
-                    <div className='breadcrumb'>
+                    <div className='action-btn'>
                         <Link href={router.pathname+'/add'}>
                             <ButtonGreenSm icon={faPlus}>Add Skill</ButtonGreenSm>
                         </Link>
