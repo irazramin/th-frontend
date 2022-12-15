@@ -36,6 +36,14 @@ li {
     list-style: none;
 }
 
+
+/* COMMON CLASS*/
+
+
+
+/* COMMON CLASS*/
+
+
 /* UTILITIES */
 
 .btn-green-lg {
@@ -86,6 +94,7 @@ li {
     gap: 6px;
 
 }
+
 .btn-dark-lg {
     font-size: 14px;
     display: flex;
@@ -138,17 +147,28 @@ li {
 
 .btn-dark-lg:hover,
 .btn-dark-md:hover,
-.btn-dark-sm:hover{
+.btn-dark-sm:hover {
     background: #555;
 }
 
 .btn-green-lg:hover,
 .btn-green-md:hover,
-.btn-green-sm:hover{
+.btn-green-sm:hover {
     background: var(--dark-green);
 }
 
 
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--light);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.default-card {
+    min-height: 400px;
+}
 /* UTILITIES */
 
 /* SIDEBAR */
@@ -192,6 +212,35 @@ li {
     background: var(--light);
     transition: all 0.3s ease;
     padding: 0 6px;
+}
+
+#sidebar .project-logo-1 {
+    width: 250px;
+    margin-top: 50px;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#sidebar .project-logo-2 {
+    display: none;
+    width: 50px;
+    margin-top: 50px;
+}
+
+#sidebar.hide .project-logo-1 {
+    display: none;
+}
+#sidebar.hide:hover .project-logo-1 {
+    display: block;
+}
+
+#sidebar.hide:hover .project-logo-2 {
+    display: none;
+}
+
+#sidebar.hide .project-logo-2 {
+    display: block;
 }
 
 #sidebar .icon {
@@ -510,6 +559,7 @@ main {
     display: flex;
     gap: 30px;
     padding: 30px;
+    flex-direction: column;
 
 }
 

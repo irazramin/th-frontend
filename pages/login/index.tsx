@@ -7,12 +7,12 @@ import Link from "next/link";
 import {ErrorMessage} from "@hookform/error-message";
 
 interface IFormInput {
-    email:string,
-    password:string
+    email: string,
+    password: string
 }
 
 const Login = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({ criteriaMode: "all" });
+    const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>({criteriaMode: "all"});
 
     const onsubmit: SubmitHandler<IFormInput> = data => {
         console.log(data)
@@ -32,7 +32,7 @@ const Login = () => {
                     </Head>
                     <div className="reg-page">
                         <section className="side-img half-width">
-                            <img  src="/images/auth/image.svg" alt=""/>
+                            <img src="/images/auth/image.svg" alt=""/>
                         </section>
                         <section className="half-width form-part login-part">
                             <div className="wrapper">
@@ -60,11 +60,20 @@ const Login = () => {
                                         <ErrorMessage
                                             errors={errors}
                                             name="email"
-                                            render={({ messages }) =>
+                                            render={({messages}) =>
                                                 messages &&
                                                 Object.entries(messages).map(([type, message]) => (
-                                                    <p key={type} style={{ color:'red', marginTop:"10px", fontSize:"14px", fontWeight:"600", display:"flex", alignItems:"center", gap:"10px" }} className='password-error-message'>
-                                                        <i className='bx bx-error-circle' style={{ fontSize:"17px" }}></i> {message}</p>
+                                                    <p key={type} style={{
+                                                        color: 'red',
+                                                        marginTop: "10px",
+                                                        fontSize: "14px",
+                                                        fontWeight: "600",
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        gap: "10px"
+                                                    }} className='password-error-message'>
+                                                        <i className='bx bx-error-circle'
+                                                           style={{fontSize: "17px"}}></i> {message}</p>
                                                 ))
                                             }
                                         />
@@ -84,18 +93,27 @@ const Login = () => {
                                         <ErrorMessage
                                             errors={errors}
                                             name="password"
-                                            render={({ messages }) =>
+                                            render={({messages}) =>
                                                 messages &&
                                                 Object.entries(messages).map(([type, message]) => (
-                                                    <p key={type} style={{ color:'red', marginTop:"10px", fontSize:"14px", fontWeight:"600", display:"flex", alignItems:"center", gap:"10px" }} className='password-error-message'>
-                                                        <i className='bx bx-error-circle' style={{ fontSize:"17px" }}></i> {message}</p>
+                                                    <p key={type} style={{
+                                                        color: 'red',
+                                                        marginTop: "10px",
+                                                        fontSize: "14px",
+                                                        fontWeight: "600",
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        gap: "10px"
+                                                    }} className='password-error-message'>
+                                                        <i className='bx bx-error-circle'
+                                                           style={{fontSize: "17px"}}></i> {message}</p>
                                                 ))
                                             }
                                         />
                                     </div>
                                     <div className="tools">
                                         <div className="remember-me">
-                                            <input type="checkbox" name="remember-me" />
+                                            <input type="checkbox" name="remember-me"/>
                                             <label htmlFor="remember-me">Keep me remember</label>
                                         </div>
                                         <a href="#" className="forget-password">Forget password?</a>

@@ -1,17 +1,18 @@
 import {EmployerPortalLayout, UserPortalLayout} from "../../../../layouts";
+import {DefaultCard, TitleCard} from "../../../../components/cards";
+import Link from "next/link";
+import {ButtonGreenSm} from "../../../../components/buttons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 const Exam = () => {
     return (
         <>
             <UserPortalLayout>
-                <div className='title-bar-page'>
-                    <div className='title'>
-                        <p>Exam</p>
-                    </div>
-                    <div className='action-btn'>
-                        <p>dashboard / <span className='action-btn-active'>exam</span></p>
-                    </div>
-                </div>
+                <TitleCard title="Exam">
+                </TitleCard>
+                <DefaultCard>
+                    <p>Test</p>
+                </DefaultCard>
             </UserPortalLayout>
         </>
     );

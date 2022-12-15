@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import   collapseReducer from '../features/sidebarCollapaseSlice'
+import collapseReducer from '../features/sidebarCollapaseSlice'
 import {createWrapper} from "next-redux-wrapper";
 
 export const store = () =>

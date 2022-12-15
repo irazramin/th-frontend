@@ -1,7 +1,6 @@
 import {AdminPortalLayout} from "../../../../../layouts";
-import {ButtonGreenMd, ButtonGreenSm} from "../../../../../components/buttons";
-import Link from "next/link";
-import {faArrowLeft, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {ButtonGreenSm} from "../../../../../components/buttons";
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 
 const Add = () => {

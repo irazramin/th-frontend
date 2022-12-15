@@ -5,9 +5,9 @@ import EmployerPortalLayout from "./portal/employer/portal-layout.component";
 import UserPortalLayout from "./portal/user/portal-layout.component";
 
 export {
-  LandingLayout,
-  AuthLayout,
-  AdminPortalLayout,
-  EmployerPortalLayout,
-   UserPortalLayout
+    LandingLayout,
+    AuthLayout,
+    AdminPortalLayout,
+    EmployerPortalLayout,
+    UserPortalLayout
 }

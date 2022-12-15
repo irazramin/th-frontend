@@ -1,5 +1,4 @@
-import {AdminPortalLayout, EmployerPortalLayout} from "../../../../../layouts";
-import {ButtonGreenMd} from "../../../../../components/buttons";
+import {EmployerPortalLayout} from "../../../../../layouts";
 
 const Edit = () => {
     return (

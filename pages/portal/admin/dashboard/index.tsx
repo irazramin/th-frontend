@@ -1,19 +1,15 @@
 import {AdminPortalLayout} from "../../../../layouts";
-import {
-    ButtonDarkSm,
-} from "../../../../components/buttons";
-import {faUserPlus} from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
+import {DefaultCard, TitleCard} from "../../../../components/cards";
 
 const Dashboard = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='title-bar-page'>
-                    <div className='title'>
-                        <p>Dashboard</p>
-                    </div>
-                </div>
+                <TitleCard title="Dashboard">
+                </TitleCard>
+                <DefaultCard>
+                    <p>Test</p>
+                </DefaultCard>
             </AdminPortalLayout>
         </>
     );

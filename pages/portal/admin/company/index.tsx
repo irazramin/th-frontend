@@ -1,8 +1,9 @@
 import {AdminPortalLayout} from "../../../../layouts";
 import Link from "next/link";
-import {ButtonDarkSm, ButtonGreenSm} from "../../../../components/buttons";
-import {faCity, faPlus, faUserPlus} from "@fortawesome/free-solid-svg-icons";
+import {ButtonGreenSm} from "../../../../components/buttons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
+import {DefaultCard, TitleCard} from "../../../../components/cards";
 
 const Company = () => {
     const router = useRouter();
@@ -10,16 +11,14 @@ const Company = () => {
     return (
         <>
             <AdminPortalLayout>
-                <div className='title-bar-page'>
-                    <div className='title'>
-                        <p>Company</p>
-                    </div>
-                    <div className='action-btn'>
-                        <Link href={router.pathname+'/add'}>
+                <TitleCard title='Company'>
+                        <Link href={router.pathname + '/add'}>
                             <ButtonGreenSm icon={faPlus}>Add Company</ButtonGreenSm>
                         </Link>
-                    </div>
-                </div>
+                </TitleCard>
+                <DefaultCard>
+                    <p>Test</p>
+                </DefaultCard>
             </AdminPortalLayout>
         </>
     );

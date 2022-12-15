@@ -19,9 +19,9 @@ const PortalLayout = ({children}: any) => {
                 <title>Portal</title>
             </Head>
             <div className="body">
-                <Sidebar />
+                <Sidebar/>
                 <section id="content">
-                    <Topbar />
+                    <Topbar/>
                     <main>
                         {children}
                     </main>

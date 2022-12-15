@@ -3,20 +3,21 @@ import Link from "next/link";
 import {ButtonGreenSm} from "../../../../components/buttons";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
+import {DefaultCard, TitleCard} from "../../../../components/cards";
 
 const Category = () => {
     const router = useRouter();
     return (
         <>
             <AdminPortalLayout>
-                <div className='title-bar-page'>
-                    <div className='title'>
-                        <p>Category</p>
-                    </div>
-                    <Link href={router.pathname+'/add'}>
+                <TitleCard title='Category'>
+                    <Link href={router.pathname + '/add'}>
                         <ButtonGreenSm icon={faPlus}>Add Category</ButtonGreenSm>
                     </Link>
-                </div>
+                </TitleCard>
+                <DefaultCard>
+                    <p>Test</p>
+                </DefaultCard>
             </AdminPortalLayout>
         </>
     );

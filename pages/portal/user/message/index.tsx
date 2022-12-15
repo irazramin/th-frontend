@@ -1,17 +1,15 @@
 import {EmployerPortalLayout, UserPortalLayout} from "../../../../layouts";
+import {DefaultCard, TitleCard} from "../../../../components/cards";
 
 const Dashboard = () => {
     return (
         <>
             <UserPortalLayout>
-                <div className='title-bar-page'>
-                    <div className='title'>
-                        <p>Message</p>
-                    </div>
-                    <div className='action-btn'>
-                        <p>dashboard / <span className='action-btn-active'>message</span></p>
-                    </div>
-                </div>
+                <TitleCard title="Messages">
+                </TitleCard>
+                <DefaultCard>
+                    <p>Test</p>
+                </DefaultCard>
             </UserPortalLayout>
         </>
     );
