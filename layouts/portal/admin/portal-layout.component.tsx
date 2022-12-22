@@ -18,7 +18,7 @@ const PortalLayout = ({children}: any) => {
                 <link href="/css/portal.css" rel="stylesheet"/>
                 <title>Portal</title>
             </Head>
-            <div className="body">
+            <div className="body bootstrap-wrapper">
                 <Sidebar/>
                 <section id="content">
                     <Topbar/>

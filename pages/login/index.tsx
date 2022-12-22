@@ -1,10 +1,14 @@
 import React from 'react';
 import Head from "next/head";
 import {SubmitHandler, useForm} from "react-hook-form";
-// import '../../layouts/auth/auth-layout.module.css';
 import {AuthLayout} from "../../layouts";
 import Link from "next/link";
 import {ErrorMessage} from "@hookform/error-message";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {
+    faKey,
+    faEnvelopeOpen
+} from '@fortawesome/free-solid-svg-icons'
 
 interface IFormInput {
     email: string,
@@ -55,7 +59,8 @@ const Login = () => {
                                                 //     message: "Enter a valid email"
                                                 // }
                                             })} type="email" name="email" placeholder="Email"/>
-                                            <i className="bx bx-envelope icon"/>
+                                            {/*<i className="bx bx-envelope icon"/>*/}
+                                            <FontAwesomeIcon icon={faEnvelopeOpen} className='icon' />
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
@@ -72,8 +77,7 @@ const Login = () => {
                                                         alignItems: "center",
                                                         gap: "10px"
                                                     }} className='password-error-message'>
-                                                        <i className='bx bx-error-circle'
-                                                           style={{fontSize: "17px"}}></i> {message}</p>
+                                                        <i className='bx bx-error-circle'  style={{fontSize: "17px"}}/> {message}</p>
                                                 ))
                                             }
                                         />
@@ -88,7 +92,8 @@ const Login = () => {
                                                 //     message: "password should be atleast 8 characters"
                                                 // }
                                             })} type="password" name="password" placeholder="Password"/>
-                                            <i className='bx bx-key icon'/>
+                                            <FontAwesomeIcon icon={faKey} className='icon' />
+
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
@@ -105,8 +110,7 @@ const Login = () => {
                                                         alignItems: "center",
                                                         gap: "10px"
                                                     }} className='password-error-message'>
-                                                        <i className='bx bx-error-circle'
-                                                           style={{fontSize: "17px"}}></i> {message}</p>
+                                                        <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
                                                 ))
                                             }
                                         />

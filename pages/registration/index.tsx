@@ -6,6 +6,10 @@ import {ErrorMessage} from '@hookform/error-message';
 // import '../../layouts/auth/auth-layout.module.css';
 import Link from "next/link";
 import {AuthLayout} from "../../layouts";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEnvelopeOpen, faKey, faUser, faUserAlt} from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import {headers} from "next/headers";
 
 interface IFormInput {
     firstName: String,
@@ -19,7 +23,17 @@ const Registration = (): JSX.Element => {
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>({criteriaMode: "all"});
 
     const onsubmit: SubmitHandler<IFormInput> = data => {
-        console.log(data)
+        fetch('http://localhost:5000/api/v1/auth/registration', {
+            method:'POST',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json()).then(data => {
+                console.log(data);
+            });
+
     }
 
     return (
@@ -62,7 +76,8 @@ const Registration = (): JSX.Element => {
                                                 }
                                             })} type="text" name="firstName" placeholder="First Name"/>
 
-                                            <i className="bx bx-user icon"></i>
+                                            <FontAwesomeIcon icon={faUserAlt} className='icon' />
+
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
@@ -95,7 +110,8 @@ const Registration = (): JSX.Element => {
                                                     message: "This input exceed maxLength."
                                                 }
                                             })} type="text" name="lastName" placeholder="Last Name"/>
-                                            <i className="bx bx-user icon"></i>
+                                            <FontAwesomeIcon icon={faUserAlt} className='icon' />
+
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
@@ -128,7 +144,8 @@ const Registration = (): JSX.Element => {
                                                     message: "Enter a valid email"
                                                 }
                                             })} type="email" name="email" placeholder="Email"/>
-                                            <i className="bx bx-envelope icon"></i>
+                                            <FontAwesomeIcon icon={faEnvelopeOpen} className='icon' />
+
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
@@ -166,7 +183,8 @@ const Registration = (): JSX.Element => {
                                                 name="password"
                                                 placeholder="Password"
                                             />
-                                            <i className="bx bx-key icon"></i>
+                                            <FontAwesomeIcon icon={faKey} className='icon' />
+
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
@@ -204,7 +222,7 @@ const Registration = (): JSX.Element => {
                                                 name="confirmPassword"
                                                 placeholder="Confirm Password"
                                             />
-                                            <i className="bx bx-key icon"></i>
+                                            <FontAwesomeIcon icon={faKey} className='icon' />
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
