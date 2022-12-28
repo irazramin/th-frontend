@@ -1262,7 +1262,387 @@ main .jobs .job-post-action-btn .message-btn:hover {
 
 
 /* Resume Template */
+    .template {
+    background-color: var(--light);
+}
 
+    .template .template-header-bg {
+    width: 100%;
+    max-height: 160px;
+    background-color: var(--green);
+    height: 160px;
+    padding: 50px;
+    position: relative;
+}
+
+    .template .template-header-bg .name-positions {
+    position: absolute;
+    /* margin-left: 20px; */
+    left: 260px;
+    bottom: 10px;
+    text-transform: uppercase;
+    color: var(--light);
+}
+
+    .template .template-header-bg .name-positions .person-name {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+    .template .template-header-bg .name-positions p {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+    .template .basic-details {
+    padding: 0 0 0 40px;
+    display: flex;
+    width: 100%;
+}
+
+    .template .basic-details .person-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -90px;
+    margin-right: -20px;
+    z-index: 100;
+}
+
+    .template .basic-details .about {
+    flex: 1;
+}
+
+    .template .basic-details .about .addresses {
+    display: flex;
+    width: 100%;
+    background-color: orange;
+    gap: 20px;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px 35px;
+    flex-wrap: wrap;
+}
+
+    .template .basic-details .about .addresses .address {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: var(--light);
+}
+
+    .template .basic-details .about .addresses .address span {
+    font-size: 13px;
+}
+
+    .template .resume-body {
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding-bottom: 10px;
+}
+
+    .template .resume-body h4 {
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+    .template .resume-body p {
+    font-size: 12px;
+    text-align: justify;
+}
+    .template .skills-section {
+    margin-top: 30px;
+}
+
+    .template .skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 10px;
+}
+
+    .template .skills h4 {
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+    .template .skills .skill {
+    width: 100%;
+    /* background-color: var(--grey); */
+    height: 50px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+    .template .skills .skill .skill-details {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .template .skills .skill .skill-name,
+    .template .skills .skill .skill-percentage {
+    font-size: 12px;
+    font-weight: 700;
+}
+    .template .skills .skill .progress-bar {
+    height: 12px;
+    width: 100%;
+    background-color: var(--grey);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+    .template .skills .skill .progress-bar .progress {
+    background-color: var(--green);
+    height: 100%;
+    width: 70%;
+    transition: all 0.3s ease;
+}
+    .template .skills .skill .progress-bar .progress::after {
+    content: "k";
+    position: absolute;
+    right: 0;
+    top: -20px;
+    z-index: 1000;
+}
+
+    .template .job-experience {
+    margin-top: 30px;
+}
+
+    .template .job-experience h4 {
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+    .template .job-experience .experiences {
+    margin-top: 10px;
+    margin: 10px 0 0 20px;
+    /* padding-left: 15px; */
+    border-left: 1px solid var(--light-grey);
+}
+
+    .template .job-experience .experiences li {
+    margin: 0 0 20px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--light-grey);
+    padding-bottom: 20px;
+}
+
+    .template .job-experience .experiences li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+    .template .job-experience .experiences li::after {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    position: absolute;
+    border-radius: 90%;
+    top: 2px;
+    left: -25px;
+    /* border: 2px solid var(--light); */
+}
+
+    .template .job-experience .experiences li h5 {
+    font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: 700;
+}
+    .template .job-experience .experiences li h5  .years {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark-grey);
+}
+    .template .job-experience .experiences li h6 {
+    font-size: 12px;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: var(--dark-grey);
+    margin-top: 1px;
+}
+
+    .template .job-experience .experiences li h6 .city {
+    font-size: 11px;
+}
+    .template .job-experience .experiences .description {
+    font-size: 12px;
+    color: var(--dark-grey);
+    margin-top: 8px;
+}
+
+    .template .education-section {
+    margin-top: 20px;
+}
+
+    .template .education-section h4 {
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+    .template .education-section .education {
+    margin-top: 10px;
+    margin: 10px 0 0 20px;
+    /* padding-left: 15px; */
+    border-left: 1px solid var(--light-grey);
+}
+
+    .template .education-section .education li {
+    margin: 0 0 20px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--light-grey);
+    padding-bottom: 20px;
+}
+
+    .template .education-section .education li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+    .template .education-section .education li::after {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    position: absolute;
+    border-radius: 90%;
+    top: 2px;
+    left: -25px;
+}
+
+    .template .education-section .education li .years {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark-grey);
+}
+
+    .template .education-section .education li h5 {
+    font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-weight: 700;
+}
+    .template .education-section .education li h6 span {
+    display: block;
+}
+
+    .template .education-section .education li h6 {
+    font-size: 12px;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: var(--dark-grey);
+}
+
+    .template .education-section .education li h6 .city {
+    font-size: 11px;
+}
+
+@media screen and (max-width: 991px) {
+    main {
+        padding: 20px;
+    }
+
+    .template .skills {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 30px;
+        row-gap: 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .template .template-header-bg {
+        height: 120px;
+    }
+
+    .template .template-header-bg .name-positions {
+        left: 140px;
+    }
+
+    .template .template-header-bg .name-positions .person-name {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .template .template-header-bg .name-positions p {
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+    .template .basic-details .person-img {
+        width: 100px;
+        height: 100px;
+        margin-top: -60px;
+        margin-bottom: 10px;
+    }
+
+
+    .template .basic-details {
+        padding: 0 30px 0 30px;
+        display: block;
+        width: 100%;
+        z-index: 1;
+        position: relative;
+    }
+
+    .template .basic-details .about .addresses {
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+
+    .template .resume-body {
+        padding: 0 30px;
+    }
+
+    .template .skills {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .template .job-experience .experiences {
+        margin-top: 10px;
+        margin: 10px 0 0 05px;
+        /* padding-left: 15px; */
+        border-left: 1px solid var(--light-grey);
+    }
+
+    .template .education-section .education {
+        margin-top: 10px;
+        margin: 10px 0 0 05px;
+        /* padding-left: 15px; */
+        border-left: 1px solid var(--light-grey);
+    }
+}
+
+/* Resume Template */
 
 @media screen and (max-width: 991px) {
     .body {
