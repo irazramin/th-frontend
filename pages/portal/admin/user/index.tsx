@@ -1,10 +1,11 @@
 import {AdminPortalLayout} from "../../../../layouts";
 import Link from "next/link";
 import {ButtonGreenSm} from "../../../../components/buttons";
-import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import {Datatable} from "../../../../components/tables";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const User = () => {
     const router = useRouter();
@@ -29,7 +30,6 @@ const User = () => {
         alert('Check clicked')
     }
 
-    console.log(tableProps);
 
 
     return (
@@ -45,7 +45,7 @@ const User = () => {
                         {...tableProps}
                         onCheckAll={handleDtOnCheckAll}
                     >
-                        <tr>
+                        <tr className='datatable-row'>
                             <td>
                                 <input onClick={handleDtOnCheck} type="checkbox"/>
                             </td>
@@ -64,10 +64,16 @@ const User = () => {
                             <td>
                                 01770000001
                             </td>
-                            <td>
-                                Action
+                            <td >
+                                <div className="action-btns">
+                                    <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
+                                    <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
+                                    <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+
+                                </div>
                             </td>
                         </tr>
+
                     </Datatable>
                 </DefaultCard>
             </AdminPortalLayout>

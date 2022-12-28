@@ -68,7 +68,7 @@ const Datatable = ({name, headers, size = [10, 20, 30, 40, 50], enableCheckbox =
                                 ))}
                                 {enableAction &&
                                 <>
-                                    <th>
+                                    <th className='action'>
                                         Action
                                     </th>
                                 </>
@@ -85,27 +85,6 @@ const Datatable = ({name, headers, size = [10, 20, 30, 40, 50], enableCheckbox =
                     <p>Showing <span className='data-start'>1</span> to <span className='data-end'>10</span> of <span className='all-data'>20</span> entries</p>
                 </div>
                 <div className="col-md-7 col-sm-12 pagination">
-
-                    {/*<div className="pagination">*/}
-                    {/*        <div className="previous-btn">*/}
-                    {/*            <button onClick={() => setPageControl(pageControl > 1 ? pageControl- 1 : 1)}> <FontAwesomeIcon icon={faChevronLeft} /> </button>*/}
-                    {/*        </div>*/}
-
-                    {/*        <div className="pages-btn">*/}
-                    {/*            <div className="visible-btns">*/}
-                    {/*                {totalPage.length > 7 ? totalPage.slice(0,7).map((page,idx) => <button className={`page-btn ${((pageControl === idx+1) ) ? 'active' : ''}`}>{idx+1}</button>) : totalPage.map((page,idx) => <button className="page-btn">{idx+1}</button>*/}
-                    {/*                )}*/}
-                    {/*            </div>*/}
-                    {/*            <div className="last-page-btn">*/}
-                    {/*                <button className="page-btn">{totalPage.length}</button>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-
-                    {/*        <div className="previous-btn">*/}
-                    {/*            <button onClick={() => setPageControl(pageControl < totalPage.length ? pageControl+1 : totalPage.length)}><FontAwesomeIcon icon={faChevronRight} /> </button>*/}
-                    {/*        </div>*/}
-
-                    {/*</div>*/}
 
                     <ReactPaginate
                         breakLabel="..."

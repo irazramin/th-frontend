@@ -973,8 +973,10 @@ main .jobs .job-post-action-btn .message-btn:hover {
 /* DATATABLE CSS*/
 
 .table-tools {
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
     gap: 20px;
+    flex-direction: row;
 }
 
 .table-tools .show-dropdown,
@@ -986,7 +988,7 @@ main .jobs .job-post-action-btn .message-btn:hover {
 }
 
 .table-tools select {
-    padding: 3px 8px;
+    padding: 7px;
 }
 
 .table-tools label {
@@ -1006,7 +1008,7 @@ main .jobs .job-post-action-btn .message-btn:hover {
 
 .datatable-search .form-group input {
     width: 100%;
-    background: var(--grey);
+    background: var(--light);
     border-radius: 5px;
     outline: none;
     padding: 10px 36px 10px 16px;
@@ -1143,22 +1145,30 @@ main .jobs .job-post-action-btn .message-btn:hover {
     font-weight: 600;
 }
 
-.datatable-wrapper .datatable tbody tr td .tools .tool-btns {
+.datatable-wrapper .datatable .action {
+    width: 50px;
+    margin-right:auto ;
+}
+
+.datatable-wrapper .datatable tbody tr td .action-btns  {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    gap: 6px;
-
+    gap: 25px;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100px;
 }
 
-.datatable-wrapper .datatable tbody tr td .tools .tool-btns .tool {
+.datatable-wrapper .datatable tbody tr td .action-btns .action-btn {
     border: 0;
     background-color: transparent;
-    font-size: 22px;
+    font-size: 16px;
     width: 30px;
     height: 30px;
     cursor: pointer;
     transition: all .3s ease;
+    color: var(--green);
 }
 
 .datatable-wrapper .datatable tbody tr td .tools .tool-btns .tool:active {
@@ -1249,6 +1259,10 @@ main .jobs .job-post-action-btn .message-btn:hover {
 
 
 /* LOGIN AND REGISTRATION */
+
+
+/* Resume Template */
+
 
 @media screen and (max-width: 991px) {
     .body {

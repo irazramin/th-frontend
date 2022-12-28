@@ -8,7 +8,7 @@ const Resume = () => {
                 <TitleCard title="Resume">
                 </TitleCard>
                 <DefaultCard>
-                    <p>Test</p>
+
                 </DefaultCard>
             </UserPortalLayout>
         </>
