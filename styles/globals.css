@@ -2282,17 +2282,15 @@ main .page-title-bar {
     width: 100%;
     gap: 20px;
     height: calc(100vh - 200px);
-    overflow: hidden;
-
 }
 
 .messages-section .cards {
     border-radius: 10px;
     background: var(--light);
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.05);
-    border: .5px solid #d2d2d2;
 }
-.chat-bar, .chat-section {
+.chat-bar,
+.chat-section {
     min-height: calc(100vh - 210px);
     height: 100%;
 }
@@ -2444,9 +2442,175 @@ main .page-title-bar {
 .chat-section {
     flex: 1;
     width: 100%;
+    position: relative;
+    overflow: auto;
 }
 
+.chat-section .chatbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
+    padding: 8px 20px;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: var(--light);
+}
+.chat-section  .user-details {
+    display: flex;
+    gap: 10px;
+}
+.chat-section  .chat-img {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+.chat-section   .chat-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
+.chat-section  .chat-name-status h4{
+    font-size: 15px;
+}
+
+.chat-section  .chat-name-status span {
+    font-size: 11px;
+    font-weight: 700;
+    color: limegreen;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 4px;
+}
+
+.chat-section .chatbox-header .chat-name-status span .icon {
+    font-size: 5px;
+}
+
+.chat-section .chatbox-header .chat-tools {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.chat-section .chatbox-header .chat-tools:hover {
+   background-color: var(--grey);
+}
+
+.chat-section .chat-box {
+    padding: 10px;
+    position: relative;
+    /*overflow: hidden;*/
+    z-index: 0;
+}
+
+.chat-section .chat-box .my-message .my-message-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.chat-section .chat-box .my-message {
+    max-width: 400px;
+    width: 100%;
+    text-align: right;
+    margin-left: auto;
+}
+
+.chat-section .chat-box  .messages {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 6px;
+
+}
+
+.chat-section .chat-box .my-message .message {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    text-align: left;
+    background-color: var(--green);
+    color: var(--light);
+}
+.chat-section .chat-box  .message {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.chat-section .chat-box .opposite-message {
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    /*margin-right: auto;*/
+}
+.chat-section .chat-box .opposite-message .message {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: left;
+    background-color: var(--grey);
+    color: var(--dark);
+}
+
+.chat-section  .chatbox-footer {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    background-color: var(--light);
+    width: 100%;
+    height: 70px;
+    padding: 5px 20px;
+}
+
+.chat-section form {
+    width: 100%;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.chat-section .form-group {
+    position: relative;
+}
+
+.chat-section .form-group input {
+    width: 100%;
+    background: var(--grey);
+    border-radius: 5px;
+    border: 0;
+    /*border: .5px solid var(--dark-grey);*/
+    outline: none;
+    padding: 12px 150px 12px 16px;
+    transition: all 0.3s ease;
+}
+
+.chat-section .form-group input:focus {
+    box-shadow: 0 0 0 1px var(--green), 0 0 0 4px var(--light-green);
+}
+
+.chat-section .form-group .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: var(--dark-green);
+}
+.chat-section .form-group .icon.send {
+    right: 16px;
+}
+.chat-section .form-group .icon.attachment{
+    right: 40px;
+}
 /* MESSAGES */
 
 

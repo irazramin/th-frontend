@@ -2,7 +2,13 @@ import {AdminPortalLayout, EmployerPortalLayout} from "../../../../layouts";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
+import {
+    faCircle,
+    faEllipsisVertical,
+    faMagnifyingGlass, faPaperclip,
+    faPaperPlane,
+    faPenToSquare
+} from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
     return (
@@ -183,18 +189,154 @@ const Dashboard = () => {
                        </div>
                    </div>
                </div>
-               <div className='chat-section card'>
+               <div className='chat-section cards'>
                    <div className='chatbox-header'>
-                       <div className="chat-img">
-                           <div className='active-status'/>
-                           <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
+                        <div className='user-details'>
+                            <div className="chat-img">
+                                <div className='active-status'/>
+                                <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
+                            </div>
+                                <div className="chat-name-status">
+                                    <h4>Iraz Ramin</h4>
+                                    <span> <FontAwesomeIcon icon={faCircle} className='icon' /> Active</span>
+                                </div>
+                        </div>
+                       <div className='chat-tools'>
+                           <FontAwesomeIcon icon={faEllipsisVertical} />
                        </div>
-                       <div className='chat-details'>
-                           <div className="chat-name-time">
-                               <h4>Iraz Ramin</h4>
-                               <span>12:46 AM</span>
+                   </div>
+                   <div className="chat-box">
+                       <div className="all-messages">
+                           <div className=" my-message">
+                               <div className='user-details'>
+                                   {/*<div className="chat-img">*/}
+                                   {/*    <div className='active-status'/>*/}
+                                   {/*    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>*/}
+                                   {/*</div>*/}
+                                   <div className="chat-name-status">
+                                       <h4>me</h4>
+                                       <div className="messages">
+                                           <div className="message">
+                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                           </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                       </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, </p>
+                                       </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div className="opposite-message">
+                               <div className='user-details'>
+                                   <div className="chat-img">
+                                       <div className='active-status'/>
+                                       <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
+                                   </div>
+                                   <div className="chat-name-status">
+                                       <h4>me</h4>
+                                       <div className="messages">
+                                           <div className="message">
+                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                           </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                       </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, </p>
+                                       </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div className=" my-message">
+                               <div className='user-details'>
+                                   {/*<div className="chat-img">*/}
+                                   {/*    <div className='active-status'/>*/}
+                                   {/*    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>*/}
+                                   {/*</div>*/}
+                                   <div className="chat-name-status">
+                                       <h4>me</h4>
+                                       <div className="messages">
+                                           <div className="message">
+                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                           </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                       </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, </p>
+                                       </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div className="opposite-message">
+                               <div className='user-details'>
+                                   <div className="chat-img">
+                                       <div className='active-status'/>
+                                       <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
+                                   </div>
+                                   <div className="chat-name-status">
+                                       <h4>me</h4>
+                                       <div className="messages">
+                                           <div className="message">
+                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                           </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                       </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, </p>
+                                       </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div className=" my-message">
+                               <div className='user-details'>
+                                   {/*<div className="chat-img">*/}
+                                   {/*    <div className='active-status'/>*/}
+                                   {/*    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>*/}
+                                   {/*</div>*/}
+                                   <div className="chat-name-status">
+                                       <h4>me</h4>
+                                       <div className="messages">
+                                           <div className="message">
+                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                           </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                       </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, </p>
+                                       </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div className="opposite-message">
+                               <div className='user-details'>
+                                   <div className="chat-img">
+                                       <div className='active-status'/>
+                                       <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
+                                   </div>
+                                   <div className="chat-name-status">
+                                       <h4>me</h4>
+                                       <div className="messages">
+                                           <div className="message">
+                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                           </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
+                                       </div> <div className="message">
+                                           <p>Lorem ipsum dolor sit amet, </p>
+                                       </div>
+                                       </div>
+                                   </div>
+                               </div>
                            </div>
                        </div>
+                   </div>
+                   <div className="chatbox-footer">
+                       <form action="#">
+                           <div className="form-group">
+                               <input type="text" placeholder="write messages"/>
+                               <FontAwesomeIcon icon={faPaperPlane} className='icon send'/>
+                               <FontAwesomeIcon icon={faPaperclip} className='icon attachment'/>
+                           </div>
+                       </form>
                    </div>
                </div>
             </section>
