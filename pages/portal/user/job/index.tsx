@@ -1,8 +1,11 @@
 import {EmployerPortalLayout, UserPortalLayout} from "../../../../layouts";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
+import Link from "next/link";
+import {useRouter} from "next/router";
 
 
 const Job = () => {
+    const router = useRouter();
     return (
         <>
             <UserPortalLayout>
@@ -29,8 +32,8 @@ const Job = () => {
                                             <span className="chip job-position">Entry Level</span>
                                         </div>
                                         <div className="job-post-action-btn">
-                                            <button className="btn apply-btn">Apply now</button>
-                                            <button className="btn message-btn">Details</button>
+                                         <button className="btn apply-btn">   <Link href=''>Apply now</Link></button>
+                                         <button className="btn message-btn">  <Link href={router.pathname+'/details'} >Details </Link></button>
 
                                         </div>
                                 </div>

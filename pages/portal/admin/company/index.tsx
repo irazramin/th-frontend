@@ -17,7 +17,7 @@ const Company = () => {
             {id: 2, name: 'NAME', storable: false},
             {id: 3, name: 'EMAIL', storable: false},
             {id: 4, name: 'PHONE', storable: false},
-            {id: 5, name: 'MOBILE', storable: false},
+            {id: 5, name: 'WEBSITE', storable: false},
         ],
         enableCheckbox: true,
         enableAction: true
@@ -30,6 +30,79 @@ const Company = () => {
     const handleDtOnCheck = (e: any) => {
         alert('Check clicked')
     }
+
+    const tableData = [
+        {
+            id: 1,
+            companyName: "Brain Station 23",
+            email: "nl@brainstation-23.com",
+            phone: "01404-055220",
+            website: "https://brainstation-23.com/"
+        },
+        {
+            id: 2,
+            companyName: "Flyte Solutions",
+            email: "info@flytesolutions.com",
+            phone: "01793-532035",
+            website: "https://flytesolutions.com/"
+        },
+        {
+            id: 3,
+            companyName: "Tiger IT Bangladesh Limited",
+            email: "info@tigerit.com",
+            phone: "+88 02 8826739",
+            website: "https://www.tigerit.com/"
+        },
+        {
+            id: 4,
+            companyName: "Cefalo Bangladesh Ltd.",
+            email: "mail@cefalo.com",
+            phone: "01790-233256",
+            website: "https://www.cefalo.com/"
+        },
+        {
+            id: 5,
+            companyName: "Enosis Solutions",
+            email: "info@enosisbd.com",
+            phone: "+880 2 883 6411",
+            website: "https://www.enosisbd.com/"
+        },
+        {
+            id: 6,
+            companyName: "Rexoit",
+            email: "info@rexoit.com",
+            phone: "+880 1888 042371",
+            website: "https://www.rexoit.com/"
+        },
+        {
+            id: 7,
+            companyName: "Nano IT World",
+            email: "info@nanoitworld.com ",
+            phone: " 01715-147425",
+            website: "https://www.nanoitworld.com/"
+        },
+        {
+            id: 8,
+            companyName: "Arena Phone Bd Ltd",
+            email: "bizdev@arena.com.bd",
+            phone: "+88-01814663094",
+            website: "https://www.arena.com.bd/"
+        },
+        {
+            id: 9,
+            companyName: "KAZ SOFTWARE",
+            email: "info@kaz.com.bd",
+            phone: "+880 248315727",
+            website: "https://kaz.com.bd/"
+        },
+        {
+            id: 10,
+            companyName: "BJIT",
+            email: "info@bjitgroup.com",
+            phone: "01755-997099",
+            website: "https://bjitgroup.com/"
+        },
+    ]
 
     return (
         <>
@@ -44,34 +117,30 @@ const Company = () => {
                         {...tableProps}
                         onCheckAll={handleDtOnCheckAll}
                     >
-                        <tr className='datatable-row'>
-                            <td>
-                                <input onClick={handleDtOnCheck} type="checkbox"/>
-                            </td>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                JOHN DOE
-                            </td>
-                            <td>
-                                john@gmail.com
-                            </td>
-                            <td>
-                                01770000000
-                            </td>
-                            <td>
-                                01770000001
-                            </td>
-                            <td >
-                                <div className="action-btns">
-                                    <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                    <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                    <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+                        { tableData.map(data => {
+                            return (
+                                <tr className='datatable-row'>
+                                    <td>
+                                        <input onClick={handleDtOnCheck} type="checkbox"/>
+                                    </td>
 
-                                </div>
-                            </td>
-                        </tr>
+                                    <td>{data.id}</td>
+                                    <td>{data.companyName}</td>
+                                    <td>{data.email}</td>
+                                    <td>{data.phone}</td>
+                                    <td><a href={data.website} target="_blank">{data.website}</a></td>
+                                    <td >
+                                        <div className="action-btns">
+                                            <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            )
+                        }) }
 
                     </Datatable>
                 </DefaultCard>

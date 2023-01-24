@@ -13,15 +13,26 @@ const Language = () => {
         name: 'userList',
         headers: [
             {id: 1, name: 'ID', storable: false},
-            {id: 2, name: 'NAME', storable: false},
-            {id: 3, name: 'EMAIL', storable: false},
-            {id: 4, name: 'PHONE', storable: false},
-            {id: 5, name: 'MOBILE', storable: false},
+            {id: 2, name: 'LANGUAGENAME', storable: false},
         ],
         enableCheckbox: true,
         enableAction: true
     }
 
+    const tableData = [
+        {
+            id: 1,
+            languageName: "English",
+        },
+        {
+            id: 2,
+            languageName: "Bangla",
+        },
+        {
+            id: 3,
+            languageName: "Hindi",
+        },
+    ]
     const handleDtOnCheckAll = (e: any) => {
         alert('Check all clicked')
     }
@@ -43,34 +54,27 @@ const Language = () => {
                         {...tableProps}
                         onCheckAll={handleDtOnCheckAll}
                     >
-                        <tr className='datatable-row'>
-                            <td>
-                                <input onClick={handleDtOnCheck} type="checkbox"/>
-                            </td>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                JOHN DOE
-                            </td>
-                            <td>
-                                john@gmail.com
-                            </td>
-                            <td>
-                                01770000000
-                            </td>
-                            <td>
-                                01770000001
-                            </td>
-                            <td >
-                                <div className="action-btns">
-                                    <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                    <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                    <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+                        { tableData.map(data => {
+                            return (
+                                <tr className='datatable-row'>
+                                    <td>
+                                        <input onClick={handleDtOnCheck} type="checkbox"/>
+                                    </td>
 
-                                </div>
-                            </td>
-                        </tr>
+                                    <td>{data.id}</td>
+                                    <td>{data.languageName}</td>
+                                    <td >
+                                        <div className="action-btns">
+                                            <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            )
+                        }) }
 
                     </Datatable>
                 </DefaultCard>

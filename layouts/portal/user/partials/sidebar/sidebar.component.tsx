@@ -69,7 +69,7 @@ const Sidebar = () => {
                     {menuList.map((menuItem, menuIndex) => {
                         return (
                             <li key={menuIndex}>
-                                <Link href={menuItem.link} className={router.pathname == menuItem.link ? 'active' : ''}>
+                                <Link href={menuItem.link} className={(router.pathname == menuItem.link) || (menuItem.link+'/details'  == router.pathname+'/details') ? 'active' : ''}>
                                     <FontAwesomeIcon icon={menuItem.icon} size="lg" fixedWidth
                                                      className='icon'/> {menuItem.title}
                                 </Link>

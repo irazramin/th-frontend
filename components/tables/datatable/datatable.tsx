@@ -16,7 +16,7 @@ const Datatable = ({name, headers, size = [10, 20, 30, 40, 50], enableCheckbox =
     return (
         <>
             <div className="row">
-                <div className="col-8 table-tools">
+                <div className="col-md-8 col-sm-12 table-tools">
                     <div className='show-dropdown'>
                         <label htmlFor="show">Show</label>
                         <select name="show" >
@@ -43,7 +43,7 @@ const Datatable = ({name, headers, size = [10, 20, 30, 40, 50], enableCheckbox =
                         </select>
                     </div>
                 </div>
-                <div className="col-4 datatable-search">
+                <div className="col-md-4 col-sm-12 datatable-search">
                     <form action="#">
                         <div className="form-group">
                             <input type="text" placeholder="Search data"/>
@@ -90,10 +90,11 @@ const Datatable = ({name, headers, size = [10, 20, 30, 40, 50], enableCheckbox =
                         breakLabel="..."
                         nextLabel={<FontAwesomeIcon icon={faChevronRight} />}
                         onPageChange={handlePageClick}
-                        pageRangeDisplayed={5}
+                        pageRangeDisplayed={0}
                         pageCount={totalPage.length}
                         previousLabel={<FontAwesomeIcon icon={faChevronLeft} />}
                         renderOnZeroPageCount={()=> null}
+
                     />
                 </div>
             </div>
