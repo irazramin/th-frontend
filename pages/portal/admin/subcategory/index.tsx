@@ -102,7 +102,7 @@ const Subcategory = () => {
             category: "Information Technology (IT) Job",
         },
         {
-            id: 16,
+            id: 17,
             subCategoryName: "SQL Developer",
             category: "Information Technology (IT) Job",
         },
