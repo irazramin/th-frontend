@@ -2,14 +2,10 @@ import React from 'react';
 import Head from "next/head";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {ErrorMessage} from '@hookform/error-message';
-
-// import '../../layouts/auth/auth-layout.module.css';
 import Link from "next/link";
 import {AuthLayout} from "../../layouts";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelopeOpen, faKey, faUser, faUserAlt} from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import {headers} from "next/headers";
 
 interface IFormInput {
     firstName: String,
