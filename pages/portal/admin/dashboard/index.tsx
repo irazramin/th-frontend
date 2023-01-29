@@ -1,17 +1,8 @@
 import {AdminPortalLayout} from "../../../../layouts";
-import {DefaultCard, TitleCard} from "../../../../components/cards";
+import {TitleCard} from "../../../../components/cards";
 import DashboardCard from "../../../../components/cards/dashboard.card";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {
-    faChartGantt,
-    faCity,
-    faGear,
-    faLanguage,
-    faLaptopCode,
-    faList,
-    faShapes,
-    faUsers
-} from '@fortawesome/free-solid-svg-icons'
+import {faChartGantt, faCity, faLanguage, faLaptopCode, faList, faUsers} from '@fortawesome/free-solid-svg-icons'
 import {useRouter} from "next/router";
 import Link from "next/link";
 

@@ -5,7 +5,7 @@ import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icon
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import {Datatable} from "../../../../components/tables";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const User = () => {
     const router = useRouter();

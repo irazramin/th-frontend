@@ -29,7 +29,7 @@ const Datatable = ({name, headers, size = [10, 20, 30, 40, 50], enableCheckbox =
                         </select>
                     </div>
                     <div className='sortby-dropdown'>
-                        <label htmlFor="sort_by">Sort by</label>
+                        <label htmlFor="sort_by">Sort</label>
                         <select name="sort_by" >
                             <option value="10">10</option>
                             <option value="10">20</option>
@@ -87,15 +87,18 @@ const Datatable = ({name, headers, size = [10, 20, 30, 40, 50], enableCheckbox =
                 <div className="col-md-7 col-sm-12 pagination">
 
                     <ReactPaginate
-                        breakLabel="..."
                         nextLabel={<FontAwesomeIcon icon={faChevronRight} />}
                         onPageChange={handlePageClick}
                         pageRangeDisplayed={0}
                         pageCount={totalPage.length}
                         previousLabel={<FontAwesomeIcon icon={faChevronLeft} />}
                         renderOnZeroPageCount={()=> null}
+                        breakLabel={""}
 
                     />
+
+                    {/*<Pagination simple defaultCurrent={1} total={100*10} prevIcon={<FontAwesomeIcon icon={faChevronLeft} />}  nextIcon={<FontAwesomeIcon icon={faChevronRight} />} style={{ gap:"20px" }} />*/}
+                    <br />
                 </div>
             </div>
         </>

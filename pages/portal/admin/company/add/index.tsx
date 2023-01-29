@@ -1,9 +1,8 @@
 import {AdminPortalLayout} from "../../../../../layouts";
 import {ButtonGreenMd, ButtonGreenSm} from "../../../../../components/buttons";
-import {faArrowLeft, faEnvelopeOpen, faKey, faUserAlt} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../../components/cards";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {ErrorMessage} from "@hookform/error-message";
 import React from "react";
 import {SubmitHandler, useForm} from "react-hook-form";

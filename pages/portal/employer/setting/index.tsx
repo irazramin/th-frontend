@@ -1,4 +1,4 @@
-import {AdminPortalLayout, EmployerPortalLayout} from "../../../../layouts";
+import {EmployerPortalLayout} from "../../../../layouts";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 
 const Setting = () => {

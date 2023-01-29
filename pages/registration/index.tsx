@@ -5,7 +5,7 @@ import {ErrorMessage} from '@hookform/error-message';
 import Link from "next/link";
 import {AuthLayout} from "../../layouts";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEnvelopeOpen, faKey, faUser, faUserAlt} from "@fortawesome/free-solid-svg-icons";
+import {faEnvelopeOpen, faKey, faUserAlt} from "@fortawesome/free-solid-svg-icons";
 
 interface IFormInput {
     firstName: String,

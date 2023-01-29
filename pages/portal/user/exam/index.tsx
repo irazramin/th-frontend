@@ -1,6 +1,6 @@
-import {AdminPortalLayout, EmployerPortalLayout, UserPortalLayout} from "../../../../layouts";
+import {UserPortalLayout} from "../../../../layouts";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
-import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";
+import {faEye, faPen, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import {Datatable} from "../../../../components/tables";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 

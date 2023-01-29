@@ -1,10 +1,11 @@
-import {EmployerPortalLayout, UserPortalLayout} from "../../../../layouts";
-import {DefaultCard, TitleCard} from "../../../../components/cards";
+import {UserPortalLayout} from "../../../../layouts";
+import {TitleCard} from "../../../../components/cards";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faCircle,
     faEllipsisVertical,
-    faMagnifyingGlass, faPaperclip,
+    faMagnifyingGlass,
+    faPaperclip,
     faPaperPlane,
     faPenToSquare
 } from "@fortawesome/free-solid-svg-icons";

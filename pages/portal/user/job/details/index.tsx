@@ -1,7 +1,7 @@
 import {UserPortalLayout} from "../../../../../layouts";
 import {DefaultCard, TitleCard} from "../../../../../components/cards";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faBriefcase, faClock, faLocation, faLocationDot, faMoneyCheckDollar} from "@fortawesome/free-solid-svg-icons";
+import {faBriefcase, faClock, faLocationDot, faMoneyCheckDollar} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 
@@ -14,12 +14,35 @@ const JobDetails = () => {
                 <DefaultCard>
                     <div className='job-details-section'>
                         <div className="details-header">
-                            <div className='company-logo'>
-                                <img src="https://www.freepnglogos.com/uploads/company-logo-png/company-logo-transparent-png-19.png" alt="" />
-                            </div>
-                            <div className="company-details">
-                                <h3 className='company-name'>XYZ Company</h3>
-                                <h4 className='job-title'>Software Engineer</h4>
+                           <div className="details-contents">
+                               <div className='company-logo'>
+                                   <img src="https://www.freepnglogos.com/uploads/company-logo-png/company-logo-transparent-png-19.png" alt="" />
+                               </div>
+                               <div className="company-details">
+                                   <h3 className='company-name'>XYZ Company</h3>
+                                   <h4 className='job-title'>Software Engineer</h4>
+                               </div>
+                           </div>
+
+                            <div className="job-others-info">
+                                <div className="info-cards">
+                                    <div className="info-card ">
+                                        <h4 className="title">Vacancy</h4>
+                                        <h2 className="content">10</h2>
+                                    </div>
+                                    <div className="info-card ">
+                                        <h4 className="title">Salary</h4>
+                                        <h2 className="content">$20000-30000</h2>
+                                    </div>
+                                    <div className="info-card ">
+                                        <h4 className="title">Min.Exp</h4>
+                                        <h2 className="content">03-05yr</h2>
+                                    </div>
+                                    <div className="info-card ">
+                                        <h4 className="title">Job Type</h4>
+                                        <h2 className="content">Full-time</h2>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="details-body">

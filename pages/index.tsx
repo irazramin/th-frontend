@@ -1,16 +1,8 @@
-import {
-    ButtonDarkLg,
-    ButtonDarkMd,
-    ButtonDarkSm,
-    ButtonGreenLg,
-    ButtonGreenMd,
-    ButtonGreenSm
-} from "../components/buttons";
+import {ButtonDarkSm, ButtonGreenMd, ButtonGreenSm} from "../components/buttons";
 import {LandingLayout} from "../layouts";
 import React, {useState} from "react";
-import {faArrowLeft, faBars, faBriefcase, faLocation, faLocationDot, faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faBriefcase, faSearch} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {inspect} from "util";
 import Link from "next/link";
 
 const Home = () => {

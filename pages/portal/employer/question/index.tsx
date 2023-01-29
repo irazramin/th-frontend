@@ -1,4 +1,4 @@
-import {AdminPortalLayout, EmployerPortalLayout} from "../../../../layouts";
+import {EmployerPortalLayout} from "../../../../layouts";
 import Link from "next/link";
 import {ButtonGreenSm} from "../../../../components/buttons";
 import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";

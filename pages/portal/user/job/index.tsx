@@ -1,4 +1,4 @@
-import {EmployerPortalLayout, UserPortalLayout} from "../../../../layouts";
+import {UserPortalLayout} from "../../../../layouts";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import Link from "next/link";
 import {useRouter} from "next/router";
