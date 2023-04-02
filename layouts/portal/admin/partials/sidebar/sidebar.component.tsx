@@ -13,15 +13,15 @@ import {
     faUsers
 } from '@fortawesome/free-solid-svg-icons'
 import {useSelector} from "react-redux";
-import {AppState} from "../../../../../store";
+import {RootState} from "../../../../../store";
 
 const Sidebar = () => {
 
     const router = useRouter();
 
-    const collapseState = useSelector((state: AppState) => state.collapse);
+    const collapseState = useSelector((state: RootState) => state.collapse.collapse);
 
-
+    console.log(collapseState)
     const [menuList] = useState([
         {
             id: 1,

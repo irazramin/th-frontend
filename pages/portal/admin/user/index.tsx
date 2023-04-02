@@ -152,7 +152,7 @@ const User = () => {
             <AdminPortalLayout>
                 <TitleCard title="User List">
                     <Link href={router.pathname + '/add'}>
-                        <ButtonGreenSm icon={faPlus}>Add User</ButtonGreenSm>
+                        {/*<ButtonGreenSm icon={faPlus}>Add User</ButtonGreenSm>*/}
                     </Link>
                 </TitleCard>
                 <DefaultCard>

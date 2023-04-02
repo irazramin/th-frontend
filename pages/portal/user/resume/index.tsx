@@ -1,11 +1,19 @@
 import {UserPortalLayout} from "../../../../layouts";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
+import {ButtonGreenSm} from "../../../../components/buttons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+import {useRouter} from "next/router";
 
 const Resume = () => {
+    const router = useRouter();
     return (
         <>
             <UserPortalLayout>
                 <TitleCard title="Resume">
+                    <Link href={router.pathname + '/add'}>
+                        <ButtonGreenSm icon={faPlus}>Add Resume</ButtonGreenSm>
+                    </Link>
                 </TitleCard>
                 <DefaultCard>
                     <section className="template">
@@ -134,8 +142,8 @@ const Resume = () => {
                                             <span className="years">2014-2016</span>
                                         </h5>
                                         <h6>
-                    <span className="company-name">Company Name</span
-                    ><span className="city">New York City</span>
+                                                <span className="company-name">Company Name</span
+                                                ><span className="city">New York City</span>
                                         </h6>
                                         <p className="description">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -149,8 +157,8 @@ const Resume = () => {
                                             <span className="years">2014-2016</span>
                                         </h5>
                                         <h6>
-                    <span className="company-name">Company Name</span
-                    ><span className="city">New York City</span>
+                                            <span className="company-name">Company Name</span
+                                            ><span className="city">New York City</span>
                                         </h6>
                                         <p className="description">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -164,8 +172,8 @@ const Resume = () => {
                                             <span className="years">2014-2016</span>
                                         </h5>
                                         <h6>
-                    <span className="company-name">Company Name</span
-                    ><span className="city">New York City</span>
+                                            <span className="company-name">Company Name</span
+                                            ><span className="city">New York City</span>
                                         </h6>
                                         <p className="description">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -179,8 +187,8 @@ const Resume = () => {
                                             <span className="years">2014-2016</span>
                                         </h5>
                                         <h6>
-                    <span className="company-name">Company Name</span
-                    ><span className="city">New York City</span>
+                                            <span className="company-name">Company Name</span
+                                            ><span className="city">New York City</span>
                                         </h6>
                                         <p className="description">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -201,8 +209,8 @@ const Resume = () => {
                                         </h5>
                                         <span className="years">2014-2016</span>
                                         <h6>
-                      <span className="university-name">University Name</span
-                      ><span className="city">New York City</span>
+                                              <span className="university-name">University Name</span
+                                              ><span className="city">New York City</span>
                                         </h6>
                                     </li>
                                     <li>
@@ -212,8 +220,8 @@ const Resume = () => {
                                         </h5>
                                         <span className="years">2014-2016</span>
                                         <h6>
-                      <span className="university-name">University Name</span
-                      ><span className="city">New York City</span>
+                                              <span className="university-name">University Name</span
+                                              ><span className="city">New York City</span>
                                         </h6>
                                     </li>
                                     <li>
@@ -223,8 +231,8 @@ const Resume = () => {
                                         </h5>
                                         <span className="years">2014-2016</span>
                                         <h6>
-                      <span className="university-name">University Name</span
-                      ><span className="city">New York City</span>
+                                              <span className="university-name">University Name</span
+                                              ><span className="city">New York City</span>
                                         </h6>
                                     </li>
 

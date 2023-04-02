@@ -11,13 +11,14 @@ import {
     faShapes
 } from '@fortawesome/free-solid-svg-icons'
 import {useSelector} from "react-redux";
-import {AppState} from "../../../../../store";
+import { RootState} from "../../../../../store";
 
 const Sidebar = () => {
 
+
     const router = useRouter();
 
-    const collapseState = useSelector((state: AppState) => state.collapse);
+    const collapseState = useSelector((state: RootState) => state.collapse.collapse);
 
     const [menuList] = useState([
         {
@@ -69,7 +70,7 @@ const Sidebar = () => {
                     {menuList.map((menuItem, menuIndex) => {
                         return (
                             <li key={menuIndex}>
-                                <Link href={menuItem.link} className={router.pathname == menuItem.link ? 'active' : ''}>
+                                <Link href={menuItem.link} className={(router.pathname == menuItem.link) || (router.pathname == menuItem.link+'/add') ? 'active' : ''}>
                                     <FontAwesomeIcon icon={menuItem.icon} size="lg" fixedWidth
                                                      className='icon'/> {menuItem.title}
                                 </Link>

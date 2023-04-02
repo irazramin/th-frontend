@@ -6,6 +6,10 @@ import Link from "next/link";
 import {ErrorMessage} from "@hookform/error-message";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEnvelopeOpen, faKey} from '@fortawesome/free-solid-svg-icons'
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../store";
+import {fetchApi} from "../../features/postApiSlice"
+import {useRouter} from "next/router";
 
 interface IFormInput {
     email: string,
@@ -13,10 +17,30 @@ interface IFormInput {
 }
 
 const Login = () => {
+    const router = useRouter();
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>({criteriaMode: "all"});
+    const dispatch = useDispatch<AppDispatch>();
+    const URL = 'auth/login'
+    const {isLoading, apiResponse, error} = useSelector(((state: RootState) => state.postApi))
 
     const onsubmit: SubmitHandler<IFormInput> = data => {
-        console.log(data)
+
+        dispatch(fetchApi({
+            url: "http://localhost:8091/api/v1/auth/login",
+            payload: data
+        }));
+
+
+        console.log(apiResponse)
+
+        if (apiResponse?.data?.user?.user_type === 1) {
+            router.push("/portal/admin/dashboard").then(r => r)
+        } else if (apiResponse?.data?.user?.user_type === 2) {
+            router.push("/portal/employer/dashboard").then(r => r)
+        } else if (apiResponse?.data?.user?.user_type === 3) {
+            router.push("/portal/user/dashboard").then(r => r)
+        }
+
     }
 
     return (
@@ -57,7 +81,7 @@ const Login = () => {
                                                 // }
                                             })} type="email" name="email" placeholder="Email"/>
                                             {/*<i className="bx bx-envelope icon"/>*/}
-                                            <FontAwesomeIcon icon={faEnvelopeOpen} className='icon' />
+                                            <FontAwesomeIcon icon={faEnvelopeOpen} className='icon'/>
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
@@ -74,7 +98,8 @@ const Login = () => {
                                                         alignItems: "center",
                                                         gap: "10px"
                                                     }} className='password-error-message'>
-                                                        <i className='bx bx-error-circle'  style={{fontSize: "17px"}}/> {message}</p>
+                                                        <i className='bx bx-error-circle'
+                                                           style={{fontSize: "17px"}}/> {message}</p>
                                                 ))
                                             }
                                         />
@@ -89,7 +114,7 @@ const Login = () => {
                                                 //     message: "password should be atleast 8 characters"
                                                 // }
                                             })} type="password" name="password" placeholder="Password"/>
-                                            <FontAwesomeIcon icon={faKey} className='icon' />
+                                            <FontAwesomeIcon icon={faKey} className='icon'/>
 
                                         </div>
                                         <ErrorMessage
@@ -107,7 +132,8 @@ const Login = () => {
                                                         alignItems: "center",
                                                         gap: "10px"
                                                     }} className='password-error-message'>
-                                                        <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                        <i className='bx bx-error-circle'
+                                                           style={{fontSize: "17px"}}/> {message}</p>
                                                 ))
                                             }
                                         />

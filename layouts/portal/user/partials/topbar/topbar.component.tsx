@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import {collapseAction} from "../../../../../features/sidebarCollapaseSlice";
 import {useDispatch, useSelector} from "react-redux";
-import {AppState} from "../../../../../store";
+import {AppDispatch, RootState} from "../../../../../store";
 
 const Topbar = () => {
     const [showDropdown, setShowDropdown] = useState(false);
-    const dispatch = useDispatch();
-    const collapseState = useSelector((state: AppState) => state.collapse);
+    const dispatch = useDispatch<AppDispatch>();
+    const collapseState = useSelector((state: RootState) => state.collapse.collapse);
 
     return (
         <>

@@ -2,10 +2,12 @@ import {UserPortalLayout} from "../../../../layouts";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import Link from "next/link";
 import {useRouter} from "next/router";
+import {useState} from "react";
 
 
 const Job = () => {
     const router = useRouter();
+    const [showFilterSection, setShowFilterSection] = useState(false);
     return (
         <>
             <UserPortalLayout>
@@ -16,7 +18,7 @@ const Job = () => {
                     <div className="all-jobs">
                         <section className="job-post-section">
                             <h2 className="show-jobs-result">Showing 48 Jobs</h2>
-                            <button className="show-filter-btn "><i className='bx bx-filter-alt'></i> Filter</button>
+                            <button onClick={() => setShowFilterSection(!showFilterSection)} className="show-filter-btn "><i className='bx bx-filter-alt'></i> Filter</button>
 
                             <div className="jobs">
                                 <div className="job card">
@@ -246,7 +248,7 @@ const Job = () => {
                         </section>
 
 
-                        <section className="job-filtering-section">
+                        <section className={`job-filtering-section ${showFilterSection && 'show-filter'}`}>
                             <div className="filter-bar">
                                 <i className='bx bx-x icon' id="close-filter"></i>
 

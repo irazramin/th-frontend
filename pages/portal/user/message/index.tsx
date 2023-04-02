@@ -9,9 +9,57 @@ import {
     faPaperPlane,
     faPenToSquare
 } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
+import Conversation from "../../../../components/chat/Conversation";
 
-const Dashboard = () => {
+const Message = () => {
+    const [conversations, setConversation] = useState([]);
+    const [messages, setMessages] = useState([]);
+    const [rel, setRel] = useState([]);
+    const [chatMessages, setChatMessages] = useState('');
+    const [conversationId, setConversationId] = useState('');
+    const scrollRef = useRef();
+    const currentUser = '640f43a1a6df07568a20e29e';
+    useEffect(() => {
+        async function fetchConversationData() {
+            fetch(`http://localhost:4000/api/v1/conversation`).then((res:Response) => res.json()).then((data: any) => setConversation(data));
+        }
+        fetchConversationData();
+    }, [rel]);
+
+    const handleChatClick = (id: any) => {
+        fetch(`http://localhost:4000/api/v1/message/${id}`).then((res:Response) => res.json()).then(data => setMessages(data));
+        setConversationId(id);
+    }
+
+    const handleMessageSubmit = (e: Event) => {
+        const message = {
+            conversationId: conversationId,
+            senderId: currentUser,
+            text: chatMessages
+        }
+        e.preventDefault();
+        fetch(`http://localhost:4000/api/v1/message`, {
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(message)
+        }).then(res => res.json()).then((data: any) => {
+            // @ts-ignore
+            setMessages([...messages, data]);
+            // @ts-ignore
+            setRel(true);
+            setChatMessages(' ');
+        });
+    }
+
+    useEffect(() => {
+        // @ts-ignore
+        scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messages]);
+
+    // @ts-ignore
     return (
         <>
             <UserPortalLayout>
@@ -37,160 +85,13 @@ const Dashboard = () => {
                             </div>
                             <div className="chats">
                                 <ul>
-                                    <li className='active'>
-                                        <div className="chat-img">
-                                            <div className='active-status'/>
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className='chat-details'>
-                                            <div className="chat-name-time">
-                                                <h4>Iraz Ramin</h4>
-                                                <span>12:46 AM</span>
-                                            </div>
-                                            <div className="message-overview">
-                                                <p>Hello iraz, how are you? </p>
-                                                <div className="message-notif">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                    </li >
-                                    <li>
-                                        <div className="chat-img">
-                                            <div className='active-status'/>
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className='chat-details'>
-                                            <div className="chat-name-time">
-                                                <h4>Iraz Ramin</h4>
-                                                <span>12:46 AM</span>
-                                            </div>
-                                            <div className="message-overview">
-                                                <p>Hello iraz, how are you? </p>
-                                                <div className="message-notif">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                    </li>
-                                    <li>
-                                        <div className="chat-img">
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className='chat-details'>
-                                            <div className="chat-name-time">
-                                                <h4>Iraz Ramin</h4>
-                                                <span>12:46 AM</span>
-                                            </div>
-                                            <div className="message-overview">
-                                                <p>Hello iraz, how are you? </p>
-                                                <div className="message-notif">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                    </li>
-                                    <li>
-                                        <div className="chat-img">
-                                            <div className='active-status'/>
-
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className='chat-details'>
-                                            <div className="chat-name-time">
-                                                <h4>Iraz Ramin</h4>
-                                                <span>12:46 AM</span>
-                                            </div>
-                                            <div className="message-overview">
-                                                <p>Hello iraz, how are you? </p>
-                                                <div className="message-notif">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                    </li>
-                                    <li>
-                                        <div className="chat-img">
-                                            <div className='active-status'/>
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className='chat-details'>
-                                            <div className="chat-name-time">
-                                                <h4>Iraz Ramin</h4>
-                                                <span>12:46 AM</span>
-                                            </div>
-                                            <div className="message-overview">
-                                                <p>Hello iraz, how are you? </p>
-                                                <div className="message-notif">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                    </li>
-                                    <li>
-                                        <div className="chat-img">
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className='chat-details'>
-                                            <div className="chat-name-time">
-                                                <h4>Iraz Ramin</h4>
-                                                <span>12:46 AM</span>
-                                            </div>
-                                            <div className="message-overview">
-                                                <p>Hello iraz, how are you? </p>
-                                                <div className="message-notif">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                    </li>
-                                    <li>
-                                        <div className="chat-img">
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className='chat-details'>
-                                            <div className="chat-name-time">
-                                                <h4>Iraz Ramin</h4>
-                                                <span>12:46 AM</span>
-                                            </div>
-                                            <div className="message-overview">
-                                                <p>Hello iraz, how are you? </p>
-                                                <div className="message-notif">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                    </li>
-                                    <li>
-                                        <div className="chat-img">
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className='chat-details'>
-                                            <div className="chat-name-time">
-                                                <h4>Iraz Ramin</h4>
-                                                <span>12:46 AM</span>
-                                            </div>
-                                            <div className="message-overview">
-                                                <p>Hello iraz, how are you? </p>
-                                                <div className="message-notif">
-                                                    <span>2</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                    </li>
+                                    {conversations.map((con :any )=> <Conversation conversation={con} currentUser={currentUser}
+                                                                            handleChatClick={handleChatClick}/>)}
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div className='chat-section cards'>
+                    <div ref={scrollRef} className='chat-section cards' >
                         <div className='chatbox-header'>
                             <div className='user-details'>
                                 <div className="chat-img">
@@ -346,4 +247,4 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard
+export default Message

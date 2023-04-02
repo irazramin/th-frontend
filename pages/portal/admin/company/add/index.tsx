@@ -6,6 +6,10 @@ import {DefaultCard, TitleCard} from "../../../../../components/cards";
 import {ErrorMessage} from "@hookform/error-message";
 import React from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
+import {getFetchApi} from "../../../../../features/getApiSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../../store";
+import {fetchApi} from "../../../../../features/postApiSlice";
 
 interface IFormInput {
     companyName: String,
@@ -18,9 +22,15 @@ const Add = () => {
     const router = useRouter();
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>({criteriaMode: "all"});
 
+    const dispatch = useDispatch<AppDispatch>();
+    const {isLoading, apiResponse, error} = useSelector(((state: RootState) => state.postApi))
+
     const onsubmit: SubmitHandler<IFormInput> = data => {
         console.log(data)
+        dispatch(fetchApi({url: "http://localhost:8091/api/v1/company", payload: data}));
     }
+
+    console.log(apiResponse)
 
     return (
         <>

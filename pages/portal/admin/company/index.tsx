@@ -6,9 +6,23 @@ import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import {Datatable} from "../../../../components/tables";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../store";
+import {useEffect} from "react";
+import {getFetchApi} from "../../../../features/getApiSlice";
+import {deleteFetchApi} from "../../../../features/deleteApiSlice";
 
 const Company = () => {
     const router = useRouter();
+
+    const dispatch = useDispatch<AppDispatch>();
+
+    const {isLoading, apiResponse, error} = useSelector(((state: RootState) => state.getApi))
+    const {deleteIsLoading, deleteApiResponse, deleteError} = useSelector(((state: RootState) => state.deleteApi))
+
+    useEffect(() =>{
+        dispatch(getFetchApi());
+    }, [])
 
     const tableProps = {
         name: 'userList',
@@ -29,6 +43,11 @@ const Company = () => {
 
     const handleDtOnCheck = (e: any) => {
         alert('Check clicked')
+    }
+
+    const deleteTableData =( id: any ) => {
+        dispatch(deleteFetchApi(id))
+        console.log(deleteApiResponse)
     }
 
     const tableData = [
@@ -117,23 +136,23 @@ const Company = () => {
                         {...tableProps}
                         onCheckAll={handleDtOnCheckAll}
                     >
-                        { tableData.map(data => {
+                        { apiResponse?.data?.map((value:any) => {
                             return (
                                 <tr className='datatable-row'>
                                     <td>
                                         <input onClick={handleDtOnCheck} type="checkbox"/>
                                     </td>
 
-                                    <td>{data.id}</td>
-                                    <td>{data.companyName}</td>
-                                    <td>{data.email}</td>
-                                    <td>{data.phone}</td>
-                                    <td><a href={data.website} target="_blank">{data.website}</a></td>
+                                    <td>{value.id}</td>
+                                    <td>{value.companyName}</td>
+                                    <td>{value.email}</td>
+                                    <td>{value.phone}</td>
+                                    <td><a href={value.website} target="_blank">{value.website}</a></td>
                                     <td >
                                         <div className="action-btns">
                                             <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
                                             <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+                                            <button className='action-btn' onClick={() => deleteTableData(value.id)}><FontAwesomeIcon icon={faTrashCan} /></button>
 
                                         </div>
                                     </td>
