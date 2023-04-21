@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import 'react-responsive-modal/styles.css';
 import type {AppProps} from 'next/app'
 import NextNProgress from 'nextjs-progressbar';
 import {store} from "../store";

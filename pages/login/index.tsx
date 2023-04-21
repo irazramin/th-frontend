@@ -26,18 +26,18 @@ const Login = () => {
     const onsubmit: SubmitHandler<IFormInput> = data => {
 
         dispatch(fetchApi({
-            url: "http://localhost:8091/api/v1/auth/login",
+            url: "http://localhost:3032/api/v1/login",
             payload: data
         }));
 
 
         console.log(apiResponse)
 
-        if (apiResponse?.data?.user?.user_type === 1) {
+        if (apiResponse?.data?.user?.userType === 1) {
             router.push("/portal/admin/dashboard").then(r => r)
-        } else if (apiResponse?.data?.user?.user_type === 2) {
+        } else if (apiResponse?.data?.user?.usertype === 2) {
             router.push("/portal/employer/dashboard").then(r => r)
-        } else if (apiResponse?.data?.user?.user_type === 3) {
+        } else if (apiResponse?.data?.user?.userType === 3) {
             router.push("/portal/user/dashboard").then(r => r)
         }
 

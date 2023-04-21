@@ -3,7 +3,7 @@ import axios from "axios";
 import {fetchApi} from "./postApiSlice";
 
 export const deleteFetchApi = createAsyncThunk("PostApi/fetchApi", async (id,thunkAPI) => {
-    const res = await axios.delete(`http://localhost:8091/api/v1/company/${id}`);
+    const res = await axios.delete(`http://localhost:3033/api/v1/company/${id}/delete`);
     return res.data;
 });
 

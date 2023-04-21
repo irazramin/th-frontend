@@ -4,14 +4,14 @@ import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../../components/cards";
 import {ErrorMessage} from "@hookform/error-message";
-import React from "react";
+import React, { useEffect } from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {getFetchApi} from "../../../../../features/getApiSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../store";
 import {fetchApi} from "../../../../../features/postApiSlice";
-import { toast } from "react-hot-toast";
-import ToastMessage from "../../../../../components/toast/ToastMessage";
+import { getByIdFetchApi } from "../../../../../features/getApiByIdSlice";
+import { putApi } from "../../../../../features/putApiSlice";
 
 interface IFormInput {
     name: String,
@@ -22,23 +22,32 @@ interface IFormInput {
 
 
 
-const Add = () => {
+const Edit = () => {
     const router = useRouter();
-    const {register, handleSubmit, formState: {errors}, reset} = useForm<IFormInput>({criteriaMode: "all"});
+    const { id } = router.query;
+
+    const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>({criteriaMode: "all"});
 
     const dispatch = useDispatch<AppDispatch>();
-    const {isLoading, apiResponse, error} = useSelector(((state: RootState) => state.postApi))
+    const {isLoading, apiResponse, error} = useSelector(((state: RootState) => state.getApiById));
+    const {putIsLoading, putApiResponse, putAPiError} = useSelector(((state: RootState) => state.putApi));
 
     const onsubmit: SubmitHandler<IFormInput> = data => {
-        dispatch(fetchApi({url: "http://localhost:3033/api/v1/company", payload: data}));
-        reset();
-        toast("Company added successfully", { icon: "✅" });
-        }
+        dispatch(putApi({url: `http://localhost:3033/api/v1/company/${id}`, payload: data}));
+    }
+
+    useEffect(() => {
+        dispatch(getByIdFetchApi({url: "http://localhost:3033/api/v1/company/", payload: id}));
+    }, []);
+
+    console.log(putApiResponse);
+
+    
 
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Add">
+                <TitleCard title="Edit">
                         <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
                 </TitleCard>
                 <DefaultCard>
@@ -53,7 +62,7 @@ const Add = () => {
                                             value: 50,
                                             message: "This input exceed maxLength."
                                         }
-                                    })} type="text" name="name" placeholder="Company Name"/>
+                                    })} type="text" name="name" defaultValue={apiResponse?.data?.name}  placeholder="Company Name"/>
 
                                 </div>
                                 <ErrorMessage
@@ -85,7 +94,7 @@ const Add = () => {
                                             value: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
                                             message: "Enter a valid email"
                                         }
-                                    })} type="email" name="email" placeholder="Email"/>
+                                    })} type="email" name="email" defaultValue={apiResponse?.data?.email} placeholder="Email"/>
                                 </div>
                                 <ErrorMessage
                                     errors={errors}
@@ -121,6 +130,7 @@ const Add = () => {
                                         type="text"
                                         name="phone"
                                         placeholder="Phone"
+                                        defaultValue={apiResponse?.data?.phone}
                                     />
                                 </div>
                                 <ErrorMessage
@@ -157,6 +167,7 @@ const Add = () => {
                                         type="text"
                                         name="website"
                                         placeholder="Link"
+                                        defaultValue={apiResponse?.data?.website}
                                     />
                                 </div>
                                 <ErrorMessage
@@ -185,12 +196,10 @@ const Add = () => {
                             </div>
                         </form>
                     </div>
-                 <ToastMessage />
-
                 </DefaultCard>
             </AdminPortalLayout>
         </>
     );
 }
 
-export default Add
+export default Edit
