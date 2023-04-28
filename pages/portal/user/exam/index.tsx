@@ -55,11 +55,11 @@ const Exam = () => {
                             <td>
                                 01770000001
                             </td>
-                            <td >
+                            <td>
                                 <div className="action-btns">
-                                    <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                    <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                    <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+                                    <button className='action-btn'><FontAwesomeIcon icon={faPen}/></button>
+                                    <button className='action-btn'><FontAwesomeIcon icon={faEye}/></button>
+                                    <button className='action-btn'><FontAwesomeIcon icon={faTrashCan}/></button>
 
                                 </div>
                             </td>

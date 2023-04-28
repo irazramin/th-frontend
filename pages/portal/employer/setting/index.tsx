@@ -5,7 +5,7 @@ const Setting = () => {
     return (
         <>
             <EmployerPortalLayout>
-                <TitleCard title="Settings" />
+                <TitleCard title="Settings"/>
                 <DefaultCard>
                     <p>Test</p>
                 </DefaultCard>

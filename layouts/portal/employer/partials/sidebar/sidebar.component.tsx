@@ -44,18 +44,6 @@ const Sidebar = () => {
             title: 'Exams',
             icon: faFilePen,
             link: '/portal/employer/exam'
-        },
-        {
-            id: 5,
-            title: 'Questions',
-            icon: faFileCircleQuestion,
-            link: '/portal/employer/question'
-        },
-        {
-            id: 6,
-            title: 'Setting',
-            icon: faGear,
-            link: '/portal/employer/setting'
         }
     ]);
 

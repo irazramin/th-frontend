@@ -14,19 +14,18 @@ const initialState: any = {
 }
 
  const putApiSlice = createSlice({
-
     name: 'UpdateData',
     initialState: initialState,
     extraReducers: (builder) => {
-        builder.addCase(putApi.pending, ((state, action) => {
+        builder.addCase(putApi.pending, ((state, action: any) => {
             state.putIsLoading = true;
         }));
-        builder.addCase(putApi.fulfilled, ((state, action) => {
+        builder.addCase(putApi.fulfilled, ((state, action: any) => {
             state.putIsLoading= false;
             state.putApiResponse = action.payload;
             state.putAPiError = '';
         }));
-        builder.addCase(putApi.rejected, (state, action) => {
+        builder.addCase(putApi.rejected, (state, action: any) => {
             state.putIsLoading= false;
             state.putApiResponse = [];
             state.putAPiError = action.putAPiError.message;

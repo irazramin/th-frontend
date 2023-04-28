@@ -1,133 +1,117 @@
-import { AdminPortalLayout } from "../../../../layouts";
+import {AdminPortalLayout} from "../../../../layouts";
 import Link from "next/link";
-import { ButtonGreenSm } from "../../../../components/buttons";
-import {
-  faEye,
-  faPen,
-  faPlus,
-  faTrashCan,
-} from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/router";
-import { DefaultCard, TitleCard } from "../../../../components/cards";
-import { Datatable } from "../../../../components/tables";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {ActionButton, ButtonGreenSm} from "../../../../components/buttons";
+import {faPlus,} from "@fortawesome/free-solid-svg-icons";
+import {useRouter} from "next/router";
+import {DefaultCard, TitleCard} from "../../../../components/cards";
+import {Datatable} from "../../../../components/tables";
+import React, {useEffect, useState} from "react";
+import {AppDispatch, RootState} from "../../../../store";
+import {useDispatch, useSelector} from "react-redux";
+import {callApi} from "../../../../features/apiSlice";
+import {HttpHethod} from "../../../../constants";
+import {UrlHelper} from "../../../../helpers";
+import Cookies from "js-cookie";
 
 const Category = () => {
-  const router = useRouter();
-  const tableProps = {
-    name: "userList",
-    headers: [
-      { id: 1, name: "ID", storable: false },
-      { id: 2, name: "CATEGORY", storable: false },
-      { id: 3, name: "SUBCATEGORY", storable: false },
-    ],
-    enableCheckbox: true,
-    enableAction: true,
-  };
+    const router = useRouter();
+    const dispatch = useDispatch<AppDispatch>();
 
-  const tableData = [
-    {
-      id: 1,
-      categoryName: "Healthcare Job",
-      subcategory: 2,
-    },
-    {
-      id: 2,
-      categoryName: "Engineering Job",
-      subcategory: 3,
-    },
-    {
-      id: 3,
-      categoryName: "Customer Service Job",
-      subcategory: 1,
-    },
-    {
-      id: 4,
-      categoryName: "Finance and Accounting Job",
-      subcategory: 2,
-    },
-    {
-      id: 5,
-      categoryName: "Researcher/Analyst Job",
-      subcategory: 1,
-    },
-    {
-      id: 6,
-      categoryName: "Teacher Job",
-      subcategory: 3,
-    },
-    {
-      id: 7,
-      categoryName: "Marketing Job",
-      subcategory: 2,
-    },
-    {
-      id: 8,
-      categoryName: "Information Technology (IT) Job",
-      subcategory: 3,
-    },
-    {
-      id: 9,
-      categoryName: "KAZ SOFTWARE",
-      subcategory: "info@kaz.com.bd",
-    },
-    {
-      id: 10,
-      categoryName: "BJIT",
-      subcategory: "info@bjitgroup.com",
-    },
-  ];
+    const tableProps = {
+        id: "categoryList",
+        store: "categoryList",
+        headers: [
+            {id: 1, name: "ID", storable: false},
+            {id: 2, name: "NAME", storable: false},
+            {id: 3, name: "IMAGE", storable: false},
+        ],
+        meta: null
+    };
 
-  const handleDtOnCheckAll = (e: any) => {
-    alert("Check all clicked");
-  };
+    const [params, setParams] = useState({page: 1, limit: 10, search: ""});
 
-  const handleDtOnCheck = (e: any) => {
-    alert("Check clicked");
-  };
-  return (
-    <>
-      <AdminPortalLayout>
-        <TitleCard title="Category">
-          <Link href={router.pathname + "/add"}>
-            <ButtonGreenSm icon={faPlus}>Add Category</ButtonGreenSm>
-          </Link>
-        </TitleCard>
-        <DefaultCard>
-          <Datatable {...tableProps} onCheckAll={handleDtOnCheckAll}>
-            {tableData.map((data) => {
-              return (
-                <tr className="datatable-row">
-                  <td>
-                    <input onClick={handleDtOnCheck} type="checkbox" />
-                  </td>
+    const [isMounted, setIsMounted] = useState(false);
 
-                  <td>{data.id}</td>
-                  <td>{data.categoryName}</td>
-                  <td>{data.subcategory}</td>
-                  <td>
-                    <div className="action-btns">
-                      <Link href={router.pathname + "/edit"}>
-                        <button className="action-btn">
-                          <FontAwesomeIcon icon={faPen} />
-                        </button>
-                      </Link>
-                      <button className="action-btn">
-                        <FontAwesomeIcon icon={faEye} />
-                      </button>
-                      <button className="action-btn">
-                        <FontAwesomeIcon icon={faTrashCan} />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-          </Datatable>
-        </DefaultCard>
-      </AdminPortalLayout>
-    </>
-  );
+    const {categoryList = {data: [], meta: null}, categoryDelete = {time: null}, isLoading = false} = useSelector(
+        (state: RootState) => state.callApi
+    );
+
+    useEffect(() => {
+        fetchData();
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (isMounted) {
+            fetchData();
+        }
+    }, [params.limit, params.page, params.search]);
+
+    useEffect(() => {
+        if (isMounted && categoryDelete.time != null) {
+            fetchData();
+        }
+    }, [categoryDelete.time]);
+
+    const fetchData = () => {
+        dispatch(callApi({
+            method: HttpHethod.GET,
+            url: UrlHelper.coreMS('api/v1/category/list'),
+            params: params,
+            storeName: 'categoryList',
+            defaultValue: [],
+            showToast: false
+        }));
+    };
+
+    const deleteData = (id: string) => {
+        if (confirm("Are you sure to delete? Data will be lost permanently!")) {
+            dispatch(callApi({
+                method: HttpHethod.DELETE,
+                url: UrlHelper.coreMS(`api/v1/category/${id}/delete`),
+                params: params,
+                storeName: 'categoryDelete',
+                defaultValue: null,
+                showToast: true
+            }));
+        }
+    };
+
+    return (
+        <>
+            <AdminPortalLayout>
+                <TitleCard title="Category">
+                    <Link href={router.pathname + "/add"}>
+                        <ButtonGreenSm icon={faPlus}>Add Category</ButtonGreenSm>
+                    </Link>
+                </TitleCard>
+                <DefaultCard>
+                    <Datatable {...tableProps}
+                               meta={categoryList.meta}
+                               onChangeLimit={(value: any) => setParams({...params, limit: value})}
+                               onChangePage={(value: any) => setParams({...params, page: value})}
+                               onChangeSearch={(value: any) => setParams({...params, search: value})}
+                    >
+                        {categoryList?.data?.length > 0 && categoryList.data.map((category: any, categoryIndex: number) => (
+                            <tr key={categoryIndex}>
+                                <td>{((params.page - 1) * params.limit) + categoryIndex + 1}</td>
+                                <td>{category.name}</td>
+                                <td>{category.image}</td>
+                                <td>
+                                    <ActionButton
+                                        key={`show${categoryIndex}`}
+                                        onShow={() => router.push(`category/${category._id}`)}
+                                        onEdit={() => router.push(`category/${category._id}/edit`)}
+                                        onDelete={() => deleteData(category._id)}
+                                    />
+                                </td>
+                            </tr>
+                        ))}
+                    </Datatable>
+                </DefaultCard>
+            </AdminPortalLayout>
+        </>
+    );
 };
 
 export default Category;

@@ -33,7 +33,7 @@ const Add = () => {
         <>
             <EmployerPortalLayout>
                 <TitleCard title="Add">
-                        <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
+                    <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
                 </TitleCard>
                 <DefaultCard>
                     <div className="add-items">
@@ -66,7 +66,8 @@ const Add = () => {
                                                     alignItems: "center",
                                                     gap: "10px"
                                                 }} className='password-error-message'>
-                                                    <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                    <i className='bx bx-error-circle'
+                                                       style={{fontSize: "17px"}}/> {message}</p>
                                             ))
                                         }
                                     />
@@ -80,7 +81,7 @@ const Add = () => {
                                                 value: 50,
                                                 message: "This input exceed maxLength."
                                             }
-                                        })}  name="category">
+                                        })} name="category">
                                             <option value="informationAndTechnology">Information And Technology</option>
                                             <option value="financeAndAccounting">Finance And Accounting</option>
                                             <option value="marketing">Marketing</option>
@@ -104,7 +105,8 @@ const Add = () => {
                                                     alignItems: "center",
                                                     gap: "10px"
                                                 }} className='password-error-message'>
-                                                    <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                    <i className='bx bx-error-circle'
+                                                       style={{fontSize: "17px"}}/> {message}</p>
                                             ))
                                         }
                                     />
@@ -138,17 +140,17 @@ const Add = () => {
                                                     alignItems: "center",
                                                     gap: "10px"
                                                 }} className='password-error-message'>
-                                                    <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                    <i className='bx bx-error-circle'
+                                                       style={{fontSize: "17px"}}/> {message}</p>
                                             ))
                                         }
                                     />
                                 </div>
 
                                 <div className="action-btn col-md-12">
-                                    <ButtonGreenMd >Save</ButtonGreenMd>
+                                    <ButtonGreenMd>Save</ButtonGreenMd>
                                 </div>
                             </div>
-
 
 
                         </form>

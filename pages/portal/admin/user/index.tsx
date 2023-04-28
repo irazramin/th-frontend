@@ -1,7 +1,6 @@
 import {AdminPortalLayout} from "../../../../layouts";
 import Link from "next/link";
-import {ButtonGreenSm} from "../../../../components/buttons";
-import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";
+import {faEye, faPen, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import {Datatable} from "../../../../components/tables";
@@ -146,7 +145,6 @@ const User = () => {
     }
 
 
-
     return (
         <>
             <AdminPortalLayout>
@@ -160,7 +158,7 @@ const User = () => {
                         {...tableProps}
                         onCheckAll={handleDtOnCheckAll}
                     >
-                        { tableData.map(data => {
+                        {tableData.map(data => {
                             return (
                                 <tr className='datatable-row'>
                                     <td>
@@ -172,18 +170,18 @@ const User = () => {
                                     <td>{data.email}</td>
                                     <td>{data.phone}</td>
                                     <td>{data.address}</td>
-                                    <td >
+                                    <td>
                                         <div className="action-btns">
-                                            <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faPen}/></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faEye}/></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan}/></button>
 
                                         </div>
                                     </td>
                                 </tr>
 
                             )
-                        }) }
+                        })}
 
                     </Datatable>
                 </DefaultCard>

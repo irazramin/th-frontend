@@ -33,10 +33,10 @@ const Dashboard = () => {
     return (
         <EmployerPortalLayout>
             <TitleCard title="Question">
-                    <Link href={router.pathname + '/add'}>
-                        <ButtonGreenSm icon={faPlus}>Add Question</ButtonGreenSm>
-                    </Link>
-                </TitleCard>
+                <Link href={router.pathname + '/add'}>
+                    <ButtonGreenSm icon={faPlus}>Add Question</ButtonGreenSm>
+                </Link>
+            </TitleCard>
             <DefaultCard>
                 <Datatable
                     {...tableProps}
@@ -61,11 +61,11 @@ const Dashboard = () => {
                         <td>
                             01770000001
                         </td>
-                        <td >
+                        <td>
                             <div className="action-btns">
-                                <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+                                <button className='action-btn'><FontAwesomeIcon icon={faPen}/></button>
+                                <button className='action-btn'><FontAwesomeIcon icon={faEye}/></button>
+                                <button className='action-btn'><FontAwesomeIcon icon={faTrashCan}/></button>
 
                             </div>
                         </td>

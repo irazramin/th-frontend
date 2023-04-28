@@ -1,14 +1,22 @@
 import {AdminPortalLayout} from "../../../../layouts";
 import Link from "next/link";
-import {ButtonGreenSm} from "../../../../components/buttons";
+import {ActionButton, ButtonGreenSm} from "../../../../components/buttons";
 import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import {Datatable} from "../../../../components/tables";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../store";
+import React, {useEffect, useState} from "react";
+import {callApi} from "../../../../features/apiSlice";
+import {HttpHethod} from "../../../../constants";
+import {UrlHelper} from "../../../../helpers";
 
 const Subcategory = () => {
     const router = useRouter();
+    const dispatch = useDispatch<AppDispatch>();
+
     const tableProps = {
         name: 'userList',
         headers: [
@@ -20,136 +28,85 @@ const Subcategory = () => {
         enableAction: true
     }
 
-    const tableData = [
-        {
-            id: 1,
-            subCategoryName: "Medical Administrator",
-            category: "Healthcare Job",
-        },
-        {
-            id: 2,
-            subCategoryName: "Medical Laboratory Tech",
-            category: "Healthcare Job",
-        },
-        {
-            id: 3,
-            subCategoryName: "Assistant Engineer",
-            category: "Engineering Job",
-        },
-        {
-            id: 4,
-            subCategoryName: "Mechanical Engineer",
-            category: "Engineering Job",
-        },
-        {
-            id: 5,
-            subCategoryName: "Production Engineer",
-            category: "Engineering Job",
-        },
-        {
-            id: 6,
-            subCategoryName: "Client Service Specialist",
-            category: "Customer Service",
-        },
-        {
-            id: 7,
-            subCategoryName: "Accounting Analyst",
-            category: "Finance and Accounting Job",
-        },
-        {
-            id: 8,
-            subCategoryName: "Payroll Manager",
-            category: "Finance and Accounting Job",
-        },
-        {
-            id: 9,
-            subCategoryName: "Business Analyst",
-            category: "Researcher/Analyst Job",
-        },
-        {
-            id: 10,
-            subCategoryName: "Assistant Professor",
-            category: "Teacher Job",
-        },
-        {
-            id: 11,
-            subCategoryName: "Mentor",
-            category: "Teacher Job",
-        },
-        {
-            id: 12,
-            subCategoryName: "Teaching Assistant",
-            category: "Teacher Job",
-        },
-        {
-            id: 13,
-            subCategoryName: "Digital Marketing Manager",
-            category: "Marketing Job",
-        },
-        {
-            id: 14,
-            subCategoryName: "SEO Manager",
-            category: "Marketing Job",
-        },
-        {
-            id: 15,
-            subCategoryName: "Software Engineer",
-            category: "Information Technology (IT) Job",
-        },
-        {
-            id: 16,
-            subCategoryName: "UX Designer & UI Developer",
-            category: "Information Technology (IT) Job",
-        },
-        {
-            id: 17,
-            subCategoryName: "SQL Developer",
-            category: "Information Technology (IT) Job",
-        },
-    ]
-    const handleDtOnCheckAll = (e: any) => {
-        alert('Check all clicked')
-    }
+    const [params, setParams] = useState({page: 1, limit: 10, search: ""});
 
-    const handleDtOnCheck = (e: any) => {
-        alert('Check clicked')
-    }
+    const [isMounted, setIsMounted] = useState(false);
+
+    const {subcategoryList = {data: [], meta: null}, subcategoryDelete = {time: null}, isLoading = false} = useSelector(
+        (state: RootState) => state.callApi
+    );
+
+    useEffect(() => {
+        fetchData();
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (isMounted) {
+            fetchData();
+        }
+    }, [params.limit, params.page, params.search]);
+
+    useEffect(() => {
+        if (isMounted && subcategoryDelete.time != null) {
+            fetchData();
+        }
+    }, [subcategoryDelete.time]);
+
+    const fetchData = () => {
+        dispatch(callApi({
+            method: HttpHethod.GET,
+            url: UrlHelper.coreMS('api/v1/subcategory/list'),
+            params: params,
+            storeName: 'subcategoryList',
+            defaultValue: [],
+            showToast: false
+        }));
+    };
+
+    const deleteData = (id: string) => {
+        if (confirm("Are you sure to delete? Data will be lost permanently!")) {
+            dispatch(callApi({
+                method: HttpHethod.DELETE,
+                url: UrlHelper.coreMS(`api/v1/subcategory/${id}/delete`),
+                params: params,
+                storeName: 'subcategoryDelete',
+                defaultValue: null,
+                showToast: true
+            }));
+        }
+    };
+
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard  title="Subcategory">
+                <TitleCard title="Subcategory">
                     <Link href={router.pathname + '/add'}>
                         <ButtonGreenSm icon={faPlus}>Add Subcategory</ButtonGreenSm>
                     </Link>
                 </TitleCard>
                 <DefaultCard>
-                    <Datatable
-                        {...tableProps}
-                        onCheckAll={handleDtOnCheckAll}
+                    <Datatable {...tableProps}
+                               meta={subcategoryList.meta}
+                               onChangeLimit={(value: any) => setParams({...params, limit: value})}
+                               onChangePage={(value: any) => setParams({...params, page: value})}
+                               onChangeSearch={(value: any) => setParams({...params, search: value})}
                     >
-                        { tableData.map(data => {
-                            return (
-                                <tr className='datatable-row'>
-                                    <td>
-                                        <input onClick={handleDtOnCheck} type="checkbox"/>
-                                    </td>
-
-                                    <td>{data.id}</td>
-                                    <td>{data.subCategoryName}</td>
-                                    <td>{data.category}</td>
-                                    <td >
-                                        <div className="action-btns">
-                                            <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            )
-                        }) }
-
+                        {subcategoryList?.data?.length > 0 && subcategoryList.data.map((subcategory: any, subcategoryIndex: number) => (
+                            <tr key={subcategoryIndex}>
+                                <td>{((params.page - 1) * params.limit) + subcategoryIndex + 1}</td>
+                                <td>{subcategory.name}</td>
+                                <td>{subcategory.category}</td>
+                                <td>
+                                    <ActionButton
+                                        key={`show${subcategoryIndex}`}
+                                        onShow={() => router.push(`subcategory/${subcategory._id}`)}
+                                        onEdit={() => router.push(`subcategory/${subcategory._id}/edit`)}
+                                        onDelete={() => deleteData(subcategory._id)}
+                                    />
+                                </td>
+                            </tr>
+                        ))}
                     </Datatable>
                 </DefaultCard>
             </AdminPortalLayout>

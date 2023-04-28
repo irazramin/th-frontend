@@ -3,7 +3,7 @@ import axios from "axios";
 import {fetchApi} from "./postApiSlice";
 
 export const getByIdFetchApi = createAsyncThunk("GetByIdApi/getByIdFetchApi", async ({url,payload}:any) => {
-    const res = await axios.get(`${url}${payload}`);    
+    const res = await axios.get(`${url}${payload}`);
     return res.data;
 });
 

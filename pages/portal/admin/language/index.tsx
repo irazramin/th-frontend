@@ -1,81 +1,108 @@
 import {AdminPortalLayout} from "../../../../layouts";
 import Link from "next/link";
-import {ButtonGreenSm} from "../../../../components/buttons";
+import {ActionButton, ButtonGreenSm} from "../../../../components/buttons";
 import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import {Datatable} from "../../../../components/tables";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../store";
+import React, {useEffect, useState} from "react";
+import {callApi} from "../../../../features/apiSlice";
+import {HttpHethod} from "../../../../constants";
+import {UrlHelper} from "../../../../helpers";
 
 const Language = () => {
     const router = useRouter();
+    const dispatch = useDispatch<AppDispatch>();
+
     const tableProps = {
         name: 'userList',
         headers: [
             {id: 1, name: 'ID', storable: false},
             {id: 2, name: 'LANGUAGENAME', storable: false},
-        ],
-        enableCheckbox: true,
-        enableAction: true
+        ]
     }
 
-    const tableData = [
-        {
-            id: 1,
-            languageName: "English",
-        },
-        {
-            id: 2,
-            languageName: "Bangla",
-        },
-        {
-            id: 3,
-            languageName: "Hindi",
-        },
-    ]
-    const handleDtOnCheckAll = (e: any) => {
-        alert('Check all clicked')
-    }
+    const [params, setParams] = useState({page: 1, limit: 10, search: ""});
 
-    const handleDtOnCheck = (e: any) => {
-        alert('Check clicked')
-    }
+    const [isMounted, setIsMounted] = useState(false);
+
+    const {languageList = {data: [], meta: null}, languageDelete = {time: null}, isLoading = false} = useSelector(
+        (state: RootState) => state.callApi
+    );
+
+    useEffect(() => {
+        fetchData();
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (isMounted) {
+            fetchData();
+        }
+    }, [params.limit, params.page, params.search]);
+
+    useEffect(() => {
+        if (isMounted && languageDelete.time != null) {
+            fetchData();
+        }
+    }, [languageDelete.time]);
+
+    const fetchData = () => {
+        dispatch(callApi({
+            method: HttpHethod.GET,
+            url: UrlHelper.coreMS('api/v1/language/list'),
+            params: params,
+            storeName: 'languageList',
+            defaultValue: [],
+            showToast: false
+        }));
+    };
+
+    const deleteData = (id: string) => {
+        if (confirm("Are you sure to delete? Data will be lost permanently!")) {
+            dispatch(callApi({
+                method: HttpHethod.DELETE,
+                url: UrlHelper.coreMS(`api/v1/language/${id}/delete`),
+                params: params,
+                storeName: 'languageDelete',
+                defaultValue: null,
+                showToast: true
+            }));
+        }
+    };
 
     return (
         <>
             <AdminPortalLayout>
                 <TitleCard title="Language">
-                        <Link href={router.pathname + '/add'}>
-                            <ButtonGreenSm icon={faPlus}>Add Language</ButtonGreenSm>
-                        </Link>
+                    <Link href={router.pathname + '/add'}>
+                        <ButtonGreenSm icon={faPlus}>Add Language</ButtonGreenSm>
+                    </Link>
                 </TitleCard>
                 <DefaultCard>
-                    <Datatable
-                        {...tableProps}
-                        onCheckAll={handleDtOnCheckAll}
+                    <Datatable {...tableProps}
+                               meta={languageList.meta}
+                               onChangeLimit={(value: any) => setParams({...params, limit: value})}
+                               onChangePage={(value: any) => setParams({...params, page: value})}
+                               onChangeSearch={(value: any) => setParams({...params, search: value})}
                     >
-                        { tableData.map(data => {
-                            return (
-                                <tr className='datatable-row'>
-                                    <td>
-                                        <input onClick={handleDtOnCheck} type="checkbox"/>
-                                    </td>
-
-                                    <td>{data.id}</td>
-                                    <td>{data.languageName}</td>
-                                    <td >
-                                        <div className="action-btns">
-                                            <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            )
-                        }) }
-
+                        {languageList?.data?.length > 0 && languageList.data.map((language: any, languageIndex: number) => (
+                            <tr key={languageIndex}>
+                                <td>{((params.page - 1) * params.limit) + languageIndex + 1}</td>
+                                <td>{language.name}</td>
+                                <td>
+                                    <ActionButton
+                                        key={`show${languageIndex}`}
+                                        onShow={() => router.push(`language/${language._id}`)}
+                                        onEdit={() => router.push(`language/${language._id}/edit`)}
+                                        onDelete={() => deleteData(language._id)}
+                                    />
+                                </td>
+                            </tr>
+                        ))}
                     </Datatable>
                 </DefaultCard>
             </AdminPortalLayout>

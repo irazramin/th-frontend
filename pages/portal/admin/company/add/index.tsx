@@ -1,45 +1,65 @@
 import {AdminPortalLayout} from "../../../../../layouts";
-import {ButtonGreenMd, ButtonGreenSm} from "../../../../../components/buttons";
+import {ButtonGreenMd, ButtonGreenSm,} from "../../../../../components/buttons";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../../components/cards";
-import {ErrorMessage} from "@hookform/error-message";
-import React from "react";
+import React, {useState} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {getFetchApi} from "../../../../../features/getApiSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../store";
-import {fetchApi} from "../../../../../features/postApiSlice";
-import { toast } from "react-hot-toast";
 import ToastMessage from "../../../../../components/toast/ToastMessage";
+import ErrorText from "../../../../../components/texts/ErrorText";
+import {callApi} from "../../../../../features/apiSlice";
+import {HttpHethod} from "../../../../../constants";
+import {UrlHelper} from "../../../../../helpers";
+import * as yup from 'yup';
+import {yupResolver} from "@hookform/resolvers/yup";
 
 interface IFormInput {
-    name: String,
-    email: String,
-    phone: String,
-    website: String
+    name: String;
+    email: String;
+    phone: String;
+    website: String;
+    about: String;
 }
-
-
 
 const Add = () => {
     const router = useRouter();
-    const {register, handleSubmit, formState: {errors}, reset} = useForm<IFormInput>({criteriaMode: "all"});
-
     const dispatch = useDispatch<AppDispatch>();
-    const {isLoading, apiResponse, error} = useSelector(((state: RootState) => state.postApi))
+    const {register, handleSubmit, formState: {errors}, reset} = useForm<IFormInput>({
+        criteriaMode: "all",
+        resolver: yupResolver(yup.object().shape({
+            name: yup.string().required('Name is required'),
+            email: yup.string().required('Email is required'),
+            phone: yup.string().required('Phone is required'),
+            website: yup.string().required('Website is required'),
+            about: yup.string().required('Website is required'),
+        }))
+    });
 
-    const onsubmit: SubmitHandler<IFormInput> = data => {
-        dispatch(fetchApi({url: "http://localhost:3033/api/v1/company", payload: data}));
+    const {isLoading = false} = useSelector(
+        (state: RootState) => state.callApi
+    );
+
+    const onsubmit: SubmitHandler<IFormInput> = (data) => {
+        dispatch(callApi({
+            method: HttpHethod.POST,
+            url: UrlHelper.coreMS('api/v1/company'),
+            storeName: 'company',
+            body: data,
+            defaultValue: null,
+            showToast: true
+        }));
         reset();
-        toast("Company added successfully", { icon: "✅" });
-        }
+    };
 
     return (
         <>
             <AdminPortalLayout>
                 <TitleCard title="Add">
-                        <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
+                    <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
+                        Back
+                    </ButtonGreenSm>
                 </TitleCard>
                 <DefaultCard>
                     <div className="add-items">
@@ -47,150 +67,73 @@ const Add = () => {
                             <div className="form-group">
                                 <label htmlFor="name">Company Name</label>
                                 <div className="input-icon">
-                                    <input {...register("name", {
-                                        required: "This field is required.",
-                                        maxLength: {
-                                            value: 50,
-                                            message: "This input exceed maxLength."
-                                        }
-                                    })} type="text" name="name" placeholder="Company Name"/>
-
+                                    <input
+                                        {...register("name")}
+                                        type="text"
+                                        name="name"
+                                        placeholder="Company Name"
+                                    />
                                 </div>
-                                <ErrorMessage
-                                    errors={errors}
-                                    name="name"
-                                    render={({messages}) =>
-                                        messages &&
-                                        Object.entries(messages).map(([type, message]) => (
-                                            <p key={type} style={{
-                                                color: 'red',
-                                                marginTop: "10px",
-                                                fontSize: "14px",
-                                                fontWeight: "600",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: "10px"
-                                            }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
-                                        ))
-                                    }
-                                />
+                                <ErrorText name="name" errors={errors}/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email">Email</label>
                                 <div className="input-icon">
-                                    <input {...register("email", {
-                                        required: "This field is required.",
-                                        pattern: {
-                                            value: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
-                                            message: "Enter a valid email"
-                                        }
-                                    })} type="email" name="email" placeholder="Email"/>
+                                    <input
+                                        {...register("email")}
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email"
+                                    />
                                 </div>
-                                <ErrorMessage
-                                    errors={errors}
-                                    name="email"
-                                    render={({messages}) =>
-                                        messages &&
-                                        Object.entries(messages).map(([type, message]) => (
-                                            <p key={type} style={{
-                                                color: 'red',
-                                                marginTop: "10px",
-                                                fontSize: "14px",
-                                                fontWeight: "600",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: "10px"
-                                            }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
-                                        ))
-                                    }
-                                />
+                                <ErrorText name="email" errors={errors}/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="phone">Phone</label>
                                 <div className="input-icon">
                                     <input
-                                        {...register("phone", {
-                                            required: "This field is required.",
-                                            minLength: {
-                                                value: 8,
-                                                message: "password should be atleast 8 characters"
-                                            }
-                                        })}
+                                        {...register("phone")}
                                         type="text"
                                         name="phone"
                                         placeholder="Phone"
                                     />
                                 </div>
-                                <ErrorMessage
-                                    errors={errors}
-                                    name="phone"
-                                    render={({messages}) =>
-                                        messages &&
-                                        Object.entries(messages).map(([type, message]) => (
-                                            <p key={type} style={{
-                                                color: 'red',
-                                                marginTop: "10px",
-                                                fontSize: "14px",
-                                                fontWeight: "600",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: "10px"
-                                            }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
-                                        ))
-                                    }
-                                />
+                                <ErrorText name="phone" errors={errors}/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="website">Website Link</label>
                                 <div className="input-icon">
                                     <input
-                                        {...register("website", {
-                                            required: "This field is required.",
-                                            minLength: {
-                                                value: 8,
-                                                message: "password should be atleast 8 characters"
-                                            }
-                                        })}
+                                        {...register("website")}
                                         type="text"
                                         name="website"
                                         placeholder="Link"
                                     />
                                 </div>
-                                <ErrorMessage
-                                    errors={errors}
-                                    name="website"
-                                    render={({messages}) =>
-                                        messages &&
-                                        Object.entries(messages).map(([type, message]) => (
-                                            <p key={type} style={{
-                                                color: 'red',
-                                                marginTop: "10px",
-                                                fontSize: "14px",
-                                                fontWeight: "600",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: "10px"
-                                            }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
-                                        ))
-                                    }
-                                />
+                                <ErrorText name="website" errors={errors}/>
                             </div>
-
+                            <div className="form-group">
+                                <label htmlFor="about">About</label>
+                                <div className="input-icon">
+                                    <textarea
+                                        {...register("about")}
+                                        name="about"
+                                        placeholder="about"
+                                        rows={10}
+                                    />
+                                </div>
+                                <ErrorText name="about" errors={errors}/>
+                            </div>
                             <div className="action-btn">
-                                <ButtonGreenMd >Save</ButtonGreenMd>
+                                <ButtonGreenMd>Save</ButtonGreenMd>
                             </div>
                         </form>
                     </div>
-                 <ToastMessage />
-
+                    <ToastMessage/>
                 </DefaultCard>
             </AdminPortalLayout>
         </>
     );
-}
+};
 
-export default Add
+export default Add;

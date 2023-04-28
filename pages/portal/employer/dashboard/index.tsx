@@ -12,11 +12,11 @@ const Dashboard = () => {
                 <TitleCard title='Dashboard'>
                 </TitleCard>
                 <div className='dashboard-cards'>
-                    <DashboardCard >
-                        <Link href='/portal/admin/user' >
+                    <DashboardCard>
+                        <Link href='/portal/admin/user'>
                             <div className='wrapper'>
                                 <div className="icon-wrapper">
-                                    <FontAwesomeIcon icon={faBriefcase}  className='icon'/>
+                                    <FontAwesomeIcon icon={faBriefcase} className='icon'/>
                                 </div>
                                 <div className='contents'>
                                     <span className='title'>Jobs</span>
@@ -26,10 +26,10 @@ const Dashboard = () => {
                         </Link>
                     </DashboardCard>
                     <DashboardCard>
-                        <Link href="/portal/admin/company" >
+                        <Link href="/portal/admin/company">
                             <div className='wrapper'>
                                 <div className="icon-wrapper">
-                                    <FontAwesomeIcon icon={faFilePen}  className='icon'/>
+                                    <FontAwesomeIcon icon={faFilePen} className='icon'/>
                                 </div>
                                 <div className='contents'>
                                     <span className='title'>Exams</span>
@@ -39,10 +39,10 @@ const Dashboard = () => {
                         </Link>
                     </DashboardCard>
                     <DashboardCard>
-                        <Link href="/portal/admin/category" >
+                        <Link href="/portal/admin/category">
                             <div className='wrapper'>
                                 <div className="icon-wrapper">
-                                    <FontAwesomeIcon icon={faFileCircleQuestion}  className='icon'/>
+                                    <FontAwesomeIcon icon={faFileCircleQuestion} className='icon'/>
                                 </div>
                                 <div className='contents'>
                                     <span className='title'>Questions</span>

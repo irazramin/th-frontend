@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from "next/head";
 import {Sidebar, Topbar} from './partials';
 import './portal-layout.module.css';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 const PortalLayout = ({children}: any) => {
+
+    const router = useRouter();
+
+    useEffect(() => {
+        let authUser: any = Cookies.get('auth_user');
+
+        if (authUser) {
+            authUser = JSON.parse(authUser);
+            if (authUser?.userType != 1) {
+                if (authUser?.userType === 2) {
+                    router.push("/portal/employer/dashboard").then((r) => r);
+                } else if (authUser?.userType === 3) {
+                    router.push("/portal/user/dashboard").then((r) => r);
+                } else {
+                    Cookies.remove('auth_user');
+                    router.push("/login").then((r) => r);
+                }
+            }
+        } else {
+            Cookies.remove('auth_user');
+            router.push("/login").then((r) => r);
+        }
+    }, []);
+
     return (
         <>
             <Head>

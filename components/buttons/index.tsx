@@ -1,5 +1,6 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEye, faPen, faTrash} from "@fortawesome/free-solid-svg-icons";
 
 export const ButtonGreenLg = ({children, icon, onClick}: any) => {
     return (
@@ -52,5 +53,29 @@ export const ButtonDarkSm = ({children, icon}: any) => {
             {icon ? <FontAwesomeIcon icon={icon}/> : ''}
             {children}
         </button>
+    );
+};
+
+export const ActionButton = ({onShow, onEdit, onDelete}: any) => {
+    return (
+        <>
+            <div className="action-btns">
+                {onShow !== undefined ? (
+                    <button className="action-btn" onClick={() => onShow()}>
+                        <FontAwesomeIcon icon={faEye}/>
+                    </button>
+                ) : ''}
+                {onEdit !== undefined ? (
+                    <button className="action-btn" onClick={() => onEdit()}>
+                        <FontAwesomeIcon icon={faPen}/>
+                    </button>
+                ) : ''}
+                {onDelete !== undefined ? (
+                    <button className="action-btn" onClick={() => onDelete()}>
+                        <FontAwesomeIcon icon={faTrash}/>
+                    </button>
+                ) : ''}
+            </div>
+        </>
     );
 };

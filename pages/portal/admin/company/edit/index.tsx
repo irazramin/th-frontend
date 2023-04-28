@@ -4,14 +4,12 @@ import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../../components/cards";
 import {ErrorMessage} from "@hookform/error-message";
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {getFetchApi} from "../../../../../features/getApiSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../store";
-import {fetchApi} from "../../../../../features/postApiSlice";
-import { getByIdFetchApi } from "../../../../../features/getApiByIdSlice";
-import { putApi } from "../../../../../features/putApiSlice";
+import {getByIdFetchApi} from "../../../../../features/getApiByIdSlice";
+import {putApi} from "../../../../../features/putApiSlice";
 
 interface IFormInput {
     name: String,
@@ -21,10 +19,9 @@ interface IFormInput {
 }
 
 
-
 const Edit = () => {
     const router = useRouter();
-    const { id } = router.query;
+    const {id} = router.query;
 
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>({criteriaMode: "all"});
 
@@ -42,13 +39,12 @@ const Edit = () => {
 
     console.log(putApiResponse);
 
-    
 
     return (
         <>
             <AdminPortalLayout>
                 <TitleCard title="Edit">
-                        <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
+                    <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
                 </TitleCard>
                 <DefaultCard>
                     <div className="add-items">
@@ -62,7 +58,8 @@ const Edit = () => {
                                             value: 50,
                                             message: "This input exceed maxLength."
                                         }
-                                    })} type="text" name="name" defaultValue={apiResponse?.data?.name}  placeholder="Company Name"/>
+                                    })} type="text" name="name" defaultValue={apiResponse?.data?.name}
+                                           placeholder="Company Name"/>
 
                                 </div>
                                 <ErrorMessage
@@ -80,7 +77,8 @@ const Edit = () => {
                                                 alignItems: "center",
                                                 gap: "10px"
                                             }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}
+                                            </p>
                                         ))
                                     }
                                 />
@@ -94,7 +92,8 @@ const Edit = () => {
                                             value: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
                                             message: "Enter a valid email"
                                         }
-                                    })} type="email" name="email" defaultValue={apiResponse?.data?.email} placeholder="Email"/>
+                                    })} type="email" name="email" defaultValue={apiResponse?.data?.email}
+                                           placeholder="Email"/>
                                 </div>
                                 <ErrorMessage
                                     errors={errors}
@@ -111,7 +110,8 @@ const Edit = () => {
                                                 alignItems: "center",
                                                 gap: "10px"
                                             }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}
+                                            </p>
                                         ))
                                     }
                                 />
@@ -148,7 +148,8 @@ const Edit = () => {
                                                 alignItems: "center",
                                                 gap: "10px"
                                             }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}
+                                            </p>
                                         ))
                                     }
                                 />
@@ -185,14 +186,15 @@ const Edit = () => {
                                                 alignItems: "center",
                                                 gap: "10px"
                                             }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}
+                                            </p>
                                         ))
                                     }
                                 />
                             </div>
 
                             <div className="action-btn">
-                                <ButtonGreenMd >Save</ButtonGreenMd>
+                                <ButtonGreenMd>Save</ButtonGreenMd>
                             </div>
                         </form>
                     </div>

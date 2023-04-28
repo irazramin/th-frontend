@@ -23,7 +23,7 @@ const Edit = () => {
         <>
             <AdminPortalLayout>
                 <TitleCard title="Edit">
-                        <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
+                    <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
                 </TitleCard>
                 <DefaultCard>
                     <div className="add-items">
@@ -55,13 +55,14 @@ const Edit = () => {
                                                 alignItems: "center",
                                                 gap: "10px"
                                             }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
+                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}
+                                            </p>
                                         ))
                                     }
                                 />
                             </div>
                             <div className="action-btn">
-                                <ButtonGreenMd >Save</ButtonGreenMd>
+                                <ButtonGreenMd>Save</ButtonGreenMd>
                             </div>
                         </form>
                     </div>

@@ -5,6 +5,7 @@ import postApiReducer from '../features/postApiSlice'
 import getApiReducer from "../features/getApiSlice";
 import putApiReducer from "../features/putApiSlice";
 import deleteApiReducer from "../features/deleteApiSlice";
+import apiReducer from "../features/apiSlice";
 
 export const store = configureStore({
     reducer: {
@@ -14,7 +15,8 @@ export const store = configureStore({
         putApi: putApiReducer,
         deleteApi: deleteApiReducer,
         getApiById: getApiByIdReducer,
-        deleteApiReducer
+        deleteApiReducer,
+        callApi: apiReducer,
     },
 });
 

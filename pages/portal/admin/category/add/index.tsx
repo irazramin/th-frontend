@@ -6,62 +6,97 @@ import {DefaultCard, TitleCard} from "../../../../../components/cards";
 import {ErrorMessage} from "@hookform/error-message";
 import React from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../../store";
+import {postApi} from "../../../../../features/postApiSlice";
+import ErrorText from "../../../../../components/texts/ErrorText";
+import {yupResolver} from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import {callApi} from "../../../../../features/apiSlice";
+import {HttpHethod} from "../../../../../constants";
+import {UrlHelper} from "../../../../../helpers";
 
 interface IFormInput {
-    categoryName: String,
+    name: String,
+    image: String,
+    description: String
 }
 
 const Add = () => {
     const router = useRouter();
-    const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>({criteriaMode: "all"});
+    const dispatch = useDispatch<AppDispatch>();
+    const {register, handleSubmit, formState: {errors}, reset} = useForm<IFormInput>({
+        criteriaMode: "all",
+        resolver: yupResolver(yup.object().shape({
+            name: yup.string().required('Name is required'),
+            image: yup.string().required('Image is required'),
+            description: yup.string().required('Description is required'),
+        }))
+    });
 
-    const onsubmit: SubmitHandler<IFormInput> = data => {
-        console.log(data)
-    }
+    const {isLoading = false} = useSelector(
+        (state: RootState) => state.callApi
+    );
 
+    const onsubmit: SubmitHandler<IFormInput> = (data) => {
+        console.log('data')
+        dispatch(callApi({
+            method: HttpHethod.POST,
+            url: UrlHelper.coreMS('api/v1/category'),
+            storeName: 'category',
+            body: data,
+            defaultValue: null,
+            showToast: true
+        }));
+        reset();
+    };
     return (
         <>
             <AdminPortalLayout>
                 <TitleCard title="Add">
-                        <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
+                    <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
                 </TitleCard>
                 <DefaultCard>
                     <div className="add-items">
                         <form onSubmit={handleSubmit(onsubmit)}>
                             <div className="form-group">
-                                <label htmlFor="categoryName">Category Name</label>
+                                <label htmlFor="name">Category Name</label>
                                 <div className="input-icon">
-                                    <input {...register("categoryName", {
-                                        required: "This field is required.",
-                                        maxLength: {
-                                            value: 50,
-                                            message: "This input exceed maxLength."
-                                        }
-                                    })} type="text" name="categoryName" placeholder="Category"/>
-
+                                    <input
+                                        {...register("name")}
+                                        type="text"
+                                        name="name"
+                                        placeholder="Category Name"
+                                    />
                                 </div>
-                                <ErrorMessage
-                                    errors={errors}
-                                    name="categoryName"
-                                    render={({messages}) =>
-                                        messages &&
-                                        Object.entries(messages).map(([type, message]) => (
-                                            <p key={type} style={{
-                                                color: 'red',
-                                                marginTop: "10px",
-                                                fontSize: "14px",
-                                                fontWeight: "600",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: "10px"
-                                            }} className='password-error-message'>
-                                                <i className='bx bx-error-circle' style={{fontSize: "17px"}}/> {message}</p>
-                                        ))
-                                    }
-                                />
+                                <ErrorText name="name" errors={errors}/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="image">Image</label>
+                                <div className="input-icon">
+                                    <input
+                                        {...register("image")}
+                                        type="file"
+                                        name="image"
+                                        placeholder="Image"
+                                     />
+                                </div>
+                                <ErrorText name="image" errors={errors}/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="description">Description</label>
+                                <div className="input-icon">
+                                    <textarea
+                                        {...register("description")}
+                                        name="description"
+                                        placeholder="description"
+                                        rows={10}
+                                    />
+                                </div>
+                                <ErrorText name="description" errors={errors}/>
                             </div>
                             <div className="action-btn">
-                                <ButtonGreenMd >Save</ButtonGreenMd>
+                                <ButtonGreenMd>Save</ButtonGreenMd>
                             </div>
                         </form>
                     </div>

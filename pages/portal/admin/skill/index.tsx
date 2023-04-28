@@ -1,14 +1,20 @@
 import {AdminPortalLayout} from "../../../../layouts";
 import Link from "next/link";
-import {ButtonGreenSm} from "../../../../components/buttons";
-import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";
+import {ActionButton, ButtonGreenSm} from "../../../../components/buttons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import {Datatable} from "../../../../components/tables";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../store";
+import {callApi} from "../../../../features/apiSlice";
+import {HttpHethod} from "../../../../constants";
+import {UrlHelper} from "../../../../helpers";
 
 const Skill = () => {
     const router = useRouter();
+    const dispatch = useDispatch<AppDispatch>();
 
     const tableProps = {
         name: 'userList',
@@ -19,108 +25,62 @@ const Skill = () => {
             },
             {
                 id: 2,
-                name: 'SKILLNAME', storable: false
-            }
-        ],
-        enableCheckbox: true,
-        enableAction: true
+                name: 'NAME', storable: false
+            },
+        ]
     }
 
-    const tableData = [
-        {
-            id: 1,
-            skillName: "Analytical and problem solving"
-        },
-        {
-            id: 2,
-            skillName: "Microsoft Excel"
 
-        },
-        {
-            id: 3,
-            skillName: "Business and leadership"
-        },
-        {
-            id: 4,
-            skillName: "Data analytics"
-        },
-        {
-            id: 5,
-            skillName: "Communication skills"
-        },
-        {
-            id: 6,
-            skillName: "Data mining"
+    const [params, setParams] = useState({page: 1, limit: 10, search: ""});
 
-        },
-        {
-            id: 7,
-            skillName: "Collaboration"
-        },
-        {
-            id: 8,
-            skillName: "Project management"
+    const [isMounted, setIsMounted] = useState(false);
 
-        },
-        {
-            id: 9,
-            skillName: "UX and UI design"
+    const {skillList = {data: [], meta: null}, skillDelete = {time: null}, isLoading = false} = useSelector(
+        (state: RootState) => state.callApi
+    );
 
-        },
-        {
-            id: 10,
-            skillName: "Operating systems"
-        },
-        {
-            id: 11,
-            skillName: "Teamwork"
-        },
-        {
-            id: 12,
-            skillName: "JavaScript"
-        },
-        {
-            id: 13,
-            skillName: "Git"
+    useEffect(() => {
+        fetchData();
+        setIsMounted(true);
+    }, []);
 
-        },
-        {
-            id: 14,
-            skillName: "Testing and Debugging\n"
-        },
-        {
-            id: 15,
-            skillName: "Search Engine Optimization(SEO)"
-        },
-        {
-            id: 16,
-            skillName: "PHP"
-        },
-        {
-            id: 17,
-            skillName: "HTML & CSS"
-        },
-        {
-            id: 18,
-            skillName: "ReactJs"
-        },
-        {
-            id: 19,
-            skillName: "NodeJs"
-        },
-        {
-            id: 20,
-            skillName: "Bootstrap5"
-        },
-    ]
+    useEffect(() => {
+        if (isMounted) {
+            fetchData();
+        }
+    }, [params.limit, params.page, params.search]);
 
-    const handleDtOnCheckAll = (e: any) => {
-        alert('Check all clicked')
-    }
+    useEffect(() => {
+        if (isMounted && skillDelete.time != null) {
+            fetchData();
+        }
+    }, [skillDelete.time]);
 
-    const handleDtOnCheck = (e: any) => {
-        alert('Check clicked')
-    }
+    const fetchData = () => {
+        dispatch(callApi({
+            method: HttpHethod.GET,
+            url: UrlHelper.coreMS('api/v1/skill/list'),
+            params: params,
+            storeName: 'skillList',
+            defaultValue: [],
+            showToast: false
+        }));
+    };
+
+    const deleteData = (id: string) => {
+        if (confirm("Are you sure to delete? Data will be lost permanently!")) {
+            dispatch(callApi({
+                method: HttpHethod.DELETE,
+                url: UrlHelper.coreMS(`api/v1/skill/${id}/delete`),
+                params: params,
+                storeName: 'skillDelete',
+                defaultValue: null,
+                showToast: true
+            }));
+        }
+    };
+
+
     return (
         <>
             <AdminPortalLayout>
@@ -130,32 +90,26 @@ const Skill = () => {
                     </Link>
                 </TitleCard>
                 <DefaultCard>
-                    <Datatable
-                        {...tableProps}
-                        onCheckAll={handleDtOnCheckAll}
+                    <Datatable {...tableProps}
+                               meta={skillList.meta}
+                               onChangeLimit={(value: any) => setParams({...params, limit: value})}
+                               onChangePage={(value: any) => setParams({...params, page: value})}
+                               onChangeSearch={(value: any) => setParams({...params, search: value})}
                     >
-                        { tableData.map(data => {
-                            return (
-                                <tr className='datatable-row'>
-                                    <td>
-                                        <input onClick={handleDtOnCheck} type="checkbox"/>
-                                    </td>
-
-                                    <td>{data.id}</td>
-                                    <td>{data.skillName}</td>
-                                    <td >
-                                        <div className="action-btns">
-                                            <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            )
-                        }) }
-
+                        {skillList?.data?.length > 0 && skillList.data.map((skill: any, skillIndex: number) => (
+                            <tr key={skillIndex}>
+                                <td>{((params.page - 1) * params.limit) + skillIndex + 1}</td>
+                                <td>{skill.name}</td>
+                                <td>
+                                    <ActionButton
+                                        key={`show${skillIndex}`}
+                                        onShow={() => router.push(`skill/${skill._id}`)}
+                                        onEdit={() => router.push(`skill/${skill._id}/edit`)}
+                                        onDelete={() => deleteData(skill._id)}
+                                    />
+                                </td>
+                            </tr>
+                        ))}
                     </Datatable>
                 </DefaultCard>
             </AdminPortalLayout>

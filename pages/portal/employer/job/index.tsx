@@ -34,7 +34,7 @@ const Dashboard = () => {
             vacancy: 3,
             category: "IT",
             subCategory: "Software Engineer",
-            salary:"25000-35000$",
+            salary: "25000-35000$",
             minimumExperience: "0-02yr",
             jobType: "Full-time"
         },
@@ -44,7 +44,7 @@ const Dashboard = () => {
             vacancy: 1,
             category: "IT",
             subCategory: "Software Engineer",
-            salary:"150000-200000$",
+            salary: "150000-200000$",
             minimumExperience: "05-07yr",
             jobType: "Full-time"
         },
@@ -54,7 +54,7 @@ const Dashboard = () => {
             vacancy: 2,
             category: "Finance And Accounting",
             subCategory: "Accounting Specialist",
-            salary:"30000-35000$",
+            salary: "30000-35000$",
             minimumExperience: "03-05yr",
             jobType: "Full-time"
         },
@@ -64,7 +64,7 @@ const Dashboard = () => {
             vacancy: 10,
             category: "Teacher",
             subCategory: "Mentor",
-            salary:"15000-25000$",
+            salary: "15000-25000$",
             minimumExperience: "0-02yr",
             jobType: "Full-time"
         },
@@ -74,7 +74,7 @@ const Dashboard = () => {
             vacancy: 7,
             category: "Marketing",
             subCategory: "Digital Marketing Manager",
-            salary:"25000-35000$",
+            salary: "25000-35000$",
             minimumExperience: "0-02yr",
             jobType: "Full-time"
         },
@@ -84,7 +84,7 @@ const Dashboard = () => {
             vacancy: 8,
             category: "IT",
             subCategory: "Software Engineer",
-            salary:"55000-65000$",
+            salary: "55000-65000$",
             minimumExperience: "01-02yr",
             jobType: "Full-time"
         },
@@ -104,16 +104,16 @@ const Dashboard = () => {
         <>
             <EmployerPortalLayout>
                 <TitleCard title="Job">
-                        <Link href={router.pathname + '/add'}>
-                            <ButtonGreenSm icon={faPlus}>Add Job</ButtonGreenSm>
-                        </Link>
+                    <Link href={router.pathname + '/add'}>
+                        <ButtonGreenSm icon={faPlus}>Add Job</ButtonGreenSm>
+                    </Link>
                 </TitleCard>
                 <DefaultCard>
                     <Datatable
                         {...tableProps}
                         onCheckAll={handleDtOnCheckAll}
                     >
-                        { tableData.map(data => {
+                        {tableData.map(data => {
                             return (
                                 <tr className='datatable-row'>
                                     <td>
@@ -128,18 +128,18 @@ const Dashboard = () => {
                                     <td>{data.salary}</td>
                                     <td>{data.minimumExperience}</td>
                                     <td>{data.jobType}</td>
-                                    <td >
+                                    <td>
                                         <div className="action-btns">
-                                            <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faPen}/></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faEye}/></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan}/></button>
 
                                         </div>
                                     </td>
                                 </tr>
 
                             )
-                        }) }
+                        })}
 
 
                     </Datatable>

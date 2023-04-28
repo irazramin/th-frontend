@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
     faChartGantt,
     faCity,
-    faGear,
+    faFileCircleQuestion,
     faLanguage,
     faLaptopCode,
     faList,
@@ -67,9 +67,9 @@ const Sidebar = () => {
         },
         {
             id: 8,
-            title: 'Setting',
-            icon: faGear,
-            link: '/portal/admin/setting'
+            title: 'Question',
+            icon: faFileCircleQuestion,
+            link: '/portal/admin/question'
         }
     ]);
 

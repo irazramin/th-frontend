@@ -75,16 +75,16 @@ const Dashboard = () => {
         <>
             <EmployerPortalLayout>
                 <TitleCard title="Exam">
-                        <Link href={router.pathname + '/add'}>
-                            <ButtonGreenSm icon={faPlus}>Add Exam</ButtonGreenSm>
-                        </Link>
+                    <Link href={router.pathname + '/add'}>
+                        <ButtonGreenSm icon={faPlus}>Add Exam</ButtonGreenSm>
+                    </Link>
                 </TitleCard>
                 <DefaultCard>
                     <Datatable
                         {...tableProps}
                         onCheckAll={handleDtOnCheckAll}
                     >
-                        { tableData.map(data => {
+                        {tableData.map(data => {
                             return (
                                 <tr className='datatable-row'>
                                     <td>
@@ -95,18 +95,18 @@ const Dashboard = () => {
                                     <td>{data.examName}</td>
                                     <td>{data.category}</td>
                                     <td>{data.duration}</td>
-                                    <td >
+                                    <td>
                                         <div className="action-btns">
-                                            <button className='action-btn'><FontAwesomeIcon icon={faPen} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faEye} /></button>
-                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan} /></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faPen}/></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faEye}/></button>
+                                            <button className='action-btn'><FontAwesomeIcon icon={faTrashCan}/></button>
 
                                         </div>
                                     </td>
                                 </tr>
 
                             )
-                        }) }
+                        })}
 
 
                     </Datatable>

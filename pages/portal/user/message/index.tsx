@@ -22,13 +22,14 @@ const Message = () => {
     const currentUser = '640f43a1a6df07568a20e29e';
     useEffect(() => {
         async function fetchConversationData() {
-            fetch(`http://localhost:4000/api/v1/conversation`).then((res:Response) => res.json()).then((data: any) => setConversation(data));
+            fetch(`http://localhost:4000/api/v1/conversation`).then((res: Response) => res.json()).then((data: any) => setConversation(data));
         }
+
         fetchConversationData();
     }, [rel]);
 
     const handleChatClick = (id: any) => {
-        fetch(`http://localhost:4000/api/v1/message/${id}`).then((res:Response) => res.json()).then(data => setMessages(data));
+        fetch(`http://localhost:4000/api/v1/message/${id}`).then((res: Response) => res.json()).then(data => setMessages(data));
         setConversationId(id);
     }
 
@@ -41,7 +42,7 @@ const Message = () => {
         e.preventDefault();
         fetch(`http://localhost:4000/api/v1/message`, {
             method: 'POST',
-            headers:{
+            headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(message)
@@ -56,7 +57,7 @@ const Message = () => {
 
     useEffect(() => {
         // @ts-ignore
-        scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
+        scrollRef.current?.scrollIntoView({behavior: 'smooth'});
     }, [messages]);
 
     // @ts-ignore
@@ -85,150 +86,74 @@ const Message = () => {
                             </div>
                             <div className="chats">
                                 <ul>
-                                    {conversations.map((con :any )=> <Conversation conversation={con} currentUser={currentUser}
-                                                                            handleChatClick={handleChatClick}/>)}
+                                    {conversations.map((con: any) => <Conversation conversation={con}
+                                                                                   currentUser={currentUser}
+                                                                                   handleChatClick={handleChatClick}/>)}
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div ref={scrollRef} className='chat-section cards' >
+                    <div ref={scrollRef} className='chat-section cards'>
                         <div className='chatbox-header'>
                             <div className='user-details'>
                                 <div className="chat-img">
                                     <div className='active-status'/>
-                                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
+                                    <img
+                                        src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                                        alt=""/>
                                 </div>
                                 <div className="chat-name-status">
                                     <h4>Iraz Ramin</h4>
-                                    <span> <FontAwesomeIcon icon={faCircle} className='icon' /> Active</span>
+                                    <span> <FontAwesomeIcon icon={faCircle} className='icon'/> Active</span>
                                 </div>
                             </div>
                             <div className='chat-tools'>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                                <FontAwesomeIcon icon={faEllipsisVertical}/>
                             </div>
                         </div>
                         <div className="chat-box">
                             <div className="all-messages">
-                                <div className=" my-message">
-                                    <div className='user-details'>
-                                        {/*<div className="chat-img">*/}
-                                        {/*    <div className='active-status'/>*/}
-                                        {/*    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>*/}
-                                        {/*</div>*/}
-                                        <div className="chat-name-status">
-                                            <h4>me</h4>
-                                            <div className="messages">
-                                                <div className="message">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                                </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                            </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, </p>
+                                {
+                                    messages.map((message: any) => {
+                                        return (
+                                            <div ref={scrollRef}>
+                                                {message.senderId === currentUser ? <div className=" my-message">
+                                                        <div className='user-details'>
+                                                            <div className="chat-name-status">
+                                                                <h4>me</h4>
+                                                                <div className="messages">
+                                                                    <div className="message">
+                                                                        <p>{message.text}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div> :
+                                                    <div className="opposite-message">
+                                                        <div className='user-details'>
+                                                            <div className="chat-img">
+                                                                <div className='active-status'/>
+                                                                <img
+                                                                    src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                                                                    alt=""/>
+                                                            </div>
+                                                            <div className="chat-name-status">
+                                                                <h4>me</h4>
+                                                                <div className="messages">
+                                                                    <div className="message">
+                                                                        <p>{message.text}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+
                                             </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="opposite-message">
-                                    <div className='user-details'>
-                                        <div className="chat-img">
-                                            <div className='active-status'/>
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className="chat-name-status">
-                                            <h4>me</h4>
-                                            <div className="messages">
-                                                <div className="message">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                                </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                            </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, </p>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className=" my-message">
-                                    <div className='user-details'>
-                                        {/*<div className="chat-img">*/}
-                                        {/*    <div className='active-status'/>*/}
-                                        {/*    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>*/}
-                                        {/*</div>*/}
-                                        <div className="chat-name-status">
-                                            <h4>me</h4>
-                                            <div className="messages">
-                                                <div className="message">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                                </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                            </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, </p>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="opposite-message">
-                                    <div className='user-details'>
-                                        <div className="chat-img">
-                                            <div className='active-status'/>
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className="chat-name-status">
-                                            <h4>me</h4>
-                                            <div className="messages">
-                                                <div className="message">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                                </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                            </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, </p>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className=" my-message">
-                                    <div className='user-details'>
-                                        {/*<div className="chat-img">*/}
-                                        {/*    <div className='active-status'/>*/}
-                                        {/*    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>*/}
-                                        {/*</div>*/}
-                                        <div className="chat-name-status">
-                                            <h4>me</h4>
-                                            <div className="messages">
-                                                <div className="message">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                                </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                            </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, </p>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="opposite-message">
-                                    <div className='user-details'>
-                                        <div className="chat-img">
-                                            <div className='active-status'/>
-                                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt=""/>
-                                        </div>
-                                        <div className="chat-name-status">
-                                            <h4>me</h4>
-                                            <div className="messages">
-                                                <div className="message">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                                </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores </p>
-                                            </div> <div className="message">
-                                                <p>Lorem ipsum dolor sit amet, </p>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        )
+                                    })
+                                }
                             </div>
                         </div>
                         <div className="chatbox-footer">

@@ -5,7 +5,7 @@ import {any} from "prop-types";
 
 const Conversation = ({ conversation, currentUser, handleChatClick } : any) => {
     const [oppositeUser, setOppositeUser]: any = useState({});
-    console.log(conversation)
+
     useEffect( () => {
         const opposite = conversation?.members.find((member: any) => {
             console.log(member, currentUser)
@@ -14,9 +14,6 @@ const Conversation = ({ conversation, currentUser, handleChatClick } : any) => {
         fetch(`http://localhost:4000/api/v1/users/${opposite}`).then(res => res.json()).then(data =>  setOppositeUser(data));
     }, [])
 
-
-    // @ts-ignore
-    // @ts-ignore
     return (
         <div onClick={() => handleChatClick(conversation._id)}>
             <li className=''>

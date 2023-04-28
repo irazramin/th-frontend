@@ -10,7 +10,7 @@ const Add = () => {
         <>
             <AdminPortalLayout>
                 <TitleCard title="Add">
-                        <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
+                    <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
                 </TitleCard>
                 <DefaultCard>
                     <p>Test</p>

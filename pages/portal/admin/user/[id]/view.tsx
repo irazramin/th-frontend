@@ -5,12 +5,12 @@ const View = () => {
         <>
             <AdminPortalLayout>
                 <div className='title-bar-page'>
-                     <div className='title'>
-                          <p>View</p>
-                     </div>
-                  </div>
+                    <div className='title'>
+                        <p>View</p>
+                    </div>
+                </div>
             </AdminPortalLayout>
-            </>
+        </>
     );
 }
 

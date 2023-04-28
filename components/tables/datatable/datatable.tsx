@@ -5,14 +5,8 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import ReactPaginate from "react-paginate";
-import { useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "../../../store";
-import { getFetchApi } from "../../../features/getApiSlice";
-import { useSelector } from "react-redux";
 
 const Datatable = ({
-  id = 'datatable',
-  store = 'datatable',
   headers = [],
   limits = [10, 20, 30, 40, 50, 100],
   meta = null,
@@ -22,7 +16,7 @@ const Datatable = ({
   onChangeSearch,
   children
 }: any) => {
-  
+
   return (
     <>
       <div className="row">
@@ -40,12 +34,18 @@ const Datatable = ({
           </div>
         </div>
         <div className="col-md-4 col-sm-12 datatable-search">
-          <form action="#">
-            <div className="form-group">
-              <input type="text" placeholder="Search data" />
-              <i className="bx bx-search icon" />
-            </div>
-          </form>
+          <div className="form-group">
+            <input
+                type="text"
+                placeholder="Search data"
+                onKeyUp={(e: any) => {
+                  if (e.key == "Enter") {
+                    onChangeSearch(e.target.value);
+                  }
+                }}
+            />
+            <i className="bx bx-search icon" />
+          </div>
         </div>
         <div className="col-12">
           <div className="datatable-wrapper">

@@ -20,15 +20,15 @@ const Registration = (): JSX.Element => {
 
     const onsubmit: SubmitHandler<IFormInput> = data => {
         fetch('http://localhost:5000/api/v1/auth/registration', {
-            method:'POST',
+            method: 'POST',
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         }).then(res => res.json()).then(data => {
-                console.log(data);
-            });
+            console.log(data);
+        });
 
     }
 
@@ -72,7 +72,7 @@ const Registration = (): JSX.Element => {
                                                 }
                                             })} type="text" name="firstName" placeholder="First Name"/>
 
-                                            <FontAwesomeIcon icon={faUserAlt} className='icon' />
+                                            <FontAwesomeIcon icon={faUserAlt} className='icon'/>
 
                                         </div>
                                         <ErrorMessage
@@ -106,7 +106,7 @@ const Registration = (): JSX.Element => {
                                                     message: "This input exceed maxLength."
                                                 }
                                             })} type="text" name="lastName" placeholder="Last Name"/>
-                                            <FontAwesomeIcon icon={faUserAlt} className='icon' />
+                                            <FontAwesomeIcon icon={faUserAlt} className='icon'/>
 
                                         </div>
                                         <ErrorMessage
@@ -140,7 +140,7 @@ const Registration = (): JSX.Element => {
                                                     message: "Enter a valid email"
                                                 }
                                             })} type="email" name="email" placeholder="Email"/>
-                                            <FontAwesomeIcon icon={faEnvelopeOpen} className='icon' />
+                                            <FontAwesomeIcon icon={faEnvelopeOpen} className='icon'/>
 
                                         </div>
                                         <ErrorMessage
@@ -179,7 +179,7 @@ const Registration = (): JSX.Element => {
                                                 name="password"
                                                 placeholder="Password"
                                             />
-                                            <FontAwesomeIcon icon={faKey} className='icon' />
+                                            <FontAwesomeIcon icon={faKey} className='icon'/>
 
                                         </div>
                                         <ErrorMessage
@@ -218,7 +218,7 @@ const Registration = (): JSX.Element => {
                                                 name="confirmPassword"
                                                 placeholder="Confirm Password"
                                             />
-                                            <FontAwesomeIcon icon={faKey} className='icon' />
+                                            <FontAwesomeIcon icon={faKey} className='icon'/>
                                         </div>
                                         <ErrorMessage
                                             errors={errors}
