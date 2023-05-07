@@ -8,10 +8,9 @@ import {Datatable} from "../../../../components/tables";
 import React, {useEffect, useState} from "react";
 import {AppDispatch, RootState} from "../../../../store";
 import {useDispatch, useSelector} from "react-redux";
-import {callApi} from "../../../../features/apiSlice";
+import {callApi} from "../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../constants";
 import {UrlHelper} from "../../../../helpers";
-import Cookies from "js-cookie";
 
 const Category = () => {
     const router = useRouter();

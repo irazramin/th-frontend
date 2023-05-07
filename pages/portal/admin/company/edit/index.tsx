@@ -8,8 +8,8 @@ import React, {useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../store";
-import {getByIdFetchApi} from "../../../../../features/getApiByIdSlice";
-import {putApi} from "../../../../../features/putApiSlice";
+import {getByIdFetchApi} from "../../../../../slices/getApiByIdSlice";
+import {putApi} from "../../../../../slices/putApiSlice";
 
 interface IFormInput {
     name: String,

@@ -6,4 +6,12 @@ export default class UrlHelper {
         return `http://localhost:3032/${url}`
     }
 
+    static quizMS(url: string) {
+        return `http://localhost:3037/${url}`
+    }
+
+    static messageMS(url: string) {
+        return `http://localhost:3035/${url}`
+    }
+
 }

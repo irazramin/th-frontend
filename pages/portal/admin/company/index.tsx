@@ -8,7 +8,7 @@ import {Datatable} from "../../../../components/tables";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../store";
 import React, {useEffect, useState} from "react";
-import {callApi} from "../../../../features/apiSlice";
+import {callApi} from "../../../../slices/apiSlice";
 import {UrlHelper} from "../../../../helpers";
 import {HttpHethod} from "../../../../constants";
 

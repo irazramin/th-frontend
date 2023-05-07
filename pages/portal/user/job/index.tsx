@@ -11,7 +11,6 @@ const Job = () => {
     return (
         <>
             <UserPortalLayout>
-
                 <TitleCard title="Job">
                 </TitleCard>
                 <DefaultCard>

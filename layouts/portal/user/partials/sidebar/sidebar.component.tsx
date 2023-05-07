@@ -52,9 +52,45 @@ const Sidebar = () => {
         },
         {
             id: 6,
-            title: 'Setting',
+            title: 'Education',
             icon: faGear,
-            link: '/portal/user/setting'
+            link: '/portal/user/education'
+        },
+        {
+            id: 7,
+            title: 'Experience',
+            icon: faGear,
+            link: '/portal/user/experience'
+        },
+        {
+            id: 8,
+            title: 'Interest',
+            icon: faGear,
+            link: '/portal/user/interest'
+        },
+        {
+            id: 9,
+            title: 'Language',
+            icon: faGear,
+            link: '/portal/user/language'
+        },
+        {
+            id: 10,
+            title: 'Reference',
+            icon: faGear,
+            link: '/portal/user/reference'
+        },
+        {
+            id: 11,
+            title: 'Project',
+            icon: faGear,
+            link: '/portal/user/project'
+        },
+        {
+            id: 9,
+            title: 'Skill',
+            icon: faGear,
+            link: '/portal/user/skill'
         }
     ]);
 
@@ -69,7 +105,7 @@ const Sidebar = () => {
                     {menuList.map((menuItem, menuIndex) => {
                         return (
                             <li key={menuIndex}>
-                                <Link href={menuItem.link} className={(router.pathname == menuItem.link) || (router.pathname == menuItem.link+'/add') || (router.pathname == menuItem.link+'/details') ? 'active' : ''}>
+                                <Link href={menuItem.link}  className={router.pathname == menuItem.link  || (router.pathname == menuItem.link+'/add' || router.pathname == menuItem.link+'/[id]/edit' || router.pathname == menuItem.link+'/[id]') ? 'active' : ''}>
                                     <FontAwesomeIcon icon={menuItem.icon} size="lg" fixedWidth
                                                      className='icon'/> {menuItem.title}
                                 </Link>

@@ -7,7 +7,7 @@ import React, {useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../store";
-import {callApi} from "../../../../../features/apiSlice";
+import {callApi} from "../../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../../constants";
 import {UrlHelper} from "../../../../../helpers";
 import ErrorText from "../../../../../components/texts/ErrorText";
@@ -20,6 +20,8 @@ interface IFormInput {
     phone: String;
     website: String;
     about: String;
+    image: String;
+    address: String;
 }
 
 const Edit = () => {
@@ -32,11 +34,13 @@ const Edit = () => {
     const {register, handleSubmit, formState: {errors}, reset} = useForm<IFormInput>({
         criteriaMode: "all",
         resolver: yupResolver(yup.object().shape({
-            name: yup.string().required('Name is required'),
-            email: yup.string().required('Email is required'),
-            phone: yup.string().required('Phone is required'),
-            website: yup.string().required('Website is required'),
-            about: yup.string().required('Website is required'),
+            name: yup.string().required("Name is required"),
+            about: yup.string().required("About is required"),
+            image: yup.string().required("Image is required"),
+            email: yup.string().required("Email is required"),
+            phone: yup.string().required("Phone is required"),
+            address: yup.string().required("Address is required"),
+            website: yup.string().required("Website is required")
         }))
     });
 
@@ -123,6 +127,20 @@ const Edit = () => {
                                 />
                             </div>
                             <div className="form-group">
+                                <label htmlFor="address">Address</label>
+                                <div className="input-icon">
+                                    <input
+                                        {...register("address")}
+                                        type="text"
+                                        name="address"
+                                        placeholder="Address"/>
+                                </div>
+                                <ErrorText
+                                    errors={errors}
+                                    name="address"
+                                />
+                            </div>
+                            <div className="form-group">
                                 <label htmlFor="website">Website Link</label>
                                 <div className="input-icon">
                                     <input
@@ -136,7 +154,18 @@ const Edit = () => {
                                     name="website"
                                 />
                             </div>
-
+                            <div className="form-group">
+                                <label htmlFor="image">Image</label>
+                                <div className="input-icon">
+                                    <input
+                                        {...register("image")}
+                                        type="file"
+                                        name="image"
+                                        placeholder="Image"
+                                    />
+                                </div>
+                                <ErrorText name="image" errors={errors}/>
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="about">About</label>
                                 <div className="input-icon">

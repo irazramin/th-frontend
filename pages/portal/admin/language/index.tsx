@@ -1,15 +1,14 @@
 import {AdminPortalLayout} from "../../../../layouts";
 import Link from "next/link";
 import {ActionButton, ButtonGreenSm} from "../../../../components/buttons";
-import {faEye, faPen, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../components/cards";
 import {Datatable} from "../../../../components/tables";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../store";
 import React, {useEffect, useState} from "react";
-import {callApi} from "../../../../features/apiSlice";
+import {callApi} from "../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../constants";
 import {UrlHelper} from "../../../../helpers";
 

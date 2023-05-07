@@ -2,8 +2,8 @@ import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { HttpHethod } from "../../../../../constants";
-import { callApi } from "../../../../../features/apiSlice";
-import { collapseAction } from "../../../../../features/sidebarCollapaseSlice";
+import { callApi } from "../../../../../slices/apiSlice";
+import { collapseAction } from "../../../../../slices/sidebarCollapaseSlice";
 import { UrlHelper } from "../../../../../helpers";
 import { AppDispatch, RootState } from "../../../../../store";
 
@@ -20,7 +20,7 @@ const Topbar = () => {
   const logoutUser = () => {
     dispatch(callApi({
         method: HttpHethod.POST,
-        url: UrlHelper.authMS("api/v1/logout"),
+        url: UrlHelper.authMS("api/v1/auth/logout"),
         storeName: "logout",
         body: {token: Cookies.get("access_token")},
         defaultValue: null,

@@ -1,15 +1,9 @@
-import {AdminPortalLayout} from "../../../../../layouts";
+import UserEdit from "../../../../../features/admin/user/UserEdit";
 
 const Edit = () => {
     return (
         <>
-            <AdminPortalLayout>
-                <div className='title-bar-page'>
-                    <div className='title'>
-                        <p>Edit</p>
-                    </div>
-                </div>
-            </AdminPortalLayout>
+            <UserEdit/>
         </>
     );
 }

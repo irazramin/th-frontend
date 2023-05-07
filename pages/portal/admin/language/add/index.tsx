@@ -3,16 +3,14 @@ import {ButtonGreenMd, ButtonGreenSm} from "../../../../../components/buttons";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../../components/cards";
-import {ErrorMessage} from "@hookform/error-message";
 import React from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../store";
-import {postApi} from "../../../../../features/postApiSlice";
 import ErrorText from "../../../../../components/texts/ErrorText";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import {callApi} from "../../../../../features/apiSlice";
+import {callApi} from "../../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../../constants";
 import {UrlHelper} from "../../../../../helpers";
 

@@ -7,7 +7,7 @@ import {
 import ReactPaginate from "react-paginate";
 import { useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../../store";
-import { getFetchApi } from "../../../features/getApiSlice";
+import { getFetchApi } from "../../../slices/getApiSlice";
 import { useSelector } from "react-redux";
 
 const Datatable = ({

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { collapseAction } from "../../../../../features/sidebarCollapaseSlice";
+import { collapseAction } from "../../../../../slices/sidebarCollapaseSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../../store";
-import { callApi } from "../../../../../features/apiSlice";
+import { callApi } from "../../../../../slices/apiSlice";
 import { HttpHethod } from "../../../../../constants";
 import { UrlHelper } from "../../../../../helpers";
 import Cookies from "js-cookie";
@@ -22,7 +22,7 @@ const Topbar = () => {
     dispatch(
       callApi({
         method: HttpHethod.POST,
-        url: UrlHelper.authMS("api/v1/logout"),
+        url: UrlHelper.authMS("api/v1/auth/logout"),
         storeName: "logout",
         body: { token: Cookies.get("access_token") },
         defaultValue: null,

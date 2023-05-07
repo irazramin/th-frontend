@@ -1,6 +1,6 @@
 import {AdminPortalLayout} from "../../../../../layouts";
 import React, {useEffect} from "react";
-import {callApi} from "../../../../../features/apiSlice";
+import {callApi} from "../../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../../constants";
 import {UrlHelper} from "../../../../../helpers";
 import {SubmitHandler, useForm} from "react-hook-form";
@@ -16,10 +16,13 @@ import ErrorText from "../../../../../components/texts/ErrorText";
 
 interface IFormInput {
     name: String,
-    category: String,
-    image: String,
-    description: String
+    description: String,
+    optionA: String,
+    optionB: String,
+    optionC: String,
+    optionD: String,
 }
+
 const Edit = () => {
     const router = useRouter();
     const dispatch = useDispatch<AppDispatch>();
@@ -31,8 +34,11 @@ const Edit = () => {
         criteriaMode: "all",
         resolver: yupResolver(yup.object().shape({
             name: yup.string().required('Name is required'),
-            image: yup.string().required('Image is required'),
             description: yup.string().required('Description is required'),
+            optionA: yup.string().required('Option A is required'),
+            optionB: yup.string().required('Option B is required'),
+            optionC: yup.string().required('Option C is required'),
+            optionD: yup.string().required('Option D is required'),
         }))
     });
 
@@ -41,7 +47,7 @@ const Edit = () => {
         if (id.length) {
             dispatch(callApi({
                 method: HttpHethod.GET,
-                url: UrlHelper.coreMS('api/v1/question/' + id),
+                url: UrlHelper.quizMS('api/v1/question/' + id),
                 storeName: 'question',
                 defaultValue: null
             }));
@@ -58,7 +64,7 @@ const Edit = () => {
         let id = router?.query?.id ?? '';
         dispatch(callApi({
             method: HttpHethod.PUT,
-            url: UrlHelper.coreMS('api/v1/question/' + id),
+            url: UrlHelper.quizMS('api/v1/question/' + id),
             storeName: 'question',
             body: data,
             defaultValue: null,
@@ -78,58 +84,77 @@ const Edit = () => {
                     <div className="add-items">
                         <form onSubmit={handleSubmit(onsubmit)}>
                             <div className="form-group">
-                                <label htmlFor="name">Company Name</label>
+                                <label htmlFor="name">Question Name</label>
                                 <div className="input-icon">
-                                    <input {...register("name")}
-                                           type="text"
-                                           name="name"
-                                           placeholder="Company Name"
+                                    <input
+                                        {...register("name")}
+                                        type="text"
+                                        name="name"
+                                        placeholder="Question Name"
                                     />
                                 </div>
-                                <ErrorText
-                                    errors={errors}
-                                    name="name"
-                                />
+                                <ErrorText name="name" errors={errors}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="name">Category</label>
+                                <label htmlFor="optionA">Option A</label>
                                 <div className="input-icon">
-                                    <select {...register("category")}>
-                                        <option value="female">female</option>
-                                        <option value="male">male</option>
-                                        <option value="other">other</option>
-                                    </select>
+                                    <input
+                                        {...register("optionA")}
+                                        type="text"
+                                        name="optionA"
+                                        placeholder="Option A"
+                                    />
                                 </div>
-                                <ErrorText name="category" errors={errors}/>
+                                <ErrorText name="optionA" errors={errors}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="image">Image</label>
+                                <label htmlFor="optionB">Option B</label>
                                 <div className="input-icon">
-                                    <input {...register("image")}
-                                           type="file"
-                                           name="image"
-                                           placeholder="Image"/>
+                                    <input
+                                        {...register("optionB")}
+                                        type="text"
+                                        name="optionB"
+                                        placeholder="Option B"
+                                    />
                                 </div>
-                                <ErrorText
-                                    errors={errors}
-                                    name="image"
-                                />
+                                <ErrorText name="optionB" errors={errors}/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="optionC">Option C</label>
+                                <div className="input-icon">
+                                    <input
+                                        {...register("optionC")}
+                                        type="text"
+                                        name="optionC"
+                                        placeholder="Option C"
+                                    />
+                                </div>
+                                <ErrorText name="optionC" errors={errors}/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="optionD">Option D</label>
+                                <div className="input-icon">
+                                    <input
+                                        {...register("optionD")}
+                                        type="text"
+                                        name="optionD"
+                                        placeholder="Option D"
+                                    />
+                                </div>
+                                <ErrorText name="optionD" errors={errors}/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="description">Description</label>
                                 <div className="input-icon">
-                                    <input
+                                    <textarea
                                         {...register("description")}
-                                        type="text"
                                         name="description"
-                                        placeholder="Description"/>
+                                        placeholder="description"
+                                        rows={10}
+                                    />
                                 </div>
-                                <ErrorText
-                                    errors={errors}
-                                    name="description"
-                                />
+                                <ErrorText name="description" errors={errors}/>
                             </div>
-
                             <div className="action-btn">
                                 <ButtonGreenMd>Save</ButtonGreenMd>
                             </div>

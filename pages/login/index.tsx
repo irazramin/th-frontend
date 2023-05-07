@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Head from "next/head";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { AuthLayout } from "../../layouts";
+import {SubmitHandler, useForm} from "react-hook-form";
+import {AuthLayout} from "../../layouts";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelopeOpen, faKey } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../store";
-import { useRouter } from "next/router";
-import { yupResolver } from "@hookform/resolvers/yup";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEnvelopeOpen, faKey} from "@fortawesome/free-solid-svg-icons";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../store";
+import {useRouter} from "next/router";
+import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { callApi } from "../../features/apiSlice";
-import { HttpHethod } from "../../constants";
-import { UrlHelper } from "../../helpers";
+import {callApi} from "../../slices/apiSlice";
+import {HttpHethod} from "../../constants";
+import {UrlHelper} from "../../helpers";
 import ErrorText from "../../components/texts/ErrorText";
 import Cookies from "js-cookie";
 
@@ -46,12 +46,12 @@ const Login = () => {
 
   const [isMounted, setIsMounted] = useState(false);
 
-  const onsubmit: SubmitHandler<IFormInput> = (data) => {
+  const onsubmit: SubmitHandler<IFormInput> = (data, e) => {
 
     dispatch(
       callApi({
         method: HttpHethod.POST,
-        url: UrlHelper.authMS("api/v1/login"),
+        url: UrlHelper.authMS("api/v1/auth/login"),
         storeName: "login",
         body: data,
         defaultValue: null,
@@ -59,7 +59,11 @@ const Login = () => {
       })
     );
 
-    reset();
+    console.log(login)
+   if(login.code === 200) {
+     reset();
+   }
+    e?.preventDefault()
 
   };
 
@@ -80,7 +84,7 @@ const Login = () => {
             router.push("/login").then((r) => r);
         }
     }
-  }, [login.time]);
+  }, [login?.time]);
 
   return (
     <>

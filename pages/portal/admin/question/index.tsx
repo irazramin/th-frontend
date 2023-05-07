@@ -8,7 +8,7 @@ import {Datatable} from "../../../../components/tables";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../store";
 import React, {useEffect, useState} from "react";
-import {callApi} from "../../../../features/apiSlice";
+import {callApi} from "../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../constants";
 import {UrlHelper} from "../../../../helpers";
 
@@ -53,12 +53,12 @@ const Question = () => {
         if (isMounted && questionDelete.time != null) {
             fetchData();
         }
-    }, [questionDelete.time]);
+    }, [questionDelete?.time]);
 
     const fetchData = () => {
         dispatch(callApi({
             method: HttpHethod.GET,
-            url: UrlHelper.coreMS('api/v1/question/list'),
+            url: UrlHelper.quizMS('api/v1/question/list'),
             params: params,
             storeName: 'questionList',
             defaultValue: [],
@@ -70,7 +70,7 @@ const Question = () => {
         if (confirm("Are you sure to delete? Data will be lost permanently!")) {
             dispatch(callApi({
                 method: HttpHethod.DELETE,
-                url: UrlHelper.coreMS(`api/v1/question/${id}/delete`),
+                url: UrlHelper.quizMS(`api/v1/question/${id}/delete`),
                 params: params,
                 storeName: 'questionDelete',
                 defaultValue: null,

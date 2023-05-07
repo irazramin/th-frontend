@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import {HttpHethod} from "../constants";
 import {toast} from "react-hot-toast";
 
@@ -10,17 +10,19 @@ export const callApi = createAsyncThunk(
         params = cleanObject(params);
 
         headers = {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
+            // "Content-Type": "application/json",
+            // "Accept": "application/json",
             ...headers
         };
+
+        console.log(headers);
 
         let config = {
             method: method,
             baseURL: url,
             params: Object.keys(params).length ? params : undefined,
             headers: headers,
-            data: Object.keys(body).length ? body : undefined,
+            data: body,
             withCredentials: true,
             xsrfCookieName: 'access_token'
         }
@@ -57,7 +59,7 @@ const apiSlice = createSlice({
 
             let showToast = action?.meta?.arg?.showToast ?? false;
             if (showToast) {
-                toast(action.payload.message, { icon: "✅" });
+                toast(action.payload.message, {icon: "✅"});
             }
         }));
         builder.addCase(callApi.rejected, (state, action: any) => {
@@ -65,7 +67,7 @@ const apiSlice = createSlice({
             const storeName = action?.meta?.arg?.storeName ?? "apiResponse";
             state[storeName] = action?.meta?.arg?.defaultValue ?? null;
             state.error = action.error.message;
-            toast(action.error.message, { icon: "X" });
+            toast(action.error.message, {icon: "❌"});
 
             if (action.error.message.includes("401")) {
                 Cookies.remove("access_token");

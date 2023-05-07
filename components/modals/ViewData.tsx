@@ -3,8 +3,8 @@ import { toast } from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import Modal from "react-responsive-modal";
-import { deleteFetchApi } from "../../features/deleteApiSlice";
-import  { getByIdFetchApi } from "../../features/getApiByIdSlice";
+import { deleteFetchApi } from "../../slices/deleteApiSlice";
+import  { getByIdFetchApi } from "../../slices/getApiByIdSlice";
 import { AppDispatch, RootState } from "../../store";
 
 const ViewDataModal = ({

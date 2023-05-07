@@ -1,6 +1,6 @@
 import {AdminPortalLayout} from "../../../../../layouts";
 import React, {useEffect} from "react";
-import {callApi} from "../../../../../features/apiSlice";
+import {callApi} from "../../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../../constants";
 import {UrlHelper} from "../../../../../helpers";
 import {SubmitHandler, useForm} from "react-hook-form";

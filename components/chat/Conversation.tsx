@@ -3,19 +3,10 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
 import {any} from "prop-types";
 
-const Conversation = ({ conversation, currentUser, handleChatClick } : any) => {
-    const [oppositeUser, setOppositeUser]: any = useState({});
-
-    useEffect( () => {
-        const opposite = conversation?.members.find((member: any) => {
-            console.log(member, currentUser)
-            return  member !== currentUser
-        });
-        fetch(`http://localhost:4000/api/v1/users/${opposite}`).then(res => res.json()).then(data =>  setOppositeUser(data));
-    }, [])
+const Conversation = ({ conversation } : any) => {
 
     return (
-        <div onClick={() => handleChatClick(conversation._id)}>
+        <div >
             <li className=''>
                 <div className="chat-img">
                     <div className='active-status'/>
@@ -25,7 +16,7 @@ const Conversation = ({ conversation, currentUser, handleChatClick } : any) => {
                 </div>
                 <div className='chat-details'>
                     <div className="chat-name-time">
-                        <h4>{oppositeUser?.email}</h4>
+                        <h4>{conversation.user2.email}</h4>
                         <span>12:46 AM</span>
                     </div>
                     <div className="message-overview">

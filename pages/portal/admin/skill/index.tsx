@@ -8,11 +8,11 @@ import {Datatable} from "../../../../components/tables";
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../store";
-import {callApi} from "../../../../features/apiSlice";
+import {callApi} from "../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../constants";
 import {UrlHelper} from "../../../../helpers";
 
-const Skill = () => {
+const Education = () => {
     const router = useRouter();
     const dispatch = useDispatch<AppDispatch>();
 
@@ -117,4 +117,4 @@ const Skill = () => {
     );
 }
 
-export default Skill
+export default Education

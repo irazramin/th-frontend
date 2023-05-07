@@ -10,7 +10,7 @@ import {AppDispatch, RootState} from "../../../../../store";
 import ErrorText from "../../../../../components/texts/ErrorText";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import {callApi} from "../../../../../features/apiSlice";
+import {callApi} from "../../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../../constants";
 import {UrlHelper} from "../../../../../helpers";
 

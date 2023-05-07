@@ -3,13 +3,13 @@ import {ButtonGreenMd, ButtonGreenSm,} from "../../../../../components/buttons";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
 import {DefaultCard, TitleCard} from "../../../../../components/cards";
-import React, {useState} from "react";
+import React from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../store";
 import ToastMessage from "../../../../../components/toast/ToastMessage";
 import ErrorText from "../../../../../components/texts/ErrorText";
-import {callApi} from "../../../../../features/apiSlice";
+import {callApi} from "../../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../../constants";
 import {UrlHelper} from "../../../../../helpers";
 import * as yup from 'yup';
@@ -21,6 +21,8 @@ interface IFormInput {
     phone: String;
     website: String;
     about: String;
+    image: String;
+    address: String;
 }
 
 const Add = () => {
@@ -34,6 +36,8 @@ const Add = () => {
             phone: yup.string().required('Phone is required'),
             website: yup.string().required('Website is required'),
             about: yup.string().required('Website is required'),
+            image: yup.string().required('Image is required'),
+            address: yup.string().required('Address is required')
         }))
     });
 
@@ -101,31 +105,57 @@ const Add = () => {
                                 <ErrorText name="phone" errors={errors}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="website">Website Link</label>
+                                <label htmlFor="address">Address</label>
                                 <div className="input-icon">
                                     <input
-                                        {...register("website")}
+                                        {...register("address")}
                                         type="text"
-                                        name="website"
-                                        placeholder="Link"
-                                    />
+                                        name="address"
+                                        placeholder="Address"/>
                                 </div>
-                                <ErrorText name="website" errors={errors}/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="about">About</label>
-                                <div className="input-icon">
+                                <ErrorText
+                                    errors={errors}
+                                    name="address"
+                                />
+                                <div className="form-group">
+                                    <label htmlFor="website">Website Link</label>
+                                    <div className="input-icon">
+                                        <input
+                                            {...register("website")}
+                                            type="text"
+                                            name="website"
+                                            placeholder="Link"
+                                        />
+                                    </div>
+                                    <ErrorText name="website" errors={errors}/>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="image">Image</label>
+                                    <div className="input-icon">
+                                        <input
+                                            {...register("image")}
+                                            type="file"
+                                            name="image"
+                                            placeholder="Image"
+                                        />
+                                    </div>
+                                    <ErrorText name="image" errors={errors}/>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="about">About</label>
+                                    <div className="input-icon">
                                     <textarea
                                         {...register("about")}
                                         name="about"
                                         placeholder="about"
                                         rows={10}
                                     />
+                                    </div>
+                                    <ErrorText name="about" errors={errors}/>
                                 </div>
-                                <ErrorText name="about" errors={errors}/>
-                            </div>
-                            <div className="action-btn">
-                                <ButtonGreenMd>Save</ButtonGreenMd>
+                                <div className="action-btn">
+                                    <ButtonGreenMd>Save</ButtonGreenMd>
+                                </div>
                             </div>
                         </form>
                     </div>

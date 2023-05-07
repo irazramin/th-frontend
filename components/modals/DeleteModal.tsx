@@ -2,8 +2,8 @@ import React from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import Modal from "react-responsive-modal";
-import { deleteFetchApi } from "../../features/deleteApiSlice";
-import { getFetchApi } from "../../features/getApiSlice";
+import { deleteFetchApi } from "../../slices/deleteApiSlice";
+import { getFetchApi } from "../../slices/getApiSlice";
 import { AppDispatch } from "../../store";
 
 const DeleteModal = ({ setModalOpen, modalOpen, modalRef, itemId }: any) => {
