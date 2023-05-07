@@ -12,7 +12,7 @@ import {callApi} from "../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../constants";
 import {UrlHelper} from "../../../../helpers";
 
-const Language = () => {
+const Question = () => {
     const router = useRouter();
     const dispatch = useDispatch<AppDispatch>();
 
@@ -88,9 +88,9 @@ const Language = () => {
     return (
         <>
             <UserPortalLayout>
-                <TitleCard title="Language">
+                <TitleCard title="Question">
                     <Link href={router.pathname + '/add'}>
-                        <ButtonGreenSm icon={faPlus}>Add Language</ButtonGreenSm>
+                        <ButtonGreenSm icon={faPlus}>Add Question</ButtonGreenSm>
                     </Link>
                 </TitleCard>
                 <DefaultCard>

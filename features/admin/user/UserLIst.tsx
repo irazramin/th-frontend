@@ -81,9 +81,9 @@ const UserList = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="User List">
+                <TitleCard title="Question List">
                     <Link href={router.pathname + '/add'}>
-                        <ButtonGreenSm icon={faPlus}>Add User</ButtonGreenSm>
+                        <ButtonGreenSm icon={faPlus}>Add Question</ButtonGreenSm>
                     </Link>
                 </TitleCard>
                 <DefaultCard>

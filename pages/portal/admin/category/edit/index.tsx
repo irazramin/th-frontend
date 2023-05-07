@@ -29,7 +29,7 @@ const Edit = () => {
                     <div className="add-items">
                         <form onSubmit={handleSubmit(onsubmit)}>
                             <div className="form-group">
-                                <label htmlFor="categoryName">Category Name</label>
+                                <label htmlFor="categoryName">Company Name</label>
                                 <div className="input-icon">
                                     <input {...register("categoryName", {
                                         required: "This field is required.",
@@ -37,7 +37,7 @@ const Edit = () => {
                                             value: 50,
                                             message: "This input exceed maxLength."
                                         }
-                                    })} type="text" name="categoryName" placeholder="Category"/>
+                                    })} type="text" name="categoryName" placeholder="Company"/>
 
                                 </div>
                                 <ErrorMessage

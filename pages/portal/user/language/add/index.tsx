@@ -39,7 +39,7 @@ const Add = () => {
     const {register, handleSubmit, formState: {errors}, reset} = useForm<IFormInput>({
         criteriaMode: "all",
         resolver: yupResolver(yup.object().shape({
-            language: yup.string().required("Language is required"),
+            language: yup.string().required("Question is required"),
             proficiency: yup.string().required("proficiency is required"),
         }))
     });
@@ -73,13 +73,13 @@ const Add = () => {
                     <div className="add-items">
                         <form onSubmit={handleSubmit(onsubmit)}>
                             <div className="form-group">
-                                <label htmlFor="language">Language</label>
+                                <label htmlFor="language">Question</label>
                                 <div className="input-icon">
                                     <input
                                         {...register("language")}
                                         type="text"
                                         name="language"
-                                        placeholder="Language"
+                                        placeholder="Question"
                                     />
                                 </div>
                                 <ErrorText name="language" errors={errors}/>

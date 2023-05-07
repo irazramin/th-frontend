@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {TitleCard} from '../../components/cards';
+import {DefaultCard, TitleCard} from '../../components/cards';
 import {UserPortalLayout} from '../../layouts';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass, faPenToSquare} from "@fortawesome/free-solid-svg-icons";

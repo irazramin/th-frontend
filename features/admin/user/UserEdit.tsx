@@ -57,7 +57,9 @@ const Edit = () => {
             showToast: true
         }));
 
-        reset();
+        if (user.code == 200) {
+            reset();
+        }
     }
 
     return (

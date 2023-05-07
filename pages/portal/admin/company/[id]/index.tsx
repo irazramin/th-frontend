@@ -9,6 +9,7 @@ import {AppDispatch, RootState} from "../../../../../store";
 import {callApi} from "../../../../../slices/apiSlice";
 import {HttpHethod} from "../../../../../constants";
 import {UrlHelper} from "../../../../../helpers";
+import CompanyShow from "../../../../../features/admin/company/CompanyShow";
 
 const Add = () => {
     const router = useRouter();
@@ -32,45 +33,7 @@ const Add = () => {
 
     return (
         <>
-            <AdminPortalLayout>
-                <TitleCard title={company?.data?.name}>
-                    <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
-                        Back
-                    </ButtonGreenSm>
-                </TitleCard>
-                <DefaultCard>
-                    <div className="row">
-                        <div className="col-md-8 offset-2">
-                            <div className="datatable-wrapper">
-                                <table className="datatable">
-                                    <tbody>
-                                    <tr className="datatable-row">
-                                        <td><b>Name</b></td>
-                                        <td>{company?.data?.name ?? 'N/A'}</td>
-                                    </tr>
-                                    <tr className="datatable-row">
-                                        <td><b>Email</b></td>
-                                        <td>{company?.data?.email ?? 'N/A'}</td>
-                                    </tr>
-                                    <tr className="datatable-row">
-                                        <td><b>Phone</b></td>
-                                        <td>{company?.data?.phone ?? 'N/A'}</td>
-                                    </tr>
-                                    <tr className="datatable-row">
-                                        <td><b>Website</b></td>
-                                        <td>{company?.data?.website ?? 'N/A'}</td>
-                                    </tr>
-                                    <tr className="datatable-row">
-                                        <td><b>About</b></td>
-                                        <td>{company?.data?.about ?? 'N/A'}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </DefaultCard>
-            </AdminPortalLayout>
+           <CompanyShow />
         </>
     );
 };

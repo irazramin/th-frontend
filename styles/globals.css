@@ -2825,6 +2825,10 @@ main .page-title-bar {
 .chat-sec {
     width: 100%;
     height: 100%;
+    /*padding: 20px;*/
+    border-radius: 6px;
+    background: var(--light);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .empty-msg{

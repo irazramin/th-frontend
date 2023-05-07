@@ -19,7 +19,6 @@ interface IUser {
 }
 
 class User {
-
     static rules: any = {
         firstName: yup.string().required("First Name is required"),
         lastName: yup.string().required("Last Name is required"),
@@ -55,7 +54,7 @@ class User {
             .string()
             .oneOf([yup.ref("password"), null], "Passwords must match")
             .required("Confirm Password is required"),
-        userType: yup.string().required("User type is required")
+        userType: yup.string().required("Question type is required")
     }
 
     public static toJson(data: any) {
