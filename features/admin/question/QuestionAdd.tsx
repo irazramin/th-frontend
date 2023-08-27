@@ -12,7 +12,7 @@ import {AdminPortalLayout} from "../../../layouts";
 import {DefaultCard, TitleCard} from "../../../components/cards";
 import {ButtonGreenSm} from "../../../components/buttons";
 import QuestionForm from "./QuestionForm";
-import {Question, IQuestion} from "./Question";
+import {IQuestion, Question} from "./Question";
 
 const Add = () => {
     const router = useRouter();
@@ -47,7 +47,7 @@ const Add = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Add">
+                <TitleCard title="Add question">
                     <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
                         Back
                     </ButtonGreenSm>

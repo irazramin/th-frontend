@@ -1,15 +1,9 @@
-import {EmployerPortalLayout} from "../../../../../layouts";
+import JobEdit from "../../../../../features/employer/job/JobEdit";
 
 const Edit = () => {
     return (
         <>
-            <EmployerPortalLayout>
-                <div className='title-bar-page'>
-                    <div className='title'>
-                        <p>Edit</p>
-                    </div>
-                </div>
-            </EmployerPortalLayout>
+            <JobEdit/>
         </>
     );
 }

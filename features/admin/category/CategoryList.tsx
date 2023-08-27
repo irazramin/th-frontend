@@ -78,9 +78,9 @@ const CategoryList = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Company List">
+                <TitleCard title="Category List">
                     <Link href={router.pathname + '/add'}>
-                        <ButtonGreenSm icon={faPlus}>Add Company</ButtonGreenSm>
+                        <ButtonGreenSm icon={faPlus}>Add Category</ButtonGreenSm>
                     </Link>
                 </TitleCard>
                 <DefaultCard>

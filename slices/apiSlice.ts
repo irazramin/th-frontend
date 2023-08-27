@@ -6,30 +6,32 @@ import {toast} from "react-hot-toast";
 
 export const callApi = createAsyncThunk(
     "CallApi/callApi",
-    async ({url, method = HttpHethod.GET, params = {}, body = {}, headers = {}}: any) => {
-        params = cleanObject(params);
+    async ({url, method = HttpHethod.GET, params = {}, body = {}, headers = {},}: any, {rejectWithValue}: any) => {
+        try {
+            params = cleanObject(params);
 
-        headers = {
-            // "Content-Type": "application/json",
-            // "Accept": "application/json",
-            ...headers
-        };
+            headers = {
+                // "Content-Type": "application/json",
+                // "Accept": "application/json",
+                ...headers
+            };
 
-        console.log(headers);
+            let config = {
+                method: method,
+                baseURL: url,
+                params: Object.keys(params).length ? params : undefined,
+                headers: headers,
+                data: body,
+                withCredentials: true,
+                xsrfCookieName: 'access_token'
+            }
 
-        let config = {
-            method: method,
-            baseURL: url,
-            params: Object.keys(params).length ? params : undefined,
-            headers: headers,
-            data: body,
-            withCredentials: true,
-            xsrfCookieName: 'access_token'
+            const res = await axios.request(config);
+
+            return res.data;
+        } catch (e: any) {
+            return rejectWithValue({message: e.response})
         }
-
-        const res = await axios.request(config);
-
-        return res.data;
     });
 
 const cleanObject = (obj: any) => {
@@ -41,7 +43,8 @@ const cleanObject = (obj: any) => {
 const initialState: any = {
     isLoading: false,
     apiResponse: null,
-    error: null
+    error: null,
+    reason: null
 }
 
 const apiSlice = createSlice({
@@ -56,6 +59,7 @@ const apiSlice = createSlice({
             const storeName = action?.meta?.arg?.storeName ?? "apiResponse";
             state[storeName] = action.payload;
             state.error = "";
+            state.reason = "";
 
             let showToast = action?.meta?.arg?.showToast ?? false;
             if (showToast) {
@@ -66,8 +70,8 @@ const apiSlice = createSlice({
             state.isLoading = false;
             const storeName = action?.meta?.arg?.storeName ?? "apiResponse";
             state[storeName] = action?.meta?.arg?.defaultValue ?? null;
-            state.error = action.error.message;
-            toast(action.error.message, {icon: "❌"});
+            state.error = action.payload.message.data;
+            toast(action.payload.message.data.message, {icon: "❌"});
 
             if (action.error.message.includes("401")) {
                 Cookies.remove("access_token");

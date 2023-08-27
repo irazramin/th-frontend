@@ -20,7 +20,7 @@ const Add = () => {
     const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>({criteriaMode: "all"});
 
     const onsubmit: SubmitHandler<IFormInput> = data => {
-        console.log(data)
+
     }
     return (
         <>

@@ -10,7 +10,7 @@ import {UrlHelper} from "../../../helpers";
 import {AdminPortalLayout} from "../../../layouts";
 import {DefaultCard, TitleCard} from "../../../components/cards";
 import {ButtonGreenSm} from "../../../components/buttons";
-import {ICategory, Category} from "./Category";
+import {Category, ICategory} from "./Category";
 import {yupResolver} from "@hookform/resolvers/yup";
 import CategoryForm from "./CategoryForm";
 

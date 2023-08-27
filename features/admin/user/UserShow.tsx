@@ -33,7 +33,7 @@ const Add = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title={user?.data?.name}>
+                <TitleCard title={'User' + ' Details'}>
                     <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
                         Back
                     </ButtonGreenSm>

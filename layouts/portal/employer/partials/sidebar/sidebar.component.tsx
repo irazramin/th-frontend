@@ -2,16 +2,9 @@ import React, {useState} from 'react'
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {
-    faBriefcase,
-    faEnvelopeOpen,
-    faFileCircleQuestion,
-    faFilePen,
-    faGear,
-    faShapes
-} from '@fortawesome/free-solid-svg-icons'
+import {faBriefcase, faEnvelopeOpen, faShapes} from '@fortawesome/free-solid-svg-icons'
 import {useSelector} from "react-redux";
-import { RootState} from "../../../../../store";
+import {RootState} from "../../../../../store";
 
 const Sidebar = () => {
 
@@ -38,12 +31,6 @@ const Sidebar = () => {
             title: 'Jobs',
             icon: faBriefcase,
             link: '/portal/employer/job'
-        },
-        {
-            id: 4,
-            title: 'Exams',
-            icon: faFilePen,
-            link: '/portal/employer/exam'
         }
     ]);
 
@@ -51,14 +38,15 @@ const Sidebar = () => {
         <>
             <section id="sidebar" className={collapseState ? 'hide' : ''}>
                 <a href="#" className="brand">
-                    <img className='project-logo-1' src="/project-logo.png" alt="" />
-                    <img src="/logo.png" className='project-logo-2' alt="" />
+                    <img className='project-logo-1' src="/project-logo.png" alt=""/>
+                    <img src="/logo.png" className='project-logo-2' alt=""/>
                 </a>
                 <ul className="side-menu">
                     {menuList.map((menuItem, menuIndex) => {
                         return (
                             <li key={menuIndex}>
-                                <Link href={menuItem.link} className={(router.pathname == menuItem.link) || (router.pathname == menuItem.link+'/add') ? 'active' : ''}>
+                                <Link href={menuItem.link}
+                                      className={(router.pathname == menuItem.link) || (router.pathname == menuItem.link + '/add') ? 'active' : ''}>
                                     <FontAwesomeIcon icon={menuItem.icon} size="lg" fixedWidth
                                                      className='icon'/> {menuItem.title}
                                 </Link>

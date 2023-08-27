@@ -1,76 +1,105 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPaperclip, faPaperPlane} from "@fortawesome/free-solid-svg-icons";
+import {faPaperPlane} from "@fortawesome/free-solid-svg-icons";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../store";
 import {callApi} from "../../slices/apiSlice";
 import {HttpHethod} from "../../constants";
 import {UrlHelper} from "../../helpers";
 import {useRouter} from "next/router";
+import {io} from "socket.io-client";
+import Cookies from "js-cookie";
 
-const MessageList = ({children}: any) => {
-    const dispatch = useDispatch<AppDispatch>();
+const Conversation = () => {
+
     const router = useRouter();
-    const {id} = router.query;
+    const scrollRef: any = useRef();
+    const dispatch = useDispatch<AppDispatch>();
 
+    const [socket, setSocket]: any = useState(null);
     const [isMounted, setIsMounted] = useState(false);
-    const [messageList = {messages: []}, setMessageList]: any = useState([]);
-    const [sendMessage, setSendMessage] = useState('');
+    const [messages = [], setMessages]: any = useState([]);
+    const [messageBody, setMessageBody] = useState('');
 
-    const [rel, setRel] = useState([]);
-    const scrollRef = useRef();
+    let authUser: any = Cookies.get('auth_user');
 
+    if (authUser) {
+        authUser = JSON.parse(authUser);
+    }
 
-    const {messages = {data: [], meta: null, time: ''}, isLoading = false} = useSelector(
+    const {conversation = {data: [], meta: null, time: ''}, isLoading = false} = useSelector(
         (state: RootState) => state.callApi
     );
 
     useEffect(() => {
-        if (isMounted && messages.time) {
-            setMessageList(messages.data);
-        }
-    }, [messages.time]);
+        const socketIO = io('http://localhost:3038');
+        setSocket(socketIO);
+        return () => {
+            socketIO.disconnect();
+        };
+    }, []);
 
     useEffect(() => {
-        if (id) {
-            fetchData();
+        if (!socket) return;
+
+        socket.on('receiveMessage', ({message}: any) => {
+            setMessages((prevMessages: any) => [...prevMessages, message]);
+        });
+    }, [socket]);
+
+    useEffect(() => {
+        let id = router?.query?.id ?? '';
+        if (id.length > 0) {
             setIsMounted(true);
+            dispatch(callApi({
+                method: HttpHethod.GET,
+                url: UrlHelper.messageMS(`api/v1/conversation/${id}`),
+                storeName: 'conversation',
+                defaultValue: [],
+                showToast: false
+            }));
         }
-    }, [id, sendMessage]);
+    }, [router?.query?.id]);
 
-    const fetchData = () => {
-        dispatch(callApi({
-            method: HttpHethod.GET,
-            url: UrlHelper.messageMS(`api/v1/conversation/${id}`),
-            storeName: 'messages',
-            defaultValue: [],
-            showToast: false
-        }));
-    };
 
     useEffect(() => {
-        // @ts-ignore
-        scrollRef.current?.scrollIntoView({behavior: "smooth"});
-    }, [messageList]);
-
-    const sendMessages = (e: any) => {
-        e.preventDefault();
-        const data = {
-            message: sendMessage,
-            conversationId: id,
-            messageType: 'no'
+        if (isMounted && conversation.time) {
+            setMessages(conversation?.data?.messages ?? []);
+            socket.emit('subscribeConversation', router.query.id);
         }
-        dispatch(callApi({
-            method: HttpHethod.POST,
-            url: UrlHelper.messageMS('api/v1/message'),
-            storeName: 'sendMessage',
-            body: data,
-            defaultValue: null,
-            showToast: true
-        }));
+    }, [conversation.time, isMounted]);
 
-        setSendMessage('');
+    useEffect(() => {
+        if (messages.length) {
+            scrollRef.current?.scrollIntoView({behavior: 'smooth'});
+        }
+    }, [messages]);
+
+    const onSendMessage = (e: any) => {
+        e.preventDefault();
+
+        if (router?.query?.id) {
+            const data = {
+                message: messageBody,
+                conversationId: router?.query?.id,
+                messageType: 1
+            }
+
+            dispatch(callApi({
+                method: HttpHethod.POST,
+                url: UrlHelper.messageMS('api/v1/message'),
+                storeName: 'sendMessage',
+                body: data,
+                defaultValue: null,
+                showToast: false
+            }));
+        }
+
+        scrollRef.current?.scrollIntoView({behavior: 'smooth'});
+
+        setMessageBody(' ');
     }
+
     return (
         <>
             <div ref={scrollRef} className="chat-section cards">
@@ -90,16 +119,16 @@ const MessageList = ({children}: any) => {
                 </div>
                 <div className="chat-box">
                     <div className="all-messages">
-                        {messageList?.messages?.map((message: any) => {
+                        {messages?.map((message: any, messageIndex: number) => {
                             return (
-                                <div ref={scrollRef}>
-                                    {message.senderId === '64500b7a7c81c868bb2249bb' ? (
+                                <div ref={scrollRef} key={messageIndex}>
+                                    {message?.senderId === (authUser?._id ?? null) ? (
                                         <div className=" my-message">
                                             <div className="user-details">
                                                 <div className="chat-name-status">
                                                     <div className="messages">
                                                         <div className="message">
-                                                            <p>{message.message}</p>
+                                                            <p>{message?.message}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -119,7 +148,7 @@ const MessageList = ({children}: any) => {
                                                     <h4>me</h4>
                                                     <div className="messages">
                                                         <div className="message">
-                                                            <p>{message.message}</p>
+                                                            <p>{message?.message}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,15 +161,13 @@ const MessageList = ({children}: any) => {
                     </div>
                 </div>
                 <div className="chatbox-footer">
-                    <form action="#" onSubmit={sendMessages}>
+                    <form onSubmit={onSendMessage}>
                         <div className="form-group">
-                            <input type="text" placeholder="write messages" name='messagebox'
-                                   onChange={(e: any) => setSendMessage(e.target.value)}/>
+                            <input type="text" placeholder="Write your message" name="message"
+                                   value={messageBody}
+                                   onChange={(e: any) => setMessageBody(e.target.value)}/>
                             <button className="send">
                                 <FontAwesomeIcon icon={faPaperPlane} className="icon "/>
-                            </button>
-                            <button className="attachment">
-                                <FontAwesomeIcon icon={faPaperclip} className="icon "/>
                             </button>
                         </div>
                     </form>
@@ -150,4 +177,4 @@ const MessageList = ({children}: any) => {
     );
 };
 
-export default MessageList;
+export default Conversation;

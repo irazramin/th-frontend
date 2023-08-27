@@ -1,10 +1,12 @@
 import * as yup from "yup";
-interface ISubcategory{
+
+interface ISubcategory {
     name: String,
     image: any,
     description: String
     category: String,
 }
+
 class Subcategory {
     static rules: any = {
         name: yup.string().required("Name is required"),

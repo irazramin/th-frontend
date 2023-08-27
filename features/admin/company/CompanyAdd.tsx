@@ -32,7 +32,7 @@ const Add = () => {
     );
 
     const onsubmit: SubmitHandler<ICompany> = (data) => {
-        console.log('data', data.image);
+
         dispatch(
             callApi({
                 method: HttpHethod.POST,
@@ -48,7 +48,7 @@ const Add = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Add">
+                <TitleCard title="Add Company">
                     <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
                         Back
                     </ButtonGreenSm>

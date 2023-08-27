@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Head from "next/head";
 import {Sidebar, Topbar} from './partials';
 import './portal-layout.module.css';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 import Cookies from 'js-cookie';
 
 

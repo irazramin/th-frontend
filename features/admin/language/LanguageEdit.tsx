@@ -13,7 +13,6 @@ import {ButtonGreenSm} from "../../../components/buttons";
 import {ILanguage, Language} from "./Language";
 import LanguageForm from "./LanguageForm";
 import {yupResolver} from "@hookform/resolvers/yup";
-import {ICompany} from "../company/Company";
 
 const Edit = () => {
     const router = useRouter();

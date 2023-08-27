@@ -8,13 +8,13 @@ const LanguageForm = ({register, errors, editMode = false, onSubmit}: any) => {
             <div className="add-items">
                 <form onSubmit={onSubmit}>
                     <div className="form-group">
-                        <label htmlFor="name">Question Name</label>
+                        <label htmlFor="name">Language Name</label>
                         <div className="input-icon">
                             <input
                                 {...register("name")}
                                 type="text"
                                 name="name"
-                                placeholder="Question Name"
+                                placeholder="Language Name"
                             />
                         </div>
                         <ErrorText name="name" errors={errors}/>

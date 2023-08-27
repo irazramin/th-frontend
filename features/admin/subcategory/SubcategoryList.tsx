@@ -22,7 +22,7 @@ const SubcategoryList = () => {
             {id: 2, name: 'SUBCATEGORY', storable: false},
             {id: 3, name: 'CATEGORY', storable: false}
         ],
-       meta: null
+        meta: null
     }
 
     const [params, setParams] = useState({page: 1, limit: 10, search: ""});
@@ -74,6 +74,9 @@ const SubcategoryList = () => {
         }
     };
 
+    const fetchCategory = (id: any) => {
+
+    }
     return (
         <>
             <AdminPortalLayout>
@@ -93,7 +96,7 @@ const SubcategoryList = () => {
                             <tr key={subcategoryIndex}>
                                 <td>{((params.page - 1) * params.limit) + subcategoryIndex + 1}</td>
                                 <td>{subcategory.name}</td>
-                                <td>{subcategory.category}</td>
+                                <td>{fetchCategory(subcategory.category)}</td>
                                 <td>
                                     <ActionButton
                                         key={`show${subcategoryIndex}`}

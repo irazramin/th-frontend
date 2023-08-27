@@ -6,6 +6,8 @@ import NextNProgress from 'nextjs-progressbar';
 import {store} from "../store";
 import {Provider} from "react-redux";
 import ToastMessage from "../components/toast/ToastMessage";
+import "react-toastify/dist/ReactToastify.css";
+
 import React from "react";
 
 export default function App({Component, pageProps}: AppProps) {
@@ -14,6 +16,7 @@ export default function App({Component, pageProps}: AppProps) {
         <Provider store={store}>
             <Component {...pageProps} />
             <ToastMessage/>
+
         </Provider>
     </>
 

@@ -8,17 +8,18 @@ const SkillForm = ({register, errors, editMode = false, onSubmit}: any) => {
             <div className="add-items">
                 <form onSubmit={onSubmit}>
                     <div className="form-group">
-                        <label htmlFor="name">Question Name</label>
+                        <label htmlFor="name">SKill Name</label>
                         <div className="input-icon">
                             <input
                                 {...register("name")}
                                 type="text"
                                 name="name"
-                                placeholder="Question Name"
+                                placeholder="SKill Name"
                             />
                         </div>
                         <ErrorText name="name" errors={errors}/>
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
                         <div className="input-icon">

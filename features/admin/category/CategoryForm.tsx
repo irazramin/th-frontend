@@ -11,13 +11,13 @@ const CategoryForm = ({register, errors, editMode = false, onSubmit}: any) => {
                     encType="multipart/form-data"
                 >
                     <div className="form-group">
-                        <label htmlFor="name">Company Name</label>
+                        <label htmlFor="name">Category Name</label>
                         <div className="input-icon">
                             <input
                                 {...register("name")}
                                 type="text"
                                 name="name"
-                                placeholder="Company Name"
+                                placeholder="Category Name"
                             />
                         </div>
                         <ErrorText name="name" errors={errors}/>

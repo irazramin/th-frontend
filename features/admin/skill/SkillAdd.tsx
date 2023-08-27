@@ -12,7 +12,7 @@ import {AdminPortalLayout} from "../../../layouts";
 import {DefaultCard, TitleCard} from "../../../components/cards";
 import {ButtonGreenSm} from "../../../components/buttons";
 import SkillForm from "./SkillForm";
-import {Skill, ISkill} from "./Skill";
+import {ISkill, Skill} from "./Skill";
 
 const Add = () => {
     const router = useRouter();
@@ -47,7 +47,7 @@ const Add = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Add">
+                <TitleCard title="Add skill">
                     <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
                         Back
                     </ButtonGreenSm>

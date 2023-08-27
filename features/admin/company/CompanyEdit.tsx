@@ -61,7 +61,7 @@ const Edit = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Edit">
+                <TitleCard title="Edit Company">
                     <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>Back</ButtonGreenSm>
                 </TitleCard>
                 <DefaultCard>

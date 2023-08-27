@@ -25,7 +25,7 @@ const QuestionList = () => {
             {id: 5, name: 'OPTION_C', storable: false},
             {id: 6, name: 'OPTION_D', storable: false}
         ],
-       meta: null
+        meta: null
     }
 
     const [params, setParams] = useState({page: 1, limit: 10, search: ""});
@@ -80,7 +80,7 @@ const QuestionList = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Question">
+                <TitleCard title="Question list">
                     <Link href={router.pathname + '/add'}>
                         <ButtonGreenSm icon={faPlus}>Add Question</ButtonGreenSm>
                     </Link>

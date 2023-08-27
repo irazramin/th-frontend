@@ -1,8 +1,4 @@
-import {AdminPortalLayout} from "../../../../../layouts";
-import {ButtonGreenSm,} from "../../../../../components/buttons";
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";
-import {DefaultCard, TitleCard} from "../../../../../components/cards";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../store";
@@ -33,7 +29,7 @@ const Add = () => {
 
     return (
         <>
-           <CompanyShow />
+            <CompanyShow/>
         </>
     );
 };

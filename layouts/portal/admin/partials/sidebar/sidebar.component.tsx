@@ -21,7 +21,6 @@ const Sidebar = () => {
 
     const collapseState = useSelector((state: RootState) => state.collapse.collapse);
 
-    console.log(collapseState)
     const [menuList] = useState([
         {
             id: 1,
@@ -77,14 +76,15 @@ const Sidebar = () => {
         <>
             <section id="sidebar" className={collapseState ? 'hide' : ''}>
                 <a href="#" className="brand">
-                    <img className='project-logo-1' src="/project-logo.png" alt="" />
-                    <img src="/logo.png" className='project-logo-2' alt="" />
+                    <img className='project-logo-1' src="/project-logo.png" alt=""/>
+                    <img src="/logo.png" className='project-logo-2' alt=""/>
                 </a>
                 <ul className="side-menu">
                     {menuList.map((menuItem, menuIndex) => {
                         return (
                             <li key={menuIndex}>
-                                <Link href={menuItem.link} className={router.pathname == menuItem.link  || (router.pathname == menuItem.link+'/add' || router.pathname == menuItem.link+'/[id]/edit' || router.pathname == menuItem.link+'/[id]') ? 'active' : ''}>
+                                <Link href={menuItem.link}
+                                      className={router.pathname == menuItem.link || (router.pathname == menuItem.link + '/add' || router.pathname == menuItem.link + '/[id]/edit' || router.pathname == menuItem.link + '/[id]') ? 'active' : ''}>
                                     {}
                                     <FontAwesomeIcon icon={menuItem.icon} size="lg" fixedWidth
                                                      className='icon'/> {menuItem.title}

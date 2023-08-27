@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f02026f1-b5bb-41fe-abba-48e147d6ccbf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/features/settings/password/Password.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/category/CategoryAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/category/CategoryAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/category/CategoryForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/category/CategoryForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/category/CategoryList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/category/CategoryList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/category/CategoryShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/category/CategoryShow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/company/CompanyAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/company/CompanyAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/company/CompanyEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/company/CompanyEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/company/CompanyShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/company/CompanyShow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/language/LanguageAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/language/LanguageAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/language/LanguageForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/language/LanguageForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/language/LanguageList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/language/LanguageList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/language/LanguageShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/language/LanguageShow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/question/QuestionAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/question/QuestionAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/question/QuestionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/question/QuestionList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/question/QuestionShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/question/QuestionShow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/skill/SKillList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/skill/SKillList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/skill/SkillAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/skill/SkillAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/skill/SkillForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/skill/SkillForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/skill/SkillShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/skill/SkillShow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/subcategory/SubcategoryAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/subcategory/SubcategoryAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/subcategory/SubcategoryForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/subcategory/SubcategoryForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/subcategory/SubcategoryShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/subcategory/SubcategoryShow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/user/UserAdd.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/user/UserAdd.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/user/UserEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/user/UserEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/user/UserLIst.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/user/UserLIst.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/admin/user/UserShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/admin/user/UserShow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/message/MessageBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/message/MessageBox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/message/MessageList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/message/MessageList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/url.helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/url.helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/portal/admin/partials/topbar/topbar.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/portal/admin/partials/topbar/topbar.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/portal/employer/partials/sidebar/sidebar.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/portal/employer/partials/sidebar/sidebar.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/portal/employer/partials/topbar/topbar.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/portal/employer/partials/topbar/topbar.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/portal/user/partials/sidebar/sidebar.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/portal/user/partials/sidebar/sidebar.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/portal/user/partials/topbar/topbar.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/portal/user/partials/topbar/topbar.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/admin/dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/admin/dashboard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/admin/question/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/admin/question/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/admin/question/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/admin/question/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/employer/dashboard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/exam/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/job/[id]/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/exam/[id]/edit.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/exam/[id]/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/exam/add/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/exam/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/job/[id]/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/employer/job/[id]/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/job/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/employer/job/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/job/add/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/employer/job/add/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/job/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/employer/job/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/message/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/employer/message/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/question/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/question/[id]/edit.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/question/[id]/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/question/add/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/question/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/employer/setting/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/education/[id]/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/education/[id]/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/education/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/education/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/education/add/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/education/add/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/education/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/education/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/exam/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/exam/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/experience/[id]/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/experience/[id]/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/experience/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/experience/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/experience/add/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/experience/add/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/experience/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/experience/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/interest/[id]/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/interest/[id]/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/interest/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/interest/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/interest/add/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/interest/add/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/interest/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/interest/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/job/details/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/job/details/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/job/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/job/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/job/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/language/[id]/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/language/[id]/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/language/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/language/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/language/add/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/language/add/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/language/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/language/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/message/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/message/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/message/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/message/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/project/[id]/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/project/[id]/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/project/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/project/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/project/add/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/project/add/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/project/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/project/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/reference/[id]/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/reference/[id]/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/reference/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/reference/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/reference/add/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/reference/add/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/reference/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/reference/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/resume/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/resume/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/skill/[id]/edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/skill/[id]/edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/skill/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/skill/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/skill/add/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/skill/add/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portal/user/skill/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portal/user/skill/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/registration/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registration/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slices/apiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slices/apiSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2I06mLRt6k3BfmLGEmlmhK9UX1P" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/media/iraz/Workspace37/University/talenthub-frontend/pages",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.JavaScript",
+    "ts.external.directory.path": "/media/iraz/Workspace42/University/talenthub-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/features/settings" />
+      <recent name="$PROJECT_DIR$/pages/portal/user/setting" />
+      <recent name="$PROJECT_DIR$/pages/portal/admin" />
+      <recent name="$PROJECT_DIR$/pages/portal/employer" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/features/settings" />
+      <recent name="$PROJECT_DIR$/features" />
+      <recent name="$PROJECT_DIR$/features/admin" />
+      <recent name="$PROJECT_DIR$/features/admin/category" />
+      <recent name="$PROJECT_DIR$/features/profile/account-setting" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f02026f1-b5bb-41fe-abba-48e147d6ccbf" name="Default Changelist" comment="" />
+      <created>1669306320502</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669306320502</updated>
+      <workItem from="1669306329752" duration="21764000" />
+      <workItem from="1669978813569" duration="676000" />
+      <workItem from="1669979519295" duration="65624000" />
+      <workItem from="1671080936961" duration="11309000" />
+      <workItem from="1671172427913" duration="2955000" />
+      <workItem from="1671259041349" duration="4934000" />
+      <workItem from="1671428701603" duration="6200000" />
+      <workItem from="1671467204273" duration="20760000" />
+      <workItem from="1671704375409" duration="44203000" />
+      <workItem from="1672838685205" duration="32480000" />
+      <workItem from="1673354543671" duration="316000" />
+      <workItem from="1673719075776" duration="1787000" />
+      <workItem from="1673887543906" duration="598000" />
+      <workItem from="1674025182598" duration="25320000" />
+      <workItem from="1674624899675" duration="26191000" />
+      <workItem from="1674736227300" duration="10196000" />
+      <workItem from="1674991869153" duration="708000" />
+      <workItem from="1675055441619" duration="816000" />
+      <workItem from="1675083237450" duration="35000" />
+      <workItem from="1675322726889" duration="2572000" />
+      <workItem from="1675503896502" duration="43892000" />
+      <workItem from="1676342430389" duration="7585000" />
+      <workItem from="1676576329325" duration="2242000" />
+      <workItem from="1677416216777" duration="1529000" />
+      <workItem from="1678514002937" duration="707000" />
+      <workItem from="1679645006331" duration="2531000" />
+      <workItem from="1679736262057" duration="1298000" />
+      <workItem from="1680280070607" duration="1947000" />
+      <workItem from="1682066366835" duration="877000" />
+      <workItem from="1682241372254" duration="34577000" />
+      <workItem from="1682779234457" duration="18604000" />
+      <workItem from="1682869277485" duration="3054000" />
+      <workItem from="1682881297983" duration="10618000" />
+      <workItem from="1683112978966" duration="16609000" />
+      <workItem from="1683267260190" duration="23132000" />
+      <workItem from="1683439357482" duration="25580000" />
+      <workItem from="1683623746324" duration="17322000" />
+      <workItem from="1683694733188" duration="21770000" />
+      <workItem from="1683737199183" duration="9824000" />
+      <workItem from="1683804505663" duration="22267000" />
+      <workItem from="1684054273999" duration="31619000" />
+      <workItem from="1684238573016" duration="26085000" />
+      <workItem from="1684479369373" duration="21188000" />
+      <workItem from="1684571706915" duration="7287000" />
+      <workItem from="1684728405344" duration="14005000" />
+      <workItem from="1684759365955" duration="10152000" />
+      <workItem from="1684815283286" duration="426000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/portal/user/education/index.tsx</url>
+          <line>7</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/portal/user/language/add/index.tsx</url>
+          <line>8</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

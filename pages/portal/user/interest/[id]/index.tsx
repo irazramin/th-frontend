@@ -1,4 +1,4 @@
-import {AdminPortalLayout, UserPortalLayout} from "../../../../../layouts";
+import {UserPortalLayout} from "../../../../../layouts";
 import {ButtonGreenSm,} from "../../../../../components/buttons";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/router";

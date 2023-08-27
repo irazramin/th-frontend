@@ -1,5 +1,6 @@
 import * as yup from "yup";
-interface ICompany{
+
+interface ICompany {
     name: String;
     email: String;
     phone: String;
@@ -8,6 +9,7 @@ interface ICompany{
     image: any;
     address: String;
 }
+
 class Company {
     static rules: any = {
         name: yup.string().required('Name is required'),

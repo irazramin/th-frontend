@@ -4,7 +4,7 @@ const initialValue = {
     collapse: false
 }
 
- const collapseSlice = createSlice({
+const collapseSlice = createSlice({
     initialState: initialValue,
     name: "sidebarCollapse",
     reducers: {

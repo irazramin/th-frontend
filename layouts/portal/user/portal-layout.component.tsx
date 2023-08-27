@@ -15,7 +15,6 @@ const PortalLayout = ({children}: any) => {
         if (authUser) {
             authUser = JSON.parse(authUser);
             if (authUser?.userType != 3) {
-                console.log('userType', authUser?.userType);
                 if (authUser?.userType == 1) {
                     router.push("/portal/admin/dashboard").then((r) => r);
                 } else if (authUser?.userType == 2) {

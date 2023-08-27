@@ -45,7 +45,7 @@ const CompanyList = () => {
         if (isMounted) {
             fetchData();
         }
-        console.log(params.search)
+
     }, [params.limit, params.page, params.search]);
 
     useEffect(() => {

@@ -1,15 +1,15 @@
 import MessageList from "../../../../../features/message/MessageList";
 import MessageBox from "../../../../../features/message/MessageBox";
-import MessageEmptyState from "../../../../../features/message/MessageEmptyState";
+import {UserPortalLayout} from "../../../../../layouts";
 
 const Message = () => {
-  return (
-    <>
-      <MessageList>
-        <MessageBox/>
-      </MessageList>
-    </>
-  );
+    return (
+        <UserPortalLayout>
+            <MessageList type="user">
+                <MessageBox/>
+            </MessageList>
+        </UserPortalLayout>
+    );
 };
 
 export default Message;

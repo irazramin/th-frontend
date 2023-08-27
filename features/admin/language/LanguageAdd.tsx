@@ -12,7 +12,7 @@ import {AdminPortalLayout} from "../../../layouts";
 import {DefaultCard, TitleCard} from "../../../components/cards";
 import {ButtonGreenSm} from "../../../components/buttons";
 import LanguageForm from "./LanguageForm";
-import {Language, ILanguage} from "./Language";
+import {ILanguage, Language} from "./Language";
 
 const Add = () => {
     const router = useRouter();
@@ -47,7 +47,7 @@ const Add = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Add">
+                <TitleCard title="Add Language">
                     <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
                         Back
                     </ButtonGreenSm>

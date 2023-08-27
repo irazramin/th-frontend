@@ -4,7 +4,6 @@ const ResetPassword = () => {
     return (
         <>
             <AuthLayout>
-                <p>This is a reset password page</p>
             </AuthLayout>
         </>
     );

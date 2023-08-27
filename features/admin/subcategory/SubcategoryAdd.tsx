@@ -11,7 +11,7 @@ import {UrlHelper} from "../../../helpers";
 import {AdminPortalLayout} from "../../../layouts";
 import {DefaultCard, TitleCard} from "../../../components/cards";
 import {ButtonGreenSm} from "../../../components/buttons";
-import {Subcategory, ISubcategory} from "./Subcategory";
+import {ISubcategory, Subcategory} from "./Subcategory";
 import SubcategoryForm from "./SubcategoryForm";
 
 const Add = () => {
@@ -32,7 +32,6 @@ const Add = () => {
     );
 
     const onsubmit: SubmitHandler<ISubcategory> = (data) => {
-        console.log('data', data.image);
         dispatch(
             callApi({
                 method: HttpHethod.POST,
@@ -40,7 +39,7 @@ const Add = () => {
                 storeName: "subcategory",
                 body: Subcategory.toFormData(data),
                 defaultValue: null,
-                showToast: true,
+                showToast: true
             })
         );
 
@@ -48,7 +47,7 @@ const Add = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Add">
+                <TitleCard title="Add subcategory">
                     <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
                         Back
                     </ButtonGreenSm>

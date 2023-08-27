@@ -1,8 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ErrorText from "../../../components/texts/ErrorText";
 import {ButtonGreenMd} from "../../../components/buttons";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../store";
+import {callApi} from "../../../slices/apiSlice";
+import {HttpHethod} from "../../../constants";
+import {UrlHelper} from "../../../helpers";
 
 const SubcategoryForm = ({register, errors, editMode = false, onSubmit}: any) => {
+    const dispatch = useDispatch<AppDispatch>();
+    const {categoryJob = {data: null}, isLoading = false} = useSelector(
+        (state: RootState) => state.callApi
+    );
+    useEffect(() => {
+        dispatch(callApi({
+            method: HttpHethod.GET,
+            url: UrlHelper.coreMS('api/v1/category'),
+            storeName: 'categoryJob',
+            defaultValue: null
+        }));
+    }, []);
     return (
         <div>
             <div className="add-items">
@@ -27,10 +44,10 @@ const SubcategoryForm = ({register, errors, editMode = false, onSubmit}: any) =>
                     <div className="form-group">
                         <label htmlFor="name">Category</label>
                         <div className="input-icon">
-                            <select {...register("category")}>
-                                <option value="female">female</option>
-                                <option value="male">male</option>
-                                <option value="other">other</option>
+                            <select {...register("category")} name="category">
+                                <option>Select Category</option>
+                                {categoryJob?.data?.map((category: any) => <option key={category._id}
+                                                                                   value={category._id}>{category.name}</option>)}
                             </select>
                         </div>
                         <ErrorText name="category" errors={errors}/>

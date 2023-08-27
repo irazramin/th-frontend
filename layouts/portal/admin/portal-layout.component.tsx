@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Head from "next/head";
 import {Sidebar, Topbar} from './partials';
 import './portal-layout.module.css';
 import Cookies from 'js-cookie';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 
 const PortalLayout = ({children}: any) => {
 

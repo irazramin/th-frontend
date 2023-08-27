@@ -1,15 +1,15 @@
 import MessageList from "../../../../features/message/MessageList";
 import MessageEmptyState from "../../../../features/message/MessageEmptyState";
-import {DefaultCard} from "../../../../components/cards";
+import {UserPortalLayout} from "../../../../layouts";
 
 const Message = () => {
-  return (
-    <>
-      <MessageList>
-             <MessageEmptyState />
-      </MessageList>
-    </>
-  );
+    return (
+        <UserPortalLayout>
+            <MessageList type="user">
+                <MessageEmptyState/>
+            </MessageList>
+        </UserPortalLayout>
+    );
 };
 
 export default Message;

@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
-import {any} from "prop-types";
+import React from 'react';
 
-const Conversation = ({ conversation } : any) => {
+const Conversation = ({conversation}: any) => {
 
     return (
-        <div >
+        <div>
             <li className=''>
                 <div className="chat-img">
                     <div className='active-status'/>

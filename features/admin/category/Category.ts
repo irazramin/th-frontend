@@ -1,9 +1,11 @@
 import * as yup from "yup";
-interface ICategory{
+
+interface ICategory {
     name: String,
     image: any,
     description: String
 }
+
 class Category {
     static rules: any = {
         name: yup.string().required("Name is required"),

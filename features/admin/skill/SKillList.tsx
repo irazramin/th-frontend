@@ -19,9 +19,9 @@ const SKillList = () => {
         name: 'skillList',
         headers: [
             {id: 1, name: 'ID', storable: false},
-            {id: 2, name: 'Question NAME', storable: false},
+            {id: 2, name: 'SKILL NAME', storable: false},
         ],
-       meta: null
+        meta: null
     }
 
     const [params, setParams] = useState({page: 1, limit: 10, search: ""});
@@ -76,9 +76,9 @@ const SKillList = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Question">
+                <TitleCard title="Skill">
                     <Link href={router.pathname + '/add'}>
-                        <ButtonGreenSm icon={faPlus}>Add Question</ButtonGreenSm>
+                        <ButtonGreenSm icon={faPlus}>Add Skill</ButtonGreenSm>
                     </Link>
                 </TitleCard>
                 <DefaultCard>

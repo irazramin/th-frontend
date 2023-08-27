@@ -1,10 +1,11 @@
 import {AuthLayout} from "../../layouts";
+import ForgetPasswordComponent from "../../features/forget-password/ForgetPasswordComponent";
 
 const ForgetPassword = () => {
     return (
         <>
             <AuthLayout>
-                <p>This is a forget password page</p>
+                <ForgetPasswordComponent/>
             </AuthLayout>
         </>
     );

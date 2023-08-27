@@ -12,7 +12,7 @@ import {AdminPortalLayout} from "../../../layouts";
 import {DefaultCard, TitleCard} from "../../../components/cards";
 import {ButtonGreenSm} from "../../../components/buttons";
 import UserForm from "./UserForm";
-import {User, IUser} from "./User";
+import {IUser, User} from "./User";
 
 const Add = () => {
     const router = useRouter();
@@ -32,7 +32,7 @@ const Add = () => {
     );
 
     const onsubmit: SubmitHandler<IUser> = (data) => {
-        console.log('data', data.image);
+
         dispatch(
             callApi({
                 method: HttpHethod.POST,
@@ -48,7 +48,7 @@ const Add = () => {
     return (
         <>
             <AdminPortalLayout>
-                <TitleCard title="Add">
+                <TitleCard title="Add User">
                     <ButtonGreenSm onClick={() => router.back()} icon={faArrowLeft}>
                         Back
                     </ButtonGreenSm>

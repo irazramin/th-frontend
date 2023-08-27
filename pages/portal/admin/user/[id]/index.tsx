@@ -3,7 +3,7 @@ import UserShow from "../../../../../features/admin/user/UserShow";
 const Add = () => {
     return (
         <>
-            <UserShow />
+            <UserShow/>
         </>
     );
 };

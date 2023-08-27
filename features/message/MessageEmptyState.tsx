@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MessageList = ({children}: any) => {
+const MessageEmptyState = () => {
     return (
 
         <div className='empty-msg'>
@@ -11,4 +11,4 @@ const MessageList = ({children}: any) => {
     );
 };
 
-export default MessageList;
+export default MessageEmptyState;
